@@ -5,6 +5,9 @@ import Error from "./Pages/Error/Error";
 import Recent from "./Pages/Recent/Recent";
 
 function App() {
+
+
+  
   return (
     <Router>
       <Routes>
