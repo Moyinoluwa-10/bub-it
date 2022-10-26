@@ -1,0 +1,64 @@
+.recentList {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  padding: 0 15rem;
+}
+.recentList .container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  padding: 0 3rem;
+  border-bottom: 1px solid var(--greyTextColor);
+  padding-bottom: 5px;
+}
+.recentList .container .rightContents {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.recentList .container .rightContents .left .time {
+  margin-top: 1rem;
+}
+.recentList .container .rightContents .right {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+.recentList .container .rightContents .right .copy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1px;
+}
+.recentList .container .rightContents .right .copy span {
+  display: none;
+  background-color: var(--bgImageColors);
+  padding: 2px;
+  border-radius: 0.3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: ease-in 2s;
+}
+.recentList .container .rightContents .right button {
+  padding: 1em;
+  border: none;
+  border-radius: 0.5em;
+  background-color: var(--btnColor);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4em;
+  position: relative;
+}/*# sourceMappingURL=styles.css.map */
