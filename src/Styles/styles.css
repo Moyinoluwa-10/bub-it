@@ -5,7 +5,6 @@
   align-items: center;
   gap: 2rem;
   width: 100%;
-  padding: 0 15rem;
 }
 .recentList .container {
   display: flex;
@@ -39,6 +38,7 @@
   align-items: center;
   flex-direction: column;
   gap: 1px;
+  position: relative;
 }
 .recentList .container .rightContents .right .copy span {
   display: none;
@@ -49,6 +49,9 @@
   justify-content: center;
   align-items: center;
   transition: ease-in 2s;
+  position: absolute;
+  top: 101%;
+  color: #fff;
 }
 .recentList .container .rightContents .right button {
   padding: 1em;
@@ -61,4 +64,142 @@
   align-items: center;
   gap: 0.4em;
   position: relative;
+}
+.recentList .container .rightContents .right .copied {
+  position: relative;
+}
+
+.homePage {
+  min-height: 100vh;
+  background-color: var(--primaryBg);
+  background-image: url("../Assets/Images/_Path_ (4).png");
+  background-size: contain;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-clip: border-box;
+  background-origin: border-box;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.homePage .container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  gap: 2rem;
+}
+.homePage .container .leftSection {
+  flex: 1;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px rgb(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+}
+.homePage .container .leftSection form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+.homePage .container .leftSection form .longUrl {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.5rem;
+}
+.homePage .container .leftSection form .longUrl input {
+  width: 100%;
+  border: 1px solid var(--bgImageColors);
+  outline: none;
+  border-radius: 5px;
+  height: 40px;
+  padding-left: 1rem;
+}
+.homePage .container .leftSection form .alias {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.5rem;
+}
+.homePage .container .leftSection form .alias .aliasInput {
+  width: 100%;
+  display: flex;
+  border: 1px solid var(--bgImageColors);
+  justify-content: space-between;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.homePage .container .leftSection form .alias .aliasInput input {
+  flex: 1;
+  width: 100%;
+  border: none;
+  outline: none;
+  height: 40px;
+  padding-left: 1rem;
+}
+.homePage .container .leftSection form .alias .aliasInput button {
+  flex: 0.2;
+  background: none;
+  border: none;
+  border-left: 1px solid var(--bgImageColors);
+}
+.homePage .container .leftSection form .buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+.homePage .container .leftSection form .buttons a {
+  flex: 0.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.homePage .container .leftSection form .buttons button {
+  background-color: var(--btnColor);
+  border: none;
+  padding: 1rem;
+  border-radius: 5px;
+  flex: 1;
+}
+.homePage .container .rightSection {
+  flex: 1;
+  background-color: transparent;
+  width: 100%;
+  max-width: 400px;
+}
+.homePage .container .rightSection img {
+  width: 100%;
+}
+@media (max-width: 700px) {
+  .homePage .container {
+    flex-direction: column-reverse;
+  }
+}
+
+.recentPage {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  padding: 0 10rem;
+  background-color: var(--primaryBg);
+  background-image: url("../Assets/Images/_Path_ (2).png"), url("../Assets/Images/_Path_ (3).png");
+  background-position: right -2% top -100%, left -2% bottom -100%;
+  background-size: 15%, 15%, 15%, 15%;
+  background-repeat: no-repeat;
 }/*# sourceMappingURL=styles.css.map */
