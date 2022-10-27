@@ -1,5 +1,5 @@
 import { Field, Form, Formik } from "formik";
-import React from "react";
+import React, { useState } from "react";
 import { ImLink } from "react-icons/im";
 import { Link } from "react-router-dom";
 import "../../Styles/styles.scss";
@@ -7,9 +7,14 @@ import RightImage from "../../Assets/Images/www-amico.png";
 import Modal from "../../Components/Modal";
 
 const Home = () => {
+  const [openModal, setOpenModal] = useState(false);
+  const openModalHandler = () => {
+    setOpenModal(true);
+  };
   return (
     <div className="homePage">
-      <Modal/>
+      {openModal && <Modal closeModal={setOpenModal} />}
+
       <div className="container">
         <div className="leftSection">
           <Formik
@@ -47,7 +52,9 @@ const Home = () => {
 
               <div className="buttons">
                 <Link>My Url</Link>
-                <button type="submit">Bub It</button>
+                <button type="submit" onClick={openModalHandler}>
+                  Bub It
+                </button>
               </div>
             </Form>
           </Formik>

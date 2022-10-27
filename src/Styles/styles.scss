@@ -161,6 +161,7 @@
           justify-content: space-around;
           align-items: center;
           width: 100%;
+          gap: 10px;
           a {
             flex: 0.5;
             display: flex;
@@ -193,6 +194,125 @@
   @media (max-width: $layout-breakpoint) {
     .container {
       flex-direction: column-reverse;
+    }
+  }
+}
+
+.modal {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--modalBg);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .overLay {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--modalBg);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
+  .modalContainer {
+    width: 100%;
+    max-width: 500px;
+    max-height: 500px;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 25px;
+    z-index: 3;
+    .closeBtn {
+      display: flex;
+      justify-content: center;
+      align-self: flex-end;
+      button {
+        background: none;
+        border: none;
+        outline: none;
+      }
+    }
+    .title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin-top: 10px;
+      font-size: 20px;
+      font-weight: 500;
+    }
+    .body {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .inputCopy {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        border: 1px solid var(--bgImageColors);
+        justify-content: space-between;
+        border-radius: 5px;
+        // overflow: hidden;
+        input {
+          flex: 1;
+          width: 100%;
+          border: none;
+          outline: none;
+          border-radius: 5px;
+          height: 40px;
+          padding-left: 1rem;
+          border-right: 1px solid var(--bgImageColors);
+        }
+        .copyIcon {
+          flex: 0.2;
+          background: none;
+          border: none;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          position: relative;
+          padding: 5px;
+          span {
+            position: absolute;
+            background-color: var(--bgImageColors);
+            top: 102%;
+            padding: 5px;
+            border-radius: 10px;
+          }
+        }
+      }
+    }
+    .footer {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      button {
+        background-color: var(--primaryBg);
+        border: 1px solid var(--btnColor);
+        // height: 40px;
+        padding: 1rem;
+        border-radius: 5px;
+      }
+    }
+  }
+  $layout-breakpoint: 700px;
+
+  @media (max-width: $layout-breakpoint) {
+    .modalContainer {
+      margin: 0 2rem;
     }
   }
 }
