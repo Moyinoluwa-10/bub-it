@@ -1,0 +1,32 @@
+
+header.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 2rem 5rem;
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      button {
+        background-color: var(--btnColor);
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        padding: 1rem;
+        border-radius: 10px;
+        color: #fff;
+      }
+      .login{
+        background: none;
+        color:black ;
+      }
+    }
+  }
