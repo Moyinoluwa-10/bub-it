@@ -1,4 +1,5 @@
 import { useState } from "react";
+import '../Styles/styles.scss'
 import CopyToClipboard from "react-copy-to-clipboard";
 import { TbCopy } from "react-icons/tb";
 import { Link } from "react-router-dom";

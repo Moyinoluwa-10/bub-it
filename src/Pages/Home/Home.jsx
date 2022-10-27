@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import "../../Styles/styles.scss";
 import RightImage from "../../Assets/Images/www-amico.png";
 import Modal from "../../Components/Modal";
+import Header from "../../Components/Header";
 
 const Home = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -14,7 +15,7 @@ const Home = () => {
   return (
     <div className="homePage">
       {openModal && <Modal closeModal={setOpenModal} />}
-
+      <Header />
       <div className="container">
         <div className="leftSection">
           <Formik
