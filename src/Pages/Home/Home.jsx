@@ -8,7 +8,7 @@ import Modal from "../../Components/Modal";
 import Header from "../../Components/Header";
 
 const Home = () => {
-  const [openModal, setOpenModal] = useState(true);
+  const [openModal, setOpenModal] = useState(false);
   const openModalHandler = () => {
     setOpenModal(true);
   };
