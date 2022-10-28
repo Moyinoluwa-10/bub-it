@@ -12,8 +12,8 @@ function App() {
     <Router>
       <Routes>
         <Route exact path={"/"} element={<Home />} />
-        <Route exact path={"/recent"} element={<Recent />} />
-        <Route exact path={"/error"} element={<Error />} />
+        {/* <Route exact path={"/recent"} element={<Recent />} /> */}
+        {/* <Route exact path={"/error"} element={<Error />} /> */}
       </Routes>
     </Router>
   );
