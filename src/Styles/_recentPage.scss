@@ -1,15 +1,25 @@
 .recentPage {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    flex-direction: column;
-    padding: 0 10rem;
-    background-color: var(--primaryBg);
-    background-image: url("../Assets/Images/_Path_\ \(2\).png"),
-      url("../Assets/Images/_Path_\ \(3\).png");
-    background-position: right -2% top -100%, left -2% bottom -100%;
-    background-size: 15%, 15%, 15%, 15%;
-    background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  padding: 0 1rem;
+  padding-top: 100px;
+  position: relative;
+  background-color: var(--primaryBg);
+  background-image: url("../Assets/Images/_Path_\ \(2\).png"),
+    url("../Assets/Images/_Path_\ \(3\).png");
+  background-position: right -2% top -100%, left -2% bottom -100%;
+  background-size: 15%, 15%, 15%, 15%;
+  background-repeat: no-repeat;
+
+  $layout-breakpoint: 700px;
+
+  @media (max-width: $layout-breakpoint) {
+    .recentPage {
+      padding: 0 1rem;
+    }
   }
+}
