@@ -12,6 +12,8 @@
       height: 100vh;
       background-color: var(--modalBg);
       position: fixed;
+      top: 0;
+      left: 0;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -113,7 +115,7 @@
   
     @media (max-width: $layout-breakpoint) {
       .modalContainer {
-        margin: 0 2rem;
+        margin: 0 1rem;
       }
     }
   }
