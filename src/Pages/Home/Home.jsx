@@ -1,7 +1,7 @@
 import { Field, Form, Formik } from "formik";
 import React, { useState } from "react";
 import { ImLink } from "react-icons/im";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "../../Styles/styles.scss";
 import RightImage from "../../Assets/Images/www-amico.png";
 import Modal from "../../Components/Modal";
@@ -12,36 +12,54 @@ const Home = () => {
   const openModalHandler = () => {
     setOpenModal(true);
   };
+  const [shorturl, setShortUrl] = useState();
+
   return (
     <div className="homePage">
-      {openModal && <Modal closeModal={setOpenModal} />}
+      {openModal && <Modal closeModal={setOpenModal} shortUrl={shorturl} />}
       <Header />
       <div className="container">
         <div className="leftSection">
           <Formik
             initialValues={{
               longUrl: "",
-              alias: "",
+              // alias: "",
             }}
             onSubmit={async (values) => {
-              await new Promise((r) => setTimeout(r, 500));
-              alert(JSON.stringify(values, null, 2));
+              const url = "https://url-shrink-it.herokuapp.com/api/url/shrink";
+              fetch(url, {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(values),
+              })
+                .then((response) => response.json())
+                .then((result) => {
+                  console.log(result);
+                  setShortUrl(result.shortUrl);
+                })
+                .catch((err) => console.log(err));
+
+              setTimeout(() => {
+                openModalHandler();
+              }, 2200);
             }}
           >
             <Form>
               <div className="longUrl">
                 <label htmlFor="longUrl">
-                  <ImLink />
-                  <ImLink />
+                  <ImLink className="link" />
                   Enter your long URL here
                 </label>
                 <Field
                   id="longUrl"
                   name="longUrl"
                   placeholder="http://localhost:3000/"
+                  required
                 />
               </div>
-              <div className="alias">
+              {/* <div className="alias">
                 <label htmlFor="alias">
                   <ImLink /> Customize your link
                 </label>
@@ -49,19 +67,17 @@ const Home = () => {
                   <Field id="alias" name="alias" placeholder="bub.junyong.me" />
                   <button disabled>Alias</button>
                 </div>
-              </div>
+              </div> */}
 
               <div className="buttons">
-                <Link>My Url</Link>
-                <button type="submit" onClick={openModalHandler}>
-                  Bub It
-                </button>
+                {/* <Link>My Url</Link> */}
+                <button type="submit">Shrink It</button>
               </div>
             </Form>
           </Formik>
         </div>
         <div className="rightSection">
-          <img src={RightImage} alt="Bub it" />
+          <img src={RightImage} alt="shrink-it" />
         </div>
       </div>
     </div>
