@@ -2,6 +2,7 @@ import React from "react";
 import "../../Styles/styles.scss";
 import RecentUrlList from "../../Components/RecentUrlList";
 import UrlForm from "../../Components/UrlForm";
+import Header from "../../Components/Header";
 
 const recentInfo = [
   {
@@ -40,6 +41,7 @@ const Recent = (props) => {
   };
   return (
     <div className="recentPage">
+      <Header />
       <UrlForm onSaveUrlHandler={saveUrlHandler} />
 
       {recentInfo.map((recentInfo) => {

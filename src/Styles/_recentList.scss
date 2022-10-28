@@ -1,75 +1,82 @@
-
 .recentList {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+
+  .container {
     display: flex;
-    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     gap: 2rem;
     width: 100%;
-  
-    .container {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      gap: 2rem;
+    padding: 0 3rem;
+    border-bottom: 1px solid var(--greyTextColor);
+    padding-bottom: 5px;
+    flex-direction: row;
+    .rightContents {
       width: 100%;
-      padding: 0 3rem;
-      border-bottom: 1px solid var(--greyTextColor);
-      padding-bottom: 5px;
-  
-      .rightContents {
-        width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex: 1;
+
+      .left .time {
+        margin-top: 1rem;
+      }
+      .right {
         display: flex;
-        justify-content: space-between;
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: center;
         align-items: center;
-  
-        .left .time {
-          margin-top: 1rem;
-        }
-        .right {
+        .copy {
           display: flex;
-          flex-direction: row;
-          gap: 1rem;
           justify-content: center;
           align-items: center;
-          .copy {
+          flex-direction: column;
+          gap: 1px;
+          position: relative;
+
+          span {
+            display: none;
+            background-color: var(--bgImageColors);
+            padding: 2px;
+            border-radius: 0.3em;
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
-            gap: 1px;
-            position: relative;
-  
-            span {
-              display: none;
-              background-color: var(--bgImageColors);
-              padding: 2px;
-              border-radius: 0.3em;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              transition: ease-in 2s;
-              position: absolute;
-              top: 101%;
-              color: #fff;
-            }
+            transition: ease-in 2s;
+            position: absolute;
+            top: 101%;
+            color: #fff;
           }
-          button {
-            padding: 1em;
-            border: none;
-            border-radius: 0.5em;
-            background-color: var(--btnColor);
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0.4em;
-            position: relative;
-          }
-          .copied {
-            position: relative;
-          }
+        }
+        button {
+          padding: 1em;
+          border: none;
+          border-radius: 0.5em;
+          background-color: var(--btnColor);
+          color: white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 0.4em;
+          position: relative;
+        }
+        .copied {
+          position: relative;
         }
       }
     }
   }
+  $layout-breakpoint: 700px;
+
+  @media (max-width: $layout-breakpoint) {
+    .rightContents {
+      flex-direction: column;
+    }
+  }
+}
