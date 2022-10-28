@@ -36,7 +36,7 @@ const Home = () => {
               })
                 .then((response) => response.json())
                 .then((result) => {
-                  console.log(result);
+                  // console.log(result);
                   setShortUrl(result.shortUrl);
                 })
                 .catch((err) => console.log(err));
@@ -53,6 +53,7 @@ const Home = () => {
                   Enter your long URL here
                 </label>
                 <Field
+                  type="url"
                   id="longUrl"
                   name="longUrl"
                   placeholder="http://localhost:3000/"
