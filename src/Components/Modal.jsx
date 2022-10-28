@@ -30,7 +30,7 @@ const Modal = ({ closeModal, shortUrl }) => {
         <div className="title">Your Shortened Shrink-URL:</div>
         <div className="body">
           <div className="inputCopy">
-            <input type="url" value={shortUrl} />
+            <input readOnly type="url" value={shortUrl} />
             <CopyToClipboard text={generatedUrl}>
               <button className="copyIcon" onClick={handleCopied}>
                 <TbCopy className="coppy" />
