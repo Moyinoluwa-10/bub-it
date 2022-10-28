@@ -6,31 +6,35 @@ header.header {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 2rem 1rem 0 1rem;
+  padding: 20px 40px;
+  font-family: "Inter", sans-serif;
+  background-color: white;
+  font-size: 20px;
+  line-height: 30px;
+}
+header.header h2 {
+  font-family: "Press Start 2P", cursive;
+  font-size: 20px;
+  line-height: 30px;
 }
 header.header .hamburger {
-  top: -12px;
-  right: -15px;
-  padding: 20px;
   display: none;
   z-index: 1500;
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  -webkit-transition-delay: 0.2s;
-  -moz-transition-delay: 0.2s;
-  transition-delay: 0.2s;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition-delay: 0.3s;
+  -moz-transition-delay: 0.3s;
+  transition-delay: 0.3s;
   color: white;
 }
 header.header .hamburger .line {
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   width: 28px;
   height: 3px;
-  background-color: #353535;
   background: black;
-  color: black;
   margin: 6px auto;
   display: block;
 }
@@ -43,29 +47,35 @@ header.header .navigation-menu {
 header.header .navigation-menu button {
   background-color: var(--btnColor);
   border: none;
+  outline: none;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40px;
-  padding: 1rem;
+  height: 50px;
+  padding: 15px 30px;
   border-radius: 10px;
   color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  line-height: 30px;
 }
 header.header .navigation-menu .login {
   background: none;
   color: black;
+  font-weight: 600;
 }
 @media (max-width: 700px) {
-  header.header header.header {
-    padding: 2rem 1rem 0 1rem;
+  header.header {
+    padding: 40px 25px;
+  }
+  header.header h2 {
+    font-size: 16px;
+    line-height: 25px;
   }
   header.header .hamburger {
     display: block;
   }
   header.header .navigation-menu {
-    display: none;
-  }
-  header.header .navigation-menu.expanded {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,10 +83,15 @@ header.header .navigation-menu .login {
     position: absolute;
     right: 0;
     top: 0;
-    width: 50%;
+    width: 100%;
     height: 100vh;
-    background-color: #353535;
+    background-color: #FFFFFF;
     z-index: 4;
+    transition: all 0.5s ease;
+    right: -100%;
+  }
+  header.header .navigation-menu.expanded {
+    right: 0;
   }
   header.header .hamburger {
     display: block;
@@ -103,18 +118,18 @@ header.header .navigation-menu .login {
 }
 
 .modal {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
-  background-color: var(--modalBg);
   position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "Inter", sans-serif;
 }
 .modal .overLay {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
-  background-color: var(--modalBg);
+  background-color: rgba(0, 0, 0, 0.7);
   position: fixed;
   top: 0;
   left: 0;
@@ -129,13 +144,14 @@ header.header .navigation-menu .login {
   max-height: 500px;
   border-radius: 12px;
   background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.35);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 2rem;
   padding: 25px;
+  padding-bottom: 35px;
   z-index: 3;
 }
 .modal .modalContainer .closeBtn {
@@ -148,6 +164,11 @@ header.header .navigation-menu .login {
   border: none;
   outline: none;
 }
+.modal .modalContainer .closeBtn .close {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
 .modal .modalContainer .title {
   display: flex;
   justify-content: center;
@@ -155,9 +176,11 @@ header.header .navigation-menu .login {
   text-align: center;
   margin-top: 10px;
   font-size: 20px;
+  line-height: 30px;
   font-weight: 500;
 }
 .modal .modalContainer .body {
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -170,36 +193,51 @@ header.header .navigation-menu .login {
   width: 100%;
   border: 1px solid var(--bgImageColors);
   justify-content: space-between;
-  border-radius: 5px;
+  border-radius: 10px;
+  overflow: hidden;
 }
 .modal .modalContainer .body .inputCopy input {
   flex: 1;
   width: 100%;
   border: none;
   outline: none;
-  border-radius: 5px;
+  border-radius: 10px 0 0 10px;
   height: 40px;
   padding-left: 1rem;
   border-right: 1px solid var(--bgImageColors);
+  font-size: 16px;
+  font-family: inherit;
+  font-weight: 600;
 }
 .modal .modalContainer .body .inputCopy .copyIcon {
   flex: 0.2;
-  background: none;
+  background: #775942;
+  height: 40px;
   border: none;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   position: relative;
   padding: 5px;
+  cursor: pointer;
 }
-.modal .modalContainer .body .inputCopy .copyIcon span {
+.modal .modalContainer .body .inputCopy .copyIcon .coppy {
+  color: white;
+  width: 20px;
+  height: 20px;
+}
+.modal .modalContainer .body span {
   position: absolute;
   background-color: var(--bgImageColors);
-  top: 102%;
+  color: black;
+  top: 44px;
+  right: 8px;
+  z-index: 10;
   padding: 5px;
-  border-radius: 10px;
+  border-radius: 2px;
+  font-family: inherit;
+  font-size: 14px;
 }
 .modal .modalContainer .footer {
   width: 100%;
@@ -207,20 +245,34 @@ header.header .navigation-menu .login {
   justify-content: space-around;
   align-items: center;
 }
-.modal .modalContainer .footer button {
+.modal .modalContainer .footer a {
+  padding: 1rem;
+  color: black;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration-color: var(--bgImageColors);
+}
+.modal .modalContainer .footer a.out {
   background-color: var(--primaryBg);
   border: 1px solid var(--btnColor);
-  padding: 1rem;
   border-radius: 5px;
+  text-decoration: none;
+}
+.modal .modalContainer .footer a:hover {
+  text-decoration: none;
 }
 @media (max-width: 700px) {
   .modal .modalContainer {
-    margin: 0 1rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-70%);
+    max-width: 90%;
   }
 }
 
 .homePage {
   min-height: 100vh;
+  width: 100%;
   background-color: var(--primaryBg);
   background-image: url("../Assets/Images/_Path_ (4).png");
   background-size: contain;
@@ -229,27 +281,28 @@ header.header .navigation-menu .login {
   background-attachment: fixed;
   background-clip: border-box;
   background-origin: border-box;
-  padding: 0 2rem;
+  padding: 0 100px;
+  padding-top: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   position: relative;
-  padding-top: 100px;
 }
 .homePage .container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   gap: 2rem;
 }
 .homePage .container .leftSection {
+  font-family: "Inter", sans-serif;
   flex: 1;
   background-color: #fff;
   padding: 2rem;
   border-radius: 10px;
-  box-shadow: 5px 5px 15px rgb(0, 0, 0);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -271,6 +324,14 @@ header.header .navigation-menu .login {
   width: 100%;
   gap: 0.5rem;
 }
+.homePage .container .leftSection form .longUrl label {
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+}
+.homePage .container .leftSection form .longUrl label .link {
+  margin-right: 10px;
+}
 .homePage .container .leftSection form .longUrl input {
   width: 100%;
   border: 1px solid var(--bgImageColors);
@@ -278,6 +339,11 @@ header.header .navigation-menu .login {
   border-radius: 5px;
   height: 40px;
   padding-left: 1rem;
+  font-family: inherit;
+}
+.homePage .container .leftSection form .longUrl input::placeholder {
+  font-family: inherit;
+  font-size: 14px;
 }
 .homePage .container .leftSection form .alias {
   display: flex;
@@ -300,12 +366,20 @@ header.header .navigation-menu .login {
   outline: none;
   height: 40px;
   padding-left: 1rem;
+  width: 100%;
+  font-family: inherit;
+}
+.homePage .container .leftSection form .alias .aliasInput input::placeholder {
+  font-family: inherit;
+  font-size: 14px;
 }
 .homePage .container .leftSection form .alias .aliasInput button {
   flex: 0.2;
   background: none;
   border: none;
   border-left: 1px solid var(--bgImageColors);
+  font-family: inherit;
+  font-size: 14px;
 }
 .homePage .container .leftSection form .buttons {
   display: flex;
@@ -313,19 +387,40 @@ header.header .navigation-menu .login {
   align-items: center;
   width: 100%;
   gap: 10px;
+  margin-top: 10px;
 }
 .homePage .container .leftSection form .buttons a {
-  flex: 0.5;
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: inherit;
+  text-decoration: none;
+  color: #000;
 }
 .homePage .container .leftSection form .buttons button {
+  flex: 0.5;
+  width: 100px;
   background-color: var(--btnColor);
   border: none;
-  padding: 1rem;
+  padding: 10px 10px;
   border-radius: 5px;
   flex: 1;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.3s ease-in-out;
+}
+.homePage .container .leftSection form .buttons button:hover {
+  background-color: var(--btnHoverColor);
+  color: var(--btnColor);
+  font-weight: 600;
+  border: 1px solid var(--btnColor);
+}
+.homePage .container .leftSection form .buttons button:active {
+  transform: scale(0.9);
 }
 .homePage .container .rightSection {
   flex: 1;
@@ -336,7 +431,18 @@ header.header .navigation-menu .login {
 .homePage .container .rightSection img {
   width: 100%;
 }
-@media (max-width: 700px) {
+@media screen and (max-width: 1050px) {
+  .homePage {
+    padding: 0 40px;
+    padding-top: 100px;
+  }
+}
+@media (max-width: 800px) {
+  .homePage {
+    padding: 0 40px;
+    padding-top: 150px;
+    padding-bottom: 150px;
+  }
   .homePage .container {
     flex-direction: column-reverse;
   }
