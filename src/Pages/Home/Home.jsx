@@ -12,11 +12,33 @@ const Home = () => {
   const openModalHandler = () => {
     setOpenModal(true);
   };
+  const [shorturl, setShortUrl] = useState();
+
+  const handleClick = () => {
+    const url = "https://url-shrink-it.herokuapp.com/api/url/shrink";
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        longUrl: "https://meet.google.com/hqz-svga-gbi",
+      }),
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+        setShortUrl(result.shortUrl);
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <div className="homePage">
       {openModal && <Modal closeModal={setOpenModal} />}
       <Header />
+      <div>{shorturl}</div>;
       <div className="container">
+        <button onClick={handleClick}>Click me</button>
         <div className="leftSection">
           <Formik
             initialValues={{
@@ -61,7 +83,7 @@ const Home = () => {
           </Formik>
         </div>
         <div className="rightSection">
-          <img src={RightImage} alt="Bub it" />
+          <img src={RightImage} alt="shrink-it" />
         </div>
       </div>
     </div>

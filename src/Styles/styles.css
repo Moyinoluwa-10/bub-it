@@ -1,72 +1,222 @@
-.recentList {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  gap: 2rem;
-  width: 100%;
-}
-.recentList .container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  gap: 2rem;
-  width: 100%;
-  padding: 0 3rem;
-  border-bottom: 1px solid var(--greyTextColor);
-  padding-bottom: 5px;
-}
-.recentList .container .rightContents {
-  width: 100%;
+header.header {
+  position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  padding: 2rem 1rem 0 1rem;
 }
-.recentList .container .rightContents .left .time {
-  margin-top: 1rem;
+header.header .hamburger {
+  top: -12px;
+  right: -15px;
+  padding: 20px;
+  display: none;
+  z-index: 1500;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  -webkit-transition-delay: 0.2s;
+  -moz-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+  color: white;
 }
-.recentList .container .rightContents .right {
+header.header .hamburger .line {
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  width: 28px;
+  height: 3px;
+  background-color: #353535;
+  background: black;
+  color: black;
+  margin: 6px auto;
+  display: block;
+}
+header.header .navigation-menu {
   display: flex;
-  flex-direction: row;
-  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+header.header .navigation-menu button {
+  background-color: var(--btnColor);
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  padding: 1rem;
+  border-radius: 10px;
+  color: #fff;
+}
+header.header .navigation-menu .login {
+  background: none;
+  color: black;
+}
+@media (max-width: 700px) {
+  header.header header.header {
+    padding: 2rem 1rem 0 1rem;
+  }
+  header.header .hamburger {
+    display: block;
+  }
+  header.header .navigation-menu {
+    display: none;
+  }
+  header.header .navigation-menu.expanded {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50%;
+    height: 100vh;
+    background-color: #353535;
+    z-index: 4;
+  }
+  header.header .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+  header.header .hamburger.active {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  header.header .hamburger.active .line:first-child {
+    -webkit-transform: translateY(5px);
+    -moz-transform: translateY(5px);
+    transform: translateY(5px);
+  }
+  header.header .hamburger.active .line:nth-child(2) {
+    width: 0;
+  }
+  header.header .hamburger.active .line:nth-child(3) {
+    -webkit-transform: translateY(-13px) rotate(90deg);
+    -moz-transform: translateY(-13px) rotate(90deg);
+    transform: translateY(-13px) rotate(90deg);
+  }
+}
+
+.modal {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--modalBg);
+  position: fixed;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
-.recentList .container .rightContents .right .copy {
+.modal .overLay {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--modalBg);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+.modal .modalContainer {
+  width: 100%;
+  max-width: 500px;
+  max-height: 500px;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 1px;
-  position: relative;
+  gap: 2rem;
+  padding: 25px;
+  z-index: 3;
 }
-.recentList .container .rightContents .right .copy span {
-  display: none;
-  background-color: var(--bgImageColors);
-  padding: 2px;
-  border-radius: 0.3em;
+.modal .modalContainer .closeBtn {
   display: flex;
   justify-content: center;
-  align-items: center;
-  transition: ease-in 2s;
-  position: absolute;
-  top: 101%;
-  color: #fff;
+  align-self: flex-end;
 }
-.recentList .container .rightContents .right button {
-  padding: 1em;
+.modal .modalContainer .closeBtn button {
+  background: none;
   border: none;
-  border-radius: 0.5em;
-  background-color: var(--btnColor);
-  color: white;
+  outline: none;
+}
+.modal .modalContainer .title {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.4em;
-  position: relative;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 500;
 }
-.recentList .container .rightContents .right .copied {
+.modal .modalContainer .body {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal .modalContainer .body .inputCopy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border: 1px solid var(--bgImageColors);
+  justify-content: space-between;
+  border-radius: 5px;
+}
+.modal .modalContainer .body .inputCopy input {
+  flex: 1;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  height: 40px;
+  padding-left: 1rem;
+  border-right: 1px solid var(--bgImageColors);
+}
+.modal .modalContainer .body .inputCopy .copyIcon {
+  flex: 0.2;
+  background: none;
+  border: none;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   position: relative;
+  padding: 5px;
+}
+.modal .modalContainer .body .inputCopy .copyIcon span {
+  position: absolute;
+  background-color: var(--bgImageColors);
+  top: 102%;
+  padding: 5px;
+  border-radius: 10px;
+}
+.modal .modalContainer .footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.modal .modalContainer .footer button {
+  background-color: var(--primaryBg);
+  border: 1px solid var(--btnColor);
+  padding: 1rem;
+  border-radius: 5px;
+}
+@media (max-width: 700px) {
+  .modal .modalContainer {
+    margin: 0 1rem;
+  }
 }
 
 .homePage {
@@ -84,6 +234,8 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: relative;
+  padding-top: 100px;
 }
 .homePage .container {
   display: flex;
@@ -160,6 +312,7 @@
   justify-content: space-around;
   align-items: center;
   width: 100%;
+  gap: 10px;
 }
 .homePage .container .leftSection form .buttons a {
   flex: 0.5;
@@ -189,17 +342,102 @@
   }
 }
 
+.recentList {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+.recentList .container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  padding: 0 3rem;
+  border-bottom: 1px solid var(--greyTextColor);
+  padding-bottom: 5px;
+  flex-direction: row;
+}
+.recentList .container .rightContents {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+}
+.recentList .container .rightContents .left .time {
+  margin-top: 1rem;
+}
+.recentList .container .rightContents .right {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+.recentList .container .rightContents .right .copy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1px;
+  position: relative;
+}
+.recentList .container .rightContents .right .copy span {
+  display: none;
+  background-color: var(--bgImageColors);
+  padding: 2px;
+  border-radius: 0.3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: ease-in 2s;
+  position: absolute;
+  top: 101%;
+  color: #fff;
+}
+.recentList .container .rightContents .right button {
+  padding: 1em;
+  border: none;
+  border-radius: 0.5em;
+  background-color: var(--btnColor);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4em;
+  position: relative;
+}
+.recentList .container .rightContents .right .copied {
+  position: relative;
+}
+@media (max-width: 700px) {
+  .recentList .rightContents {
+    flex-direction: column;
+  }
+}
+
 .recentPage {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   flex-direction: column;
-  padding: 0 10rem;
+  padding: 0 1rem;
+  padding-top: 100px;
+  position: relative;
   background-color: var(--primaryBg);
   background-image: url("../Assets/Images/_Path_ (2).png"), url("../Assets/Images/_Path_ (3).png");
   background-position: right -2% top -100%, left -2% bottom -100%;
   background-size: 15%, 15%, 15%, 15%;
   background-repeat: no-repeat;
+}
+@media (max-width: 700px) {
+  .recentPage .recentPage {
+    padding: 0 1rem;
+  }
 }/*# sourceMappingURL=styles.css.map */
