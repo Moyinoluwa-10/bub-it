@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# Shrink It
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple URL shortener that help you shorten all your long URLs.
 
-## Available Scripts
+You can read about our experience [here](https://stammy.hashnode.dev/url-shortener)
 
-In the project directory, you can run:
+## :page_facing_up: Table of contents
 
-### `npm start`
+- [Shrink It](#shrink-it)
+  - [:page\_facing\_up: Table of contents](#page_facing_up-table-of-contents)
+  - [:camera: Screenshots](#camera-screenshots)
+  - [:signal\_strength: Technologies](#signal_strength-technologies)
+  - [:cool: Live-Solution](#cool-live-solution)
+  - [:envelope: Contact](#envelope-contact)
+  - [:pen: Contributors](#pen-contributors)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## :camera: Screenshots
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![Landing Page](./src/Assets/Images/home.png)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Modal](./src/Assets/Images/short.png)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## :signal_strength: Technologies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* [ReactJS](https://reactjs.org/) 
+* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) for styling.
+* [Javascript](https://www.javascript.com/) for adding functionalities and making it interactive.
+* [Vercel](https://www.vercel.co/) for hosting the project.
 
-### `npm run eject`
+## :cool: Live-Solution
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* Here is the [link](https://url-shortener-one-black.vercel.app/) to the site.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## :envelope: Contact
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+* Repo created by [Moyinoluwa](https://github.com/moyinoluwa-10/), email: moyinadelowo@gmail.com
 
-## Learn More
+## :pen: Contributors
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* [Moyinoluwa](https://github.com/moyinoluwa-10/)
+* [Stephen](https://github.com/stephen-gift/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

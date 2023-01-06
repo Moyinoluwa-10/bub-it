@@ -23,10 +23,9 @@ const Home = () => {
           <Formik
             initialValues={{
               longUrl: "",
-              // alias: "",
             }}
             onSubmit={async (values) => {
-              const url = "https://url-shrink-it.herokuapp.com/api/url/shrink";
+              const url = "https://api-shortener.vercel.app/api/v0/url/shorten";
               fetch(url, {
                 method: "POST",
                 headers: {
@@ -37,13 +36,15 @@ const Home = () => {
                 .then((response) => response.json())
                 .then((result) => {
                   // console.log(result);
-                  setShortUrl(result.shortUrl);
+                  setShortUrl(result.url.shortUrl);
+                  setTimeout(() => {
+                    openModalHandler();
+                  }, 2200);
                 })
-                .catch((err) => console.log(err));
-
-              setTimeout(() => {
-                openModalHandler();
-              }, 2200);
+                .catch((err) => {
+                  console.log(err);
+                  alert("An error occured. Please try again later.");
+                });
             }}
           >
             <Form>
