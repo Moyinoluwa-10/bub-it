@@ -36,14 +36,17 @@ const Home = () => {
                 .then((response) => response.json())
                 .then((result) => {
                   // console.log(result);
-                  setShortUrl(result.url.shortUrl);
-                  setTimeout(() => {
-                    openModalHandler();
-                  }, 2200);
+                  if (result.status) {
+                    setShortUrl(result.url.shortUrl);
+                    setTimeout(() => {
+                      openModalHandler();
+                    }, 2200);
+                  } else {
+                    alert("An error occured. Please try again later.");
+                  }
                 })
                 .catch((err) => {
                   console.log(err);
-                  alert("An error occured. Please try again later.");
                 });
             }}
           >
