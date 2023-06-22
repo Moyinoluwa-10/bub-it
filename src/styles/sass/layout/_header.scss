@@ -1,5 +1,5 @@
 .header {
-  padding: 20px 40px;
+  padding: 20px 0px;
 
   .hamburger {
     display: none;
@@ -50,7 +50,7 @@
 
   @media screen and (max-width: $breakpoints-md) {
     & {
-      padding: 25px 10px;
+      padding: 25px 0px;
     }
 
     .hamburger {
@@ -62,7 +62,7 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      position: absolute;
+      position: fixed;
       right: 0;
       top: 0;
       width: 100%;

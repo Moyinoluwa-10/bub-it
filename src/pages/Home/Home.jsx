@@ -1,29 +1,32 @@
 import { Field, Form, Formik } from "formik";
 import { useState } from "react";
 import { ImLink } from "react-icons/im";
-// import { Link } from "react-router-dom";
-import RightImage from "../../assets/Images/www-amico.png";
+import { Link } from "react-router-dom";
+import RightImage from "../../assets/images/hero.png";
 import Modal from "../../components/Modal";
 import Header from "../../components/Header";
 
 const Home = () => {
-  const [openModal, setOpenModal] = useState(false);
+  const [openModal, setOpenModal] = useState(true);
   const openModalHandler = () => {
     setOpenModal(true);
   };
   const [shortUrl, setShortUrl] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
-    <div className="homePage">
+    <div className="homePage w-100% px-3 min-vh-100">
       {openModal && <Modal closeModal={setOpenModal} shortUrl={shortUrl} />}
       <Header />
-      <div className="containerss">
-        <div className="leftSection">
+      <div className="container homeContainer d-flex align-items-center justify-content-between gap-md-4 gap-5 mt-5">
+        <div className="leftSection w-100">
           <Formik
             initialValues={{
               longUrl: "",
+              custom: "",
             }}
             onSubmit={async (values) => {
+              setIsLoading(true);
               const url = "https://api-shortener.vercel.app/api/v0/url/shorten";
               fetch(url, {
                 method: "POST",
@@ -40,18 +43,21 @@ const Home = () => {
                     setTimeout(() => {
                       openModalHandler();
                     }, 2200);
+                    setIsLoading(false);
                   } else {
-                    alert("An error occured. Please try again later.");
+                    alert("An error occurred. Please try again later.");
+                    setIsLoading(false);
                   }
                 })
                 .catch((err) => {
                   console.log(err);
+                  setIsLoading(false);
                 });
             }}
           >
-            <Form>
-              <div className="longUrl">
-                <label htmlFor="longUrl">
+            <Form className="w-100">
+              <div className="longUrl mb-4">
+                <label htmlFor="longUrl" className="mb-2">
                   <ImLink className="link" />
                   Enter your long URL here
                 </label>
@@ -59,23 +65,25 @@ const Home = () => {
                   type="url"
                   id="longUrl"
                   name="longUrl"
-                  placeholder="http://localhost:3000/"
+                  placeholder="https://example.com/"
                   required
                 />
               </div>
-              {/* <div className="alias">
-                <label htmlFor="alias">
+              <div className="alias mb-4">
+                <label htmlFor="custom" className="mb-2">
                   <ImLink /> Customize your link
                 </label>
                 <div className="aliasInput">
-                  <Field id="alias" name="alias" placeholder="bub.junyong.me" />
-                  <button disabled>Alias</button>
+                  <Field id="custom" name="custom" placeholder="conference" />
+                  <button disabled>alias</button>
                 </div>
-              </div> */}
+              </div>
 
               <div className="buttons">
-                {/* <Link>My Url</Link> */}
-                <button type="submit">Shrink It</button>
+                <Link>My URLs</Link>
+                <button type="submit">
+                  {isLoading ? "Loading..." : "Bub It"}
+                </button>
               </div>
             </Form>
           </Formik>

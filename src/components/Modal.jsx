@@ -18,7 +18,7 @@ const Modal = ({ closeModal, shortUrl }) => {
   const [generatedUrl, setGeneratedUrl] = useState(shortUrl);
 
   return (
-    <div className="modal">
+    <div className="modalSection">
       <div className="overLay" onClick={closeModalHandler}></div>
       <div className="modalContainer">
         <div className="closeBtn">

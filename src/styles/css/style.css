@@ -57,7 +57,7 @@ body {
 .u-margin-top-huge {
   margin-top: 10rem !important; }
 
-.modal {
+.modalSection {
   width: 100%;
   height: 100vh;
   position: fixed;
@@ -65,7 +65,7 @@ body {
   justify-content: center;
   align-items: center;
   font-family: "Inter", sans-serif; }
-  .modal .overLay {
+  .modalSection .overLay {
     width: 100%;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.7);
@@ -76,7 +76,7 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 1; }
-  .modal .modalContainer {
+  .modalSection .modalContainer {
     width: 100%;
     max-width: 500px;
     max-height: 500px;
@@ -91,19 +91,19 @@ body {
     padding: 25px;
     padding-bottom: 35px;
     z-index: 3; }
-    .modal .modalContainer .closeBtn {
+    .modalSection .modalContainer .closeBtn {
       display: flex;
       justify-content: center;
       align-self: flex-end; }
-      .modal .modalContainer .closeBtn button {
+      .modalSection .modalContainer .closeBtn button {
         background: none;
         border: none;
         outline: none; }
-      .modal .modalContainer .closeBtn .close {
+      .modalSection .modalContainer .closeBtn .close {
         width: 20px;
         height: 20px;
         cursor: pointer; }
-    .modal .modalContainer .title {
+    .modalSection .modalContainer .title {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -112,13 +112,13 @@ body {
       font-size: 20px;
       line-height: 30px;
       font-weight: 500; }
-    .modal .modalContainer .body {
+    .modalSection .modalContainer .body {
       position: relative;
       width: 100%;
       display: flex;
       justify-content: center;
       align-items: center; }
-      .modal .modalContainer .body .inputCopy {
+      .modalSection .modalContainer .body .inputCopy {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -127,7 +127,7 @@ body {
         justify-content: space-between;
         border-radius: 10px;
         overflow: hidden; }
-        .modal .modalContainer .body .inputCopy input {
+        .modalSection .modalContainer .body .inputCopy input {
           flex: 1;
           width: 100%;
           border: none;
@@ -139,7 +139,7 @@ body {
           font-size: 16px;
           font-family: inherit;
           font-weight: 600; }
-        .modal .modalContainer .body .inputCopy .copyIcon {
+        .modalSection .modalContainer .body .inputCopy .copyIcon {
           flex: 0.2;
           background: #775942;
           height: 40px;
@@ -151,11 +151,11 @@ body {
           position: relative;
           padding: 5px;
           cursor: pointer; }
-          .modal .modalContainer .body .inputCopy .copyIcon .coppy {
+          .modalSection .modalContainer .body .inputCopy .copyIcon .coppy {
             color: white;
             width: 20px;
             height: 20px; }
-      .modal .modalContainer .body span {
+      .modalSection .modalContainer .body span {
         position: absolute;
         background-color: var(--bgImageColors);
         color: black;
@@ -166,26 +166,26 @@ body {
         border-radius: 2px;
         font-family: inherit;
         font-size: 14px; }
-    .modal .modalContainer .footer {
+    .modalSection .modalContainer .footer {
       width: 100%;
       display: flex;
       justify-content: space-around;
       align-items: center; }
-      .modal .modalContainer .footer a {
+      .modalSection .modalContainer .footer a {
         padding: 1rem;
         color: black;
         font-size: 16px;
         font-weight: 600;
         text-decoration-color: var(--bgImageColors); }
-        .modal .modalContainer .footer a.out {
+        .modalSection .modalContainer .footer a.out {
           background-color: var(--primaryBg);
           border: 1px solid var(--btnColor);
           border-radius: 5px;
           text-decoration: none; }
-        .modal .modalContainer .footer a:hover {
+        .modalSection .modalContainer .footer a:hover {
           text-decoration: none; }
   @media (max-width: 700px) {
-    .modal .modalContainer {
+    .modalSection .modalContainer {
       position: absolute;
       top: 50%;
       transform: translateY(-70%);
@@ -278,7 +278,7 @@ body {
       padding: 0 1rem; } }
 
 .header {
-  padding: 20px 40px; }
+  padding: 20px 0px; }
   .header .hamburger {
     display: none;
     z-index: 1500;
@@ -319,7 +319,7 @@ body {
       font-weight: 600; }
   @media screen and (max-width: 768px) {
     .header {
-      padding: 25px 10px; }
+      padding: 25px 0px; }
     .header .hamburger {
       display: block; }
     .header .navigation-menu {
@@ -327,7 +327,7 @@ body {
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      position: absolute;
+      position: fixed;
       right: 0;
       top: 0;
       width: 100%;
@@ -357,139 +357,93 @@ body {
       transform: translateY(-13px) rotate(90deg); } }
 
 .homePage {
-  min-height: 100vh;
-  width: 100%;
   background-color: var(--primaryBg);
-  background-image: url("../Assets/Images/_Path_ (4).png");
-  background-size: contain;
-  background-position: left bottom;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-clip: border-box;
-  background-origin: border-box;
   position: relative; }
-  .homePage .containerss {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    gap: 2rem; }
-    .homePage .containerss .leftSection {
-      font-family: "Inter", sans-serif;
-      flex: 1;
-      background-color: #fff;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  .homePage .homeContainer .leftSection {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    max-width: 400px; }
+    .homePage .homeContainer .leftSection form .longUrl label {
+      font-weight: 600; }
+      .homePage .homeContainer .leftSection form .longUrl label .link {
+        margin-right: 10px; }
+    .homePage .homeContainer .leftSection form .longUrl input {
+      width: 100%;
+      border: 1px solid var(--bgImageColors);
+      outline: none;
+      border-radius: 5px;
+      height: 40px;
+      padding: 0 1rem; }
+      .homePage .homeContainer .leftSection form .longUrl input::placeholder {
+        font-size: 15px; }
+    .homePage .homeContainer .leftSection form .alias label {
+      font-weight: 600; }
+      .homePage .homeContainer .leftSection form .alias label .link {
+        margin-right: 10px; }
+    .homePage .homeContainer .leftSection form .alias .aliasInput {
+      width: 100%;
       display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      flex-direction: column;
-      width: 100%;
-      max-width: 400px; }
-      .homePage .containerss .leftSection form {
+      border: 1px solid var(--bgImageColors);
+      justify-content: space-between;
+      border-radius: 5px;
+      overflow: hidden; }
+      .homePage .homeContainer .leftSection form .alias .aliasInput input {
+        flex: 1;
         width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        gap: 1rem; }
-        .homePage .containerss .leftSection form .longUrl {
-          display: flex;
-          flex-direction: column;
-          width: 100%;
-          gap: 0.5rem; }
-          .homePage .containerss .leftSection form .longUrl label {
-            font-family: inherit;
-            font-size: 16px;
-            font-weight: 600; }
-            .homePage .containerss .leftSection form .longUrl label .link {
-              margin-right: 10px; }
-          .homePage .containerss .leftSection form .longUrl input {
-            width: 100%;
-            border: 1px solid var(--bgImageColors);
-            outline: none;
-            border-radius: 5px;
-            height: 40px;
-            padding-left: 1rem;
-            font-family: inherit; }
-            .homePage .containerss .leftSection form .longUrl input::placeholder {
-              font-family: inherit;
-              font-size: 14px; }
-        .homePage .containerss .leftSection form .alias {
-          display: flex;
-          flex-direction: column;
-          width: 100%;
-          gap: 0.5rem; }
-          .homePage .containerss .leftSection form .alias .aliasInput {
-            width: 100%;
-            display: flex;
-            border: 1px solid var(--bgImageColors);
-            justify-content: space-between;
-            border-radius: 5px;
-            overflow: hidden; }
-            .homePage .containerss .leftSection form .alias .aliasInput input {
-              flex: 1;
-              width: 100%;
-              border: none;
-              outline: none;
-              height: 40px;
-              padding-left: 1rem;
-              width: 100%;
-              font-family: inherit; }
-              .homePage .containerss .leftSection form .alias .aliasInput input::placeholder {
-                font-family: inherit;
-                font-size: 14px; }
-            .homePage .containerss .leftSection form .alias .aliasInput button {
-              flex: 0.2;
-              background: none;
-              border: none;
-              border-left: 1px solid var(--bgImageColors);
-              font-family: inherit;
-              font-size: 14px; }
-        .homePage .containerss .leftSection form .buttons {
-          display: flex;
-          justify-content: space-around;
-          align-items: center;
-          width: 100%;
-          gap: 10px;
-          margin-top: 10px; }
-          .homePage .containerss .leftSection form .buttons a {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: inherit;
-            text-decoration: none;
-            color: #000; }
-          .homePage .containerss .leftSection form .buttons button {
-            flex: 0.5;
-            width: 100px;
-            background-color: var(--btnColor);
-            border: none;
-            padding: 10px 10px;
-            border-radius: 5px;
-            flex: 1;
-            font-size: 16px;
-            font-weight: 600;
-            color: #fff;
-            cursor: pointer;
-            font-family: inherit;
-            transition: all 0.3s ease-in-out; }
-            .homePage .containerss .leftSection form .buttons button:hover {
-              background-color: var(--btnHoverColor);
-              color: var(--btnColor);
-              font-weight: 600;
-              border: 1px solid var(--btnColor); }
-            .homePage .containerss .leftSection form .buttons button:active {
-              transform: scale(0.9); }
-    .homePage .containerss .rightSection {
-      flex: 1;
-      background-color: transparent;
+        border: none;
+        outline: none;
+        height: 40px;
+        padding: 0 1rem; }
+        .homePage .homeContainer .leftSection form .alias .aliasInput input::placeholder {
+          font-size: 15px; }
+      .homePage .homeContainer .leftSection form .alias .aliasInput button {
+        flex: 0.2;
+        background: none;
+        border: none;
+        border-left: 1px solid var(--bgImageColors);
+        font-family: inherit;
+        font-size: 14px; }
+    .homePage .homeContainer .leftSection form .buttons {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
       width: 100%;
-      max-width: 400px; }
-      .homePage .containerss .rightSection img {
-        width: 100%; }
-  @media (max-width: 800px) {
-    .homePage .containerss {
-      flex-direction: column-reverse; } }
+      gap: 10px;
+      margin-top: 10px; }
+      .homePage .homeContainer .leftSection form .buttons a {
+        flex: 1;
+        text-align: center;
+        color: #000;
+        font-weight: 600; }
+      .homePage .homeContainer .leftSection form .buttons button {
+        width: 100px;
+        background-color: var(--btnColor);
+        border: 1px solid transparent;
+        padding: 10px 10px;
+        border-radius: 5px;
+        flex: 1;
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out; }
+        .homePage .homeContainer .leftSection form .buttons button:hover {
+          background-color: var(--btnHoverColor);
+          color: var(--btnColor);
+          font-weight: 600;
+          border: 1px solid var(--btnColor); }
+        .homePage .homeContainer .leftSection form .buttons button:active {
+          transform: scale(0.9); }
+  .homePage .homeContainer .rightSection {
+    flex: 1;
+    background-color: transparent;
+    width: 100%;
+    max-width: 400px; }
+    .homePage .homeContainer .rightSection img {
+      width: 100%; }
+  @media (max-width: 768px) {
+    .homePage .homeContainer {
+      flex-direction: column-reverse;
+      margin-bottom: 100px; } }
