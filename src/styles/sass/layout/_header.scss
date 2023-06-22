@@ -1,7 +1,7 @@
-header.header {
-  // position: fixed;
-  // top: 0;
-  // left: 0;
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,6 +16,9 @@ header.header {
     font-family: "Press Start 2P", cursive;
     font-size: 20px;
     line-height: 30px;
+  }
+  h1 {
+    font-family: "Inter", sans-serif;
   }
   .hamburger {
     display: none;

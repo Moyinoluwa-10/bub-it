@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "../styles/styles.scss";
 import { BsGlobe } from "react-icons/bs";
 import { TbCopy } from "react-icons/tb";
 import { CopyToClipboard } from "react-copy-to-clipboard";

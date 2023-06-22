@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "../styles/styles.scss";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { TbCopy } from "react-icons/tb";
 import { GrClose } from "react-icons/gr";

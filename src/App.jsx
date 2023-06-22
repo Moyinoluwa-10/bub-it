@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 // import Error from "./Pages/Error/Error";
 // import Recent from "./Pages/Recent/Recent";
+import "./styles/css/style.css";
 
 function App() {
   return (

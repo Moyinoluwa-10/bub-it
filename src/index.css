@@ -1,4 +1,5 @@
 @import "/src/styles/normalize.css";
+@import "/src/styles/css/style.css";
 
 :root {
   --primaryBg: #fffcfa;
