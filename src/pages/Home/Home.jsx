@@ -2,7 +2,7 @@ import { Field, Form, Formik } from "formik";
 import { useState } from "react";
 import { ImLink } from "react-icons/im";
 // import { Link } from "react-router-dom";
-import "../../Styles/styles.scss";
+import "../../styles/styles.css";
 import RightImage from "../../assets/Images/www-amico.png";
 import Modal from "../../components/Modal";
 import Header from "../../components/Header";
