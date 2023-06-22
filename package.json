@@ -7,11 +7,13 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "watch:sass": "node-sass src/sass/main.scss src/css/style.css -w"
   },
   "dependencies": {
     "bootstrap": "^5.3.0",
     "formik": "^2.4.2",
+    "node-sass": "^9.0.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.4",
     "react-copy-to-clipboard": "^5.1.0",
