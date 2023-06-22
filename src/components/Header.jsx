@@ -9,22 +9,26 @@ const Header = () => {
   const [showNav, setShowNav] = useState(false);
 
   return (
-    <header className="header">
-      <div className="logoText">
-        <h2>Shrink It</h2>
+    <header className="header w-100">
+      <div className="container d-flex justify-content-between align-items-center">
+        <div className="logoText">
+          <h2>Shrink It</h2>
+        </div>
+        <div
+          className={responsive ? "hamburger active" : "hamburger"}
+          onClick={handleClick}
+        >
+          <span className="line d-block"></span>
+          <span className="line d-block"></span>
+          <span className="line d-block"></span>
+        </div>
+        <nav
+          className={showNav ? "navigation-menu expanded" : "navigation-menu"}
+        >
+          <button className="login">Log in</button>
+          <button className="signUp">Sign up</button>
+        </nav>
       </div>
-      <div
-        className={responsive ? "hamburger active" : "hamburger"}
-        onClick={handleClick}
-      >
-        <span className="line"></span>
-        <span className="line"></span>
-        <span className="line"></span>
-      </div>
-      <nav className={showNav ? "navigation-menu expanded" : "navigation-menu"}>
-        <button className="login">Log in</button>
-        <button className="signUp">Sign up</button>
-      </nav>
     </header>
   );
 };

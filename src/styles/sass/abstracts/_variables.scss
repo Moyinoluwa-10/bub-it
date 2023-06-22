@@ -19,12 +19,17 @@ $color-grey-dark-3: #333;
 $color-white: #fff;
 $color-black: #000;
 
-
 // FONT
 $default-font-size: 1.6rem;
-
 
 // GRID
 $grid-width: 114rem;
 $gutter-vertical: 8rem;
 $gutter-horizontal: 6rem;
+
+// breakpoints
+$breakpoints-sm: 576px;
+$breakpoints-md: 768px;
+$breakpoints-lg: 992px;
+$breakpoints-xl: 1200px;
+

@@ -6,9 +6,9 @@ import MainUrl from "./MainUrl";
 import GeneratedUrl from "./GeneratedUrl";
 
 const RecentUrlList = (props) => {
-  const [isCopied, setisCopied] = useState(false);
+  const [isCopied, setIsCopied] = useState(false);
   const handleCopied = () => {
-    setisCopied(!isCopied);
+    setIsCopied(!isCopied);
   };
 
   return (

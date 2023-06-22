@@ -34,7 +34,10 @@
   box-sizing: inherit; }
 
 body {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.3; }
 
 .u-center-text {
   text-align: center !important; }
@@ -275,24 +278,7 @@ body {
       padding: 0 1rem; } }
 
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 20px 40px;
-  font-family: "Inter", sans-serif;
-  background-color: white;
-  font-size: 20px;
-  line-height: 30px; }
-  .header h2 {
-    font-family: "Press Start 2P", cursive;
-    font-size: 20px;
-    line-height: 30px; }
-  .header h1 {
-    font-family: "Inter", sans-serif; }
+  padding: 20px 40px; }
   .header .hamburger {
     display: none;
     z-index: 1500;
@@ -301,17 +287,15 @@ body {
     transition: all 0.3s ease-in-out;
     -webkit-transition-delay: 0.3s;
     -moz-transition-delay: 0.3s;
-    transition-delay: 0.3s;
-    color: white; }
+    transition-delay: 0.3s; }
     .header .hamburger .line {
+      transition: all 0.3s ease-in-out;
       -webkit-transition: all 0.3s ease-in-out;
       -moz-transition: all 0.3s ease-in-out;
-      transition: all 0.3s ease-in-out;
       width: 28px;
       height: 3px;
-      background: black;
-      margin: 6px auto;
-      display: block; }
+      background: #000;
+      margin: 6px auto; }
   .header .navigation-menu {
     display: flex;
     justify-content: center;
@@ -328,19 +312,14 @@ body {
       padding: 15px 30px;
       border-radius: 10px;
       color: #fff;
-      font-family: "Inter", sans-serif;
-      font-size: 18px;
-      line-height: 30px; }
+      font-size: 18px; }
     .header .navigation-menu .login {
       background: none;
       color: black;
       font-weight: 600; }
-  @media (max-width: 700px) {
+  @media screen and (max-width: 768px) {
     .header {
-      padding: 40px 25px; }
-    .header h2 {
-      font-size: 16px;
-      line-height: 25px; }
+      padding: 25px 10px; }
     .header .hamburger {
       display: block; }
     .header .navigation-menu {
@@ -353,7 +332,7 @@ body {
       top: 0;
       width: 100%;
       height: 100vh;
-      background-color: #ffffff;
+      background-color: var(--primaryBg);
       z-index: 4;
       transition: all 0.5s ease;
       right: -100%; }
@@ -363,9 +342,9 @@ body {
       display: block;
       cursor: pointer; }
     .header .hamburger.active {
+      transform: rotate(45deg);
       -webkit-transform: rotate(45deg);
-      -moz-transform: rotate(45deg);
-      transform: rotate(45deg); }
+      -moz-transform: rotate(45deg); }
     .header .hamburger.active .line:first-child {
       -webkit-transform: translateY(5px);
       -moz-transform: translateY(5px);
@@ -388,20 +367,14 @@ body {
   background-attachment: fixed;
   background-clip: border-box;
   background-origin: border-box;
-  padding: 0 100px;
-  padding-top: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
   position: relative; }
-  .homePage .container {
+  .homePage .containerss {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     gap: 2rem; }
-    .homePage .container .leftSection {
+    .homePage .containerss .leftSection {
       font-family: "Inter", sans-serif;
       flex: 1;
       background-color: #fff;
@@ -414,25 +387,25 @@ body {
       flex-direction: column;
       width: 100%;
       max-width: 400px; }
-      .homePage .container .leftSection form {
+      .homePage .containerss .leftSection form {
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         gap: 1rem; }
-        .homePage .container .leftSection form .longUrl {
+        .homePage .containerss .leftSection form .longUrl {
           display: flex;
           flex-direction: column;
           width: 100%;
           gap: 0.5rem; }
-          .homePage .container .leftSection form .longUrl label {
+          .homePage .containerss .leftSection form .longUrl label {
             font-family: inherit;
             font-size: 16px;
             font-weight: 600; }
-            .homePage .container .leftSection form .longUrl label .link {
+            .homePage .containerss .leftSection form .longUrl label .link {
               margin-right: 10px; }
-          .homePage .container .leftSection form .longUrl input {
+          .homePage .containerss .leftSection form .longUrl input {
             width: 100%;
             border: 1px solid var(--bgImageColors);
             outline: none;
@@ -440,22 +413,22 @@ body {
             height: 40px;
             padding-left: 1rem;
             font-family: inherit; }
-            .homePage .container .leftSection form .longUrl input::placeholder {
+            .homePage .containerss .leftSection form .longUrl input::placeholder {
               font-family: inherit;
               font-size: 14px; }
-        .homePage .container .leftSection form .alias {
+        .homePage .containerss .leftSection form .alias {
           display: flex;
           flex-direction: column;
           width: 100%;
           gap: 0.5rem; }
-          .homePage .container .leftSection form .alias .aliasInput {
+          .homePage .containerss .leftSection form .alias .aliasInput {
             width: 100%;
             display: flex;
             border: 1px solid var(--bgImageColors);
             justify-content: space-between;
             border-radius: 5px;
             overflow: hidden; }
-            .homePage .container .leftSection form .alias .aliasInput input {
+            .homePage .containerss .leftSection form .alias .aliasInput input {
               flex: 1;
               width: 100%;
               border: none;
@@ -464,24 +437,24 @@ body {
               padding-left: 1rem;
               width: 100%;
               font-family: inherit; }
-              .homePage .container .leftSection form .alias .aliasInput input::placeholder {
+              .homePage .containerss .leftSection form .alias .aliasInput input::placeholder {
                 font-family: inherit;
                 font-size: 14px; }
-            .homePage .container .leftSection form .alias .aliasInput button {
+            .homePage .containerss .leftSection form .alias .aliasInput button {
               flex: 0.2;
               background: none;
               border: none;
               border-left: 1px solid var(--bgImageColors);
               font-family: inherit;
               font-size: 14px; }
-        .homePage .container .leftSection form .buttons {
+        .homePage .containerss .leftSection form .buttons {
           display: flex;
           justify-content: space-around;
           align-items: center;
           width: 100%;
           gap: 10px;
           margin-top: 10px; }
-          .homePage .container .leftSection form .buttons a {
+          .homePage .containerss .leftSection form .buttons a {
             flex: 1;
             display: flex;
             justify-content: center;
@@ -489,7 +462,7 @@ body {
             font-family: inherit;
             text-decoration: none;
             color: #000; }
-          .homePage .container .leftSection form .buttons button {
+          .homePage .containerss .leftSection form .buttons button {
             flex: 0.5;
             width: 100px;
             background-color: var(--btnColor);
@@ -503,28 +476,20 @@ body {
             cursor: pointer;
             font-family: inherit;
             transition: all 0.3s ease-in-out; }
-            .homePage .container .leftSection form .buttons button:hover {
+            .homePage .containerss .leftSection form .buttons button:hover {
               background-color: var(--btnHoverColor);
               color: var(--btnColor);
               font-weight: 600;
               border: 1px solid var(--btnColor); }
-            .homePage .container .leftSection form .buttons button:active {
+            .homePage .containerss .leftSection form .buttons button:active {
               transform: scale(0.9); }
-    .homePage .container .rightSection {
+    .homePage .containerss .rightSection {
       flex: 1;
       background-color: transparent;
       width: 100%;
       max-width: 400px; }
-      .homePage .container .rightSection img {
+      .homePage .containerss .rightSection img {
         width: 100%; }
-  @media screen and (max-width: 1050px) {
-    .homePage {
-      padding: 0 40px;
-      padding-top: 100px; } }
   @media (max-width: 800px) {
-    .homePage {
-      padding: 0 40px;
-      padding-top: 150px;
-      padding-bottom: 150px; }
-    .homePage .container {
+    .homePage .containerss {
       flex-direction: column-reverse; } }

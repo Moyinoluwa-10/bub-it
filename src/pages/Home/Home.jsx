@@ -11,13 +11,13 @@ const Home = () => {
   const openModalHandler = () => {
     setOpenModal(true);
   };
-  const [shorturl, setShortUrl] = useState();
+  const [shortUrl, setShortUrl] = useState();
 
   return (
     <div className="homePage">
-      {openModal && <Modal closeModal={setOpenModal} shortUrl={shorturl} />}
+      {openModal && <Modal closeModal={setOpenModal} shortUrl={shortUrl} />}
       <Header />
-      <div className="container">
+      <div className="containerss">
         <div className="leftSection">
           <Formik
             initialValues={{

@@ -9,13 +9,13 @@ const Modal = ({ closeModal, shortUrl }) => {
     closeModal(false);
   };
 
-  const [isCopied, setisCopied] = useState(false);
+  const [isCopied, setIsCopied] = useState(false);
   const handleCopied = () => {
-    setisCopied(!isCopied);
-    setgeneratedUrl("");
+    setIsCopied(!isCopied);
+    setGeneratedUrl("");
   };
 
-  const [generatedUrl, setgeneratedUrl] = useState(shortUrl);
+  const [generatedUrl, setGeneratedUrl] = useState(shortUrl);
 
   return (
     <div className="modal">
@@ -32,7 +32,7 @@ const Modal = ({ closeModal, shortUrl }) => {
             <input type="url" value={shortUrl} readOnly />
             <CopyToClipboard text={generatedUrl}>
               <button className="copyIcon" onClick={handleCopied}>
-                <TbCopy className="coppy" />
+                <TbCopy className="copy" />
               </button>
             </CopyToClipboard>
           </div>
