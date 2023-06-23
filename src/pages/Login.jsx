@@ -57,7 +57,7 @@ const Login = () => {
           console.log(err);
           setIsLoading(false);
         });
-      // resetForm({ values: "" });
+      resetForm({ values: "" });
     },
   });
 

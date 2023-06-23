@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Dock from "../assets/svgs/window-dock.61b82738.svg";
@@ -5,6 +6,21 @@ import Illustration from "../assets/images/url-detail-illustration.47183ff0.png"
 import { IoChevronBackOutline } from "react-icons/io5";
 
 const Stats = () => {
+  // get the id from the url
+  const id = window.location.pathname.split("/")[2];
+  // console.log(id);
+  const [stats, setStats] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    fetch(`/api/v1/urls/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data.url);
+        setStats(data.url);
+        setIsLoading(false);
+      });
+  }, []);
   return (
     <div className="statPage min-vh-100 w-100 pb-5">
       <Header />
@@ -21,24 +37,22 @@ const Stats = () => {
         <div>
           <div className="d-flex align-items-center">
             <img src={Dock} alt="" className="me-3" />{" "}
-            <p className="mb-0">bub-it.vercel.app/undefined</p>
+            <p className="mb-0">{stats.shortUrl} </p>
           </div>
           <p className="mb-3">
             The total number of clicks that your link has received so far:
           </p>
           <p>
-            <span className="noOfClicks">0</span> <br /> Clicks
+            <span className="noOfClicks">{stats.noOfClicks}</span> <br /> Clicks
           </p>
           <div className="linksContainer  w-100">
             <table>
               <thead>
-                <th>
-                  <tr>
-                    <td>xyz</td>
-                    <td>Location</td>
-                    <td>Timestamp</td>
-                  </tr>
-                </th>
+                <tr>
+                  <th>xyz</th>
+                  <th>Location</th>
+                  <th>Timestamp</th>
+                </tr>
               </thead>
               <tbody>
                 <tr>

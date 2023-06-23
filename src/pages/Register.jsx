@@ -59,7 +59,7 @@ const Register = () => {
           console.log(err);
           setIsLoading(false);
         });
-      // resetForm({ values: "" });
+      resetForm({ values: "" });
     },
   });
 

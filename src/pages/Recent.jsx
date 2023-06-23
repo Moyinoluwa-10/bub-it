@@ -3,33 +3,33 @@ import RecentUrlList from "../components/RecentUrlList";
 // import UrlForm from "../../components/UrlForm";
 import Header from "../components/Header";
 
-const recentInfo = [
-  {
-    mainUrl: "facebook.com/has67/dh/8/sf7d809s",
-    shortenedUrl: "bub.junyong.me/florals",
-    time: "1",
-  },
-  {
-    mainUrl: "facebook.com/has67/dh/8/sf7d809s",
-    shortenedUrl: "bub.junyong.me/florals",
-    time: "2",
-  },
-  {
-    mainUrl: "facebook.com/has67/dh/8/sf7d809s",
-    shortenedUrl: "bub.junyong.me/florals",
-    time: "3",
-  },
-  {
-    mainUrl: "facebook.com/has67/dh/8/sf7d809s",
-    shortenedUrl: "bub.junyong.me/florals",
-    time: "4",
-  },
-  {
-    mainUrl: "facebook.com/has67/dh/8/sf7d809s",
-    shortenedUrl: "bub.junyong.me/florals",
-    time: "5",
-  },
-];
+// const recentInfo = [
+//   {
+//     mainUrl: "facebook.com/has67/dh/8/sf7d809s",
+//     shortenedUrl: "bub.junyong.me/florals",
+//     time: "1",
+//   },
+//   {
+//     mainUrl: "facebook.com/has67/dh/8/sf7d809s",
+//     shortenedUrl: "bub.junyong.me/florals",
+//     time: "2",
+//   },
+//   {
+//     mainUrl: "facebook.com/has67/dh/8/sf7d809s",
+//     shortenedUrl: "bub.junyong.me/florals",
+//     time: "3",
+//   },
+//   {
+//     mainUrl: "facebook.com/has67/dh/8/sf7d809s",
+//     shortenedUrl: "bub.junyong.me/florals",
+//     time: "4",
+//   },
+//   {
+//     mainUrl: "facebook.com/has67/dh/8/sf7d809s",
+//     shortenedUrl: "bub.junyong.me/florals",
+//     time: "5",
+//   },
+// ];
 
 const Recent = () => {
   const [data, setData] = useState([]);
