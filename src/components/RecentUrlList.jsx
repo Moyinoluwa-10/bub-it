@@ -17,7 +17,6 @@ const RecentUrlList = (props) => {
     const date = new Date(dateTime);
     const now = new Date();
     const seconds = Math.floor((now - date) / 1000);
-    console.log(seconds);
     const intervals = {
       year: Math.floor(seconds / 31536000),
       month: Math.floor(seconds / 2592000),
@@ -29,7 +28,6 @@ const RecentUrlList = (props) => {
     };
 
     let timeAgo;
-    console.log(intervals.hour);
 
     if (intervals.year > 1) {
       timeAgo = `${intervals.year} years ago`;
@@ -61,8 +59,6 @@ const RecentUrlList = (props) => {
 
     return timeAgo;
   };
-
-  // console.log(convertDateTimeToTimeAgo(new Date("2019-01-29 00:00:00")));
 
   return (
     <div className="recentList">

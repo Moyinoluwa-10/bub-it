@@ -1,7 +1,12 @@
 const MainUrl = (props) => {
   return (
     <div>
-      <p className="mainUrl">{props.mainUrl}</p>
+      <p className="mb-0">
+        Original URL -{" "}
+        <a href={props.mainUrl} className="mainUrl">
+          {props.mainUrl}
+        </a>
+      </p>
     </div>
   );
 };

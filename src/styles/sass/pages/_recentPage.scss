@@ -4,6 +4,24 @@
   background-repeat: no-repeat;
   background-size: cover;
 
+  .noRecent {
+    .imageContainer {
+      width: 175px;
+    }
+    .icon-box {
+      background-color: var(--linksColor);
+      border-radius: 0.9rem;
+      padding: 10px 30px;
+      width: 100px;
+      text-align: center;
+
+      .home {
+        color: white;
+        font-size: 20px;
+      }
+    }
+  }
+
   @media screen and (max-width: $breakpoints-md) {
     & {
       background: url("../../assets/images/recent-urls-background-mobile.51a0824d.png");
