@@ -1,6 +1,8 @@
 .homePage {
-  background-color: var(--primaryBg);
   position: relative;
+  background: url("../../assets/images/home-background-desktop.16092dda.png");
+  background-repeat: no-repeat;
+  background-size: cover;
   .homeContainer {
     .leftSection {
       background-color: $color-white;
@@ -116,9 +118,15 @@
   }
 
   @media (max-width: $breakpoints-md) {
-    .homeContainer {
-      flex-direction: column-reverse;
-      padding-bottom: 100px;
+    & {
+      background: url("../../assets/images/home-background-mobile.40cdee40.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      .homeContainer {
+        flex-direction: column-reverse;
+        padding-bottom: 100px;
+      }
     }
   }
 }

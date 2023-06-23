@@ -27,23 +27,26 @@
     justify-content: center;
     align-items: center;
     gap: 2rem;
-    button {
-      background-color: var(--btnColor);
-      border: none;
-      outline: none;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 50px;
-      padding: 15px 30px;
-      border-radius: 10px;
-      color: $color-white;
-      font-size: 18px;
-    }
-    .login {
-      background: none;
-      color: black;
-      font-weight: 600;
+    a {
+      text-decoration: none;
+      button {
+        background-color: var(--btnColor);
+        border: none;
+        outline: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        padding: 15px 30px;
+        border-radius: 10px;
+        color: $color-white;
+        font-size: 18px;
+      }
+      .login {
+        background: none;
+        color: black;
+        font-weight: 600;
+      }
     }
   }
   $layout-breakpoint: 700px;

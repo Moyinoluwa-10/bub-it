@@ -191,7 +191,9 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: var(--primaryBg); }
+  background: url("../../assets/images/recent-urls-background-desktop.eeddd0b1.png");
+  background-repeat: no-repeat;
+  background-size: cover; }
   .formPage .loginCont {
     display: flex;
     justify-content: center;
@@ -199,7 +201,8 @@ body {
     flex-direction: column;
     width: 91.666667%;
     max-width: 28rem;
-    padding: 2.5rem 2.5rem 3rem 2.5rem; }
+    padding: 2.5rem 2.5rem 3rem 2.5rem;
+    background-color: white; }
     .formPage .loginCont .formHead h1 {
       font-size: 1.5rem; }
     .formPage .loginCont .formCont input {
@@ -228,10 +231,14 @@ body {
     color: black;
     font-size: 0.9rem; }
   @media screen and (max-width: 768px) {
-    .formPage .loginCont {
-      padding: 2rem 0 2.5rem 0; }
-      .formPage .loginCont .formHead h1 {
-        font-size: 1.25rem; } }
+    .formPage {
+      background: url("../../assets/images/recent-urls-background-mobile.51a0824d.png");
+      background-repeat: no-repeat;
+      background-size: cover; }
+      .formPage .loginCont {
+        padding: 2rem 0 2.5rem 0; }
+        .formPage .loginCont .formHead h1 {
+          font-size: 1.25rem; } }
 
 .recentList {
   width: 100%; }
@@ -305,23 +312,6 @@ body {
       flex-direction: column;
       align-items: flex-start; } }
 
-.recentPage {
-  position: relative;
-  background: url("../../assets/images/recent-urls-background-desktop.eeddd0b1.png");
-  background-repeat: no-repeat;
-  background-size: cover; }
-  @media screen and (max-width: 768px) {
-    .recentPage {
-      background: url("../../assets/images/recent-urls-background-mobile.51a0824d.png");
-      background-repeat: no-repeat;
-      background-size: cover; } }
-
-.mainUrl {
-  margin-bottom: 5px; }
-
-.shortenedUrl {
-  margin-bottom: 10px; }
-
 .header {
   padding: 20px 0px; }
   .header .hamburger {
@@ -346,22 +336,24 @@ body {
     justify-content: center;
     align-items: center;
     gap: 2rem; }
-    .header .navigation-menu button {
-      background-color: var(--btnColor);
-      border: none;
-      outline: none;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 50px;
-      padding: 15px 30px;
-      border-radius: 10px;
-      color: #fff;
-      font-size: 18px; }
-    .header .navigation-menu .login {
-      background: none;
-      color: black;
-      font-weight: 600; }
+    .header .navigation-menu a {
+      text-decoration: none; }
+      .header .navigation-menu a button {
+        background-color: var(--btnColor);
+        border: none;
+        outline: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        padding: 15px 30px;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 18px; }
+      .header .navigation-menu a .login {
+        background: none;
+        color: black;
+        font-weight: 600; }
   @media screen and (max-width: 768px) {
     .header {
       padding: 25px 0px; }
@@ -402,8 +394,10 @@ body {
       transform: translateY(-13px) rotate(90deg); } }
 
 .homePage {
-  background-color: var(--primaryBg);
-  position: relative; }
+  position: relative;
+  background: url("../../assets/images/home-background-desktop.16092dda.png");
+  background-repeat: no-repeat;
+  background-size: cover; }
   .homePage .homeContainer .leftSection {
     background-color: #fff;
     padding: 2rem;
@@ -489,6 +483,27 @@ body {
     .homePage .homeContainer .rightSection img {
       width: 100%; }
   @media (max-width: 768px) {
-    .homePage .homeContainer {
-      flex-direction: column-reverse;
-      padding-bottom: 100px; } }
+    .homePage {
+      background: url("../../assets/images/home-background-mobile.40cdee40.png");
+      background-repeat: no-repeat;
+      background-size: cover; }
+      .homePage .homeContainer {
+        flex-direction: column-reverse;
+        padding-bottom: 100px; } }
+
+.recentPage {
+  position: relative;
+  background: url("../../assets/images/recent-urls-background-desktop.eeddd0b1.png");
+  background-repeat: no-repeat;
+  background-size: cover; }
+  @media screen and (max-width: 768px) {
+    .recentPage {
+      background: url("../../assets/images/recent-urls-background-mobile.51a0824d.png");
+      background-repeat: no-repeat;
+      background-size: cover; } }
+
+.mainUrl {
+  margin-bottom: 5px; }
+
+.shortenedUrl {
+  margin-bottom: 10px; }
