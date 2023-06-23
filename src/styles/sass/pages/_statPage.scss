@@ -1,0 +1,50 @@
+.statPage {
+  background: url("../../assets/images/detailed-url-background.a58ba60e.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .cont {
+    .back {
+      color: $color-white;
+      background-color: var(--linksColor);
+      text-decoration: none;
+      padding: 10px 30px;
+      border-radius: 0.8rem;
+      font-weight: 700;
+    }
+  }
+
+  .noOfClicks {
+    background-color: var(--bgImageColors);
+    padding: 10px 30px;
+    border-radius: 1rem;
+    display: inline-block;
+    font-size: 30px;
+  }
+
+  .linksContainer {
+    height: 300px;
+    border-radius: 1rem;
+    background: white;
+    overflow: scroll;
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 0;
+      border-spacing: 0;
+    }
+  }
+
+  @media screen and (max-width: $breakpoints-md) {
+    & {
+      background: url("../../assets/images/detailed-url-background-mobile.f78e6a31.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .imageContainer {
+      display: none;
+    }
+  }
+}

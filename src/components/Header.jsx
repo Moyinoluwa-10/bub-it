@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Logo from "../assets/images/logo.png";
 
 const Header = () => {
   const [responsive, setResponsive] = useState(false);
@@ -14,7 +15,7 @@ const Header = () => {
       <div className="container d-flex justify-content-between align-items-center">
         <div className="logoContainer">
           <Link to="/">
-            <h2>Shrink It</h2>
+            <img src={Logo} alt="" className="w-100" />
           </Link>
         </div>
         <div

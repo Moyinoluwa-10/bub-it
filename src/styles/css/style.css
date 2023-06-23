@@ -314,9 +314,11 @@ body {
 
 .header {
   padding: 20px 0px; }
+  .header .logoContainer {
+    width: 120px; }
   .header .hamburger {
     display: none;
-    z-index: 1;
+    z-index: 100;
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
@@ -357,6 +359,8 @@ body {
   @media screen and (max-width: 768px) {
     .header {
       padding: 25px 0px; }
+    .header .logoContainer {
+      width: 95px; }
     .header .hamburger {
       display: block; }
     .header .navigation-menu {
@@ -514,3 +518,38 @@ body {
 
 .shortenedUrl {
   margin-bottom: 10px; }
+
+.statPage {
+  background: url("../../assets/images/detailed-url-background.a58ba60e.png");
+  background-repeat: no-repeat;
+  background-size: cover; }
+  .statPage .cont .back {
+    color: #fff;
+    background-color: var(--linksColor);
+    text-decoration: none;
+    padding: 10px 30px;
+    border-radius: 0.8rem;
+    font-weight: 700; }
+  .statPage .noOfClicks {
+    background-color: var(--bgImageColors);
+    padding: 10px 30px;
+    border-radius: 1rem;
+    display: inline-block;
+    font-size: 30px; }
+  .statPage .linksContainer {
+    height: 300px;
+    border-radius: 1rem;
+    background: white;
+    overflow: scroll; }
+    .statPage .linksContainer table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 0;
+      border-spacing: 0; }
+  @media screen and (max-width: 768px) {
+    .statPage {
+      background: url("../../assets/images/detailed-url-background-mobile.f78e6a31.png");
+      background-repeat: no-repeat;
+      background-size: cover; }
+    .statPage .imageContainer {
+      display: none; } }

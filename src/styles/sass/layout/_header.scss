@@ -1,9 +1,13 @@
 .header {
   padding: 20px 0px;
 
+  .logoContainer {
+    width: 120px;
+  }
+
   .hamburger {
     display: none;
-    z-index: 1;
+    z-index: 100;
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
@@ -54,6 +58,10 @@
   @media screen and (max-width: $breakpoints-md) {
     & {
       padding: 25px 0px;
+    }
+
+    .logoContainer {
+      width: 95px;
     }
 
     .hamburger {
