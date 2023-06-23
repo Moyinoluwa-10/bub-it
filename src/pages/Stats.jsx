@@ -24,6 +24,7 @@ const Stats = () => {
   return (
     <div className="statPage min-vh-100 w-100 pb-5">
       <Header />
+      {isLoading}
       <div className="cont container">
         <Link
           to="/urls"
