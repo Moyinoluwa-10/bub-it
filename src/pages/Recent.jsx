@@ -6,34 +6,6 @@ import { Link } from "react-router-dom";
 import { BiHome } from "react-icons/bi";
 import OhNo from "../assets/svgs/oh-no.d080be86.svg";
 
-// const recentInfo = [
-//   {
-//     mainUrl: "facebook.com/has67/dh/8/sf7d809s",
-//     shortenedUrl: "bub.junyong.me/florals",
-//     time: "1",
-//   },
-//   {
-//     mainUrl: "facebook.com/has67/dh/8/sf7d809s",
-//     shortenedUrl: "bub.junyong.me/florals",
-//     time: "2",
-//   },
-//   {
-//     mainUrl: "facebook.com/has67/dh/8/sf7d809s",
-//     shortenedUrl: "bub.junyong.me/florals",
-//     time: "3",
-//   },
-//   {
-//     mainUrl: "facebook.com/has67/dh/8/sf7d809s",
-//     shortenedUrl: "bub.junyong.me/florals",
-//     time: "4",
-//   },
-//   {
-//     mainUrl: "facebook.com/has67/dh/8/sf7d809s",
-//     shortenedUrl: "bub.junyong.me/florals",
-//     time: "5",
-//   },
-// ];
-
 const Recent = () => {
   const [data, setData] = useState([]);
   const [isCountZero, setIsCountZero] = useState(false);
@@ -85,16 +57,6 @@ const Recent = () => {
               />
             );
           })}
-        {/* {recentInfo.map((recentInfo, key) => {
-          return (
-            <RecentUrlList
-              key={key}
-              mainUrl={recentInfo.mainUrl}
-              shortenedUrl={recentInfo.shortenedUrl}
-              time={recentInfo.time}
-            />
-          );
-        })} */}
       </div>
     </div>
   );

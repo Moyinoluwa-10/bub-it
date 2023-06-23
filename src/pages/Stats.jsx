@@ -4,11 +4,10 @@ import Header from "../components/Header";
 import Dock from "../assets/svgs/window-dock.61b82738.svg";
 import Illustration from "../assets/images/url-detail-illustration.47183ff0.png";
 import { IoChevronBackOutline, IoPersonOutline } from "react-icons/io5";
+import TimeAgo from "../utils/timeAgo";
 
 const Stats = () => {
-  // get the id from the url
   const id = window.location.pathname.split("/")[2];
-  // console.log(id);
   const [stats, setStats] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
@@ -16,11 +15,18 @@ const Stats = () => {
     fetch(`/api/v1/urls/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.url);
-        setStats(data.url);
-        setIsLoading(false);
+        if (data.status) {
+          setStats(data.url);
+          setIsLoading(false);
+        } else {
+          window.location.href = "/error";
+        }
+      })
+      .catch((err) => {
+        console.log(err);
       });
   }, [id]);
+
   return (
     <div className="statPage min-vh-100 w-100 pb-5 px-3">
       <Header />
@@ -62,52 +68,18 @@ const Stats = () => {
                 </tr>
               </thead>
               <tbody>
-                {stats.analytics.map((analytic, key) => {
-                  return (
-                    <tr key={key}>
-                      <td>
-                        <IoPersonOutline />
-                      </td>
-                      <td>{analytic.ip}</td>
-                      <td>{analytic.date}</td>
-                    </tr>
-                  );
-                })}
-                <tr>
-                  <td>
-                    <IoPersonOutline />
-                  </td>
-                  <td>Japan </td>
-                  <td>2 hours ago</td>
-                </tr>
-                <tr>
-                  <td>
-                    <IoPersonOutline />
-                  </td>
-                  <td>Japan </td>
-                  <td>2 hours ago</td>
-                </tr>
-                <tr>
-                  <td>
-                    <IoPersonOutline />
-                  </td>
-                  <td>Japan </td>
-                  <td>2 hours ago</td>
-                </tr>
-                <tr>
-                  <td>
-                    <IoPersonOutline />
-                  </td>
-                  <td>Japan </td>
-                  <td>2 hours ago</td>
-                </tr>
-                <tr>
-                  <td>
-                    <IoPersonOutline />
-                  </td>
-                  <td>Japan </td>
-                  <td>2 hours ago</td>
-                </tr>
+                {stats.analytics &&
+                  stats.analytics.map((analytic, key) => {
+                    return (
+                      <tr key={key}>
+                        <td>
+                          <IoPersonOutline />
+                        </td>
+                        <td>{analytic.ip}</td>
+                        <td>{TimeAgo(analytic.date)}</td>
+                      </tr>
+                    );
+                  })}
               </tbody>
             </table>
           </div>
