@@ -1,0 +1,66 @@
+.formPage {
+  @include flex;
+  flex-direction: column;
+  background: var(--primaryBg);
+
+  .loginCont {
+    @include flex;
+    flex-direction: column;
+    width: 91.666667%;
+    max-width: 28rem;
+    padding: 2.5rem 2.5rem 3rem 2.5rem;
+
+    .formHead {
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    .formCont {
+      input {
+        background-color: rgb(168, 132, 132);
+        border: none;
+        outline: none;
+        padding: 1rem;
+        border-radius: 0.25rem;
+      }
+
+      button {
+        width: 100%;
+        background-color: var(--btnColor) !important;
+        color: var(--white);
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        white-space: nowrap;
+        text-align: center;
+        padding: 1rem 2.5rem 0.75rem 2.5rem;
+        font-weight: 700;
+      }
+
+      .error {
+        color: var(--error);
+        font-size: 0.8rem;
+        font-weight: 400;
+        font-family: Karla, sans-serif;
+      }
+    }
+  }
+
+  .footLink {
+    color: black;
+    font-size: 0.9rem;
+  }
+
+  @media screen and (max-width: $breakpoints-md) {
+    .loginCont {
+      padding: 2rem 0 2.5rem 0;
+
+      .formHead {
+        h1 {
+          font-size: 1.25rem;
+        }
+      }
+    }
+  }
+}

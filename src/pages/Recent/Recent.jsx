@@ -37,7 +37,7 @@ const Recent = () => {
 
       <h2 className="mt-5 text-center">Your Recent Bub-URLs</h2>
 
-      <div className="my-5">
+      <div className="py-5">
         {recentInfo.map((recentInfo, key) => {
           return (
             <RecentUrlList

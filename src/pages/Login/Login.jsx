@@ -1,21 +1,15 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
-import { ToastContainer, toast } from "react-toastify";
+import toast from "react-hot-toast";
 import "react-toastify/dist/ReactToastify.css";
 import Header from "../../components/Header";
-// import LogoWhite from "../../Assets/Svg/LogoWhite.svg";
 
 const Login = () => {
-  const emailRef = useRef();
-
   useEffect(() => {
-    document.title = "PiggyVest | Dashboard";
-    emailRef.current.focus();
+    document.title = "Log in to Bub-it";
   }, []);
-
-  // const { register, handleSubmit } = useForm();
 
   const validate = (values) => {
     const errors = {};
@@ -32,8 +26,6 @@ const Login = () => {
       errors.password = "Please fill out this field";
     } else if (values.password.length < 8) {
       errors.password = "Password must be 8 characters or more";
-    } else if (values.password === "12345678") {
-      errors.password = "Password must not be 12345678!!!";
     }
 
     return errors;
@@ -67,13 +59,13 @@ const Login = () => {
   });
 
   return (
-    <div className="loginPage min-vh-100 px-3 pb-5">
+    <div className="formPage w-100 min-vh-100 px-3 pb-5">
       <Header />
       <div className="loginCont flex">
         <div className="formHead mb-4">
           <h1 className="text-center">Login to your account</h1>
         </div>
-        <form className="formLogin w-100" onSubmit={formik.handleSubmit}>
+        <form className="formCont w-100" onSubmit={formik.handleSubmit}>
           <div className="formGroup mb-3 w-100">
             <label className="label d-block mb-2" htmlFor="email">
               Email address
@@ -83,7 +75,6 @@ const Login = () => {
               className="input w-100"
               type="text"
               name="email"
-              ref={emailRef}
               required
               autoComplete="email address"
             />
@@ -121,18 +112,6 @@ const Login = () => {
       {/* <Link to="/forget-password" className="footLink forget">
         Forgot Password?
       </Link> */}
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar
-        newestOnTop
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-      />
     </div>
   );
 };

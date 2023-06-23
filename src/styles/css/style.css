@@ -186,6 +186,53 @@ body {
         .modalSection .modalContainer .footer a:hover {
           text-decoration: none; }
 
+.formPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: var(--primaryBg); }
+  .formPage .loginCont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 91.666667%;
+    max-width: 28rem;
+    padding: 2.5rem 2.5rem 3rem 2.5rem; }
+    .formPage .loginCont .formHead h1 {
+      font-size: 1.5rem; }
+    .formPage .loginCont .formCont input {
+      background-color: #a88484;
+      border: none;
+      outline: none;
+      padding: 1rem;
+      border-radius: 0.25rem; }
+    .formPage .loginCont .formCont button {
+      width: 100%;
+      background-color: var(--btnColor) !important;
+      color: var(--white);
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      white-space: nowrap;
+      text-align: center;
+      padding: 1rem 2.5rem 0.75rem 2.5rem;
+      font-weight: 700; }
+    .formPage .loginCont .formCont .error {
+      color: var(--error);
+      font-size: 0.8rem;
+      font-weight: 400;
+      font-family: Karla, sans-serif; }
+  .formPage .footLink {
+    color: black;
+    font-size: 0.9rem; }
+  @media screen and (max-width: 768px) {
+    .formPage .loginCont {
+      padding: 2rem 0 2.5rem 0; }
+      .formPage .loginCont .formHead h1 {
+        font-size: 1.25rem; } }
+
 .recentList {
   width: 100%; }
   .recentList .containerRecent {
@@ -260,7 +307,14 @@ body {
 
 .recentPage {
   position: relative;
-  background-color: var(--primaryBg); }
+  background: url("../../assets/images/recent-urls-background-desktop.eeddd0b1.png");
+  background-repeat: no-repeat;
+  background-size: cover; }
+  @media screen and (max-width: 768px) {
+    .recentPage {
+      background: url("../../assets/images/recent-urls-background-mobile.51a0824d.png");
+      background-repeat: no-repeat;
+      background-size: cover; } }
 
 .mainUrl {
   margin-bottom: 5px; }
