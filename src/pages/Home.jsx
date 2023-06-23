@@ -8,9 +8,9 @@ import Header from "../components/Header";
 
 const Home = () => {
   const [openModal, setOpenModal] = useState(false);
-  const openModalHandler = () => {
-    setOpenModal(true);
-  };
+  // const openModalHandler = () => {
+  //   setOpenModal(true);
+  // };
   const [shortUrl, setShortUrl] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -18,7 +18,7 @@ const Home = () => {
     <>
       {openModal && <Modal closeModal={setOpenModal} shortUrl={shortUrl} />}
       <div className="homePage w-100% px-2 min-vh-100">
-        <Header />
+        <Header Nav={true} />
         <div className="container homeContainer d-flex align-items-center justify-content-between gap-md-4 gap-5 mt-5">
           <div className="leftSection w-100">
             <Formik
@@ -28,8 +28,7 @@ const Home = () => {
               }}
               onSubmit={async (values) => {
                 setIsLoading(true);
-                const url =
-                  "https://api-shortener.vercel.app/api/v0/url/shorten";
+                const url = "/api/v1/urls/shorten";
                 fetch(url, {
                   method: "POST",
                   headers: {
@@ -39,12 +38,13 @@ const Home = () => {
                 })
                   .then((response) => response.json())
                   .then((result) => {
-                    // console.log(result);
+                    console.log(result);
                     if (result.status) {
                       setShortUrl(result.url.shortUrl);
-                      setTimeout(() => {
-                        openModalHandler();
-                      }, 2200);
+                      // setTimeout(() => {
+                      //   openModalHandler();
+                      // }, 2200);
+                      // console.log(result);
                       setIsLoading(false);
                     } else {
                       alert("An error occurred. Please try again later.");
@@ -82,7 +82,7 @@ const Home = () => {
                 </div>
 
                 <div className="buttons">
-                  <Link to={"/recent-urls"}>My URLs</Link>
+                  <Link to={"/urls"}>My URLs</Link>
                   <button type="submit">
                     {isLoading ? "Loading..." : "Bub It"}
                   </button>

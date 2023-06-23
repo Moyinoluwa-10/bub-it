@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import toast from "react-hot-toast";
@@ -9,6 +9,7 @@ const Register = () => {
   useEffect(() => {
     document.title = "PiggyVest | Dashboard";
   }, []);
+  const [isLoading, setIsLoading] = useState(false);
 
   const validate = (values) => {
     const errors = {};
@@ -40,26 +41,32 @@ const Register = () => {
     },
     validate,
     onSubmit: (values, { resetForm }) => {
-      // alert(JSON.stringify(values, null, 2));
-      setTimeout(() => {
-        toast.success(JSON.stringify(values, null, 2), {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
+      console.log(values);
+      toast.success(JSON.stringify(values));
+      const url = "http://localhost:5000/api/v1/auth/signup";
+      fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      })
+        .then((response) => response.json())
+        .then((result) => {
+          console.log(result);
+        })
+        .catch((err) => {
+          console.log(err);
+          setIsLoading(false);
         });
-        resetForm({ values: "" });
-      }, 500);
+      // resetForm({ values: "" });
     },
   });
 
   return (
     <div className="formPage w-100 min-vh-100 px-3 pb-5">
       <Header />
+      {isLoading}
       <div className="loginCont flex">
         <div className="formHead mb-4">
           <h1 className="text-center">Sign up and start shortening</h1>

@@ -1,13 +1,14 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
-import toast from "react-hot-toast";
+// import toast from "react-hot-toast";
 import Header from "../components/Header";
 
 const Login = () => {
   useEffect(() => {
     document.title = "Log in to Bub-it";
   }, []);
+  const [isLoading, setIsLoading] = useState(false);
 
   const validate = (values) => {
     const errors = {};
@@ -22,9 +23,10 @@ const Login = () => {
 
     if (!values.password) {
       errors.password = "Please fill out this field";
-    } else if (values.password.length < 8) {
-      errors.password = "Password must be 8 characters or more";
     }
+    // else if (values.password.length < 8) {
+    //   errors.password = "Password must be 8 characters or more";
+    // }
 
     return errors;
   };
@@ -35,30 +37,34 @@ const Login = () => {
       password: "",
     },
     validate,
-    onSubmit: ({ resetForm }) => {
-      setTimeout(() => {
-        // alert(JSON.stringify(values, null, 2));
-        toast.success(
-          JSON.stringify("Login details submitted successfully", null, 2),
-          {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-          }
-        );
-        resetForm({ values: "" });
-      }, 500);
+    onSubmit: (values, { resetForm }) => {
+      // toast.success(JSON.stringify("Login details submitted successfully"));
+      // toast.success(JSON.stringify(values));
+      console.log(values);
+      const url = "/api/v1/auth/login";
+      fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      })
+        .then((response) => response.json())
+        .then((result) => {
+          console.log(result);
+        })
+        .catch((err) => {
+          console.log(err);
+          setIsLoading(false);
+        });
+      // resetForm({ values: "" });
     },
   });
 
   return (
     <div className="formPage w-100 min-vh-100 px-3 pb-5">
       <Header />
+      {isLoading}
       <div className="loginCont flex">
         <div className="formHead mb-4">
           <h1 className="text-center">Login to your account</h1>

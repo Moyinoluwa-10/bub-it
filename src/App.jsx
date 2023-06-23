@@ -16,7 +16,7 @@ function App() {
         <Route exact path={"/sign_in"} element={<Login />} />
         <Route exact path={"/sign_up"} element={<Register />} />
         <Route exact path={"/urls"} element={<Recent />} />
-        <Route exact path={"/stats"} element={<Stats />} />
+        <Route exact path={"/urls/:id"} element={<Stats />} />
         <Route exact path={"*"} element={<Error />} />
       </Routes>
     </Router>

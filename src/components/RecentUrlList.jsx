@@ -4,11 +4,13 @@ import { TbCopy } from "react-icons/tb";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import MainUrl from "./MainUrl";
 import GeneratedUrl from "./GeneratedUrl";
+import { Link } from "react-router-dom";
 
 const RecentUrlList = (props) => {
   const [isCopied, setIsCopied] = useState(false);
   const handleCopied = () => {
     setIsCopied(!isCopied);
+    setTimeout(() => setIsCopied(false), 1000);
   };
 
   return (
@@ -26,7 +28,9 @@ const RecentUrlList = (props) => {
           </div>
 
           <div className="right">
-            <button className="stat-btn">Detailed stats</button>
+            <Link to={`/urls/${props.id}`}>
+              <button className="stat-btn">Detailed stats</button>
+            </Link>
 
             <div className="copy">
               <CopyToClipboard text={props.shortenedUrl}>
