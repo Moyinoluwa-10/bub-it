@@ -82,7 +82,7 @@ const Home = () => {
                 </div>
 
                 <div className="buttons">
-                  <Link>My URLs</Link>
+                  <Link to={"/recent-urls"}>My URLs</Link>
                   <button type="submit">
                     {isLoading ? "Loading..." : "Bub It"}
                   </button>

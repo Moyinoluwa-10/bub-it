@@ -187,44 +187,39 @@ body {
           text-decoration: none; }
 
 .recentList {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  gap: 2rem;
   width: 100%; }
-  .recentList .container {
+  .recentList .containerRecent {
     display: flex;
     justify-content: space-around;
     align-items: center;
     gap: 2rem;
     width: 100%;
-    padding: 0 3rem;
+    padding: 1.3rem 2rem;
     border-bottom: 1px solid var(--greyTextColor);
-    padding-bottom: 5px;
     flex-direction: row; }
-    .recentList .container .rightContents {
+    .recentList .containerRecent .rightContents {
       width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex: 1; }
-      .recentList .container .rightContents .left .time {
-        margin-top: 1rem; }
-      .recentList .container .rightContents .right {
+      .recentList .containerRecent .rightContents .left,
+      .recentList .containerRecent .rightContents .time {
+        margin-bottom: 0; }
+      .recentList .containerRecent .rightContents .right {
         display: flex;
         flex-direction: row;
         gap: 1rem;
         justify-content: center;
         align-items: center; }
-        .recentList .container .rightContents .right .copy {
+        .recentList .containerRecent .rightContents .right .copy {
           display: flex;
           justify-content: center;
           align-items: center;
           flex-direction: column;
           gap: 1px;
           position: relative; }
-          .recentList .container .rightContents .right .copy span {
+          .recentList .containerRecent .rightContents .right .copy span {
             display: none;
             background-color: var(--bgImageColors);
             padding: 2px;
@@ -236,9 +231,20 @@ body {
             position: absolute;
             top: 101%;
             color: #fff; }
-        .recentList .container .rightContents .right button {
-          padding: 1em;
-          border: none;
+        .recentList .containerRecent .rightContents .right .stat-btn {
+          padding: 10px 20px;
+          border: 1px solid var(--btnColor);
+          border-radius: 0.5em;
+          color: var(--btnColor);
+          background-color: white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 0.4em;
+          position: relative; }
+        .recentList .containerRecent .rightContents .right .copied {
+          padding: 10px 20px;
+          border: 1px solid transparent;
           border-radius: 0.5em;
           background-color: var(--btnColor);
           color: white;
@@ -247,30 +253,20 @@ body {
           align-items: center;
           gap: 0.4em;
           position: relative; }
-        .recentList .container .rightContents .right .copied {
-          position: relative; }
-  @media (max-width: 700px) {
-    .recentList .rightContents {
-      flex-direction: column; } }
+  @media (max-width: 768px) {
+    .recentList .containerRecent .rightContents {
+      flex-direction: column;
+      align-items: flex-start; } }
 
 .recentPage {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  flex-direction: column;
-  padding: 0 1rem;
-  padding-top: 100px;
   position: relative;
-  background-color: var(--primaryBg);
-  background-image: url("../Assets/Images/_Path_ (2).png"), url("../Assets/Images/_Path_ (3).png");
-  background-position: right -2% top -100%, left -2% bottom -100%;
-  background-size: 15%, 15%, 15%, 15%;
-  background-repeat: no-repeat; }
-  @media (max-width: 700px) {
-    .recentPage .recentPage {
-      padding: 0 1rem; } }
+  background-color: var(--primaryBg); }
+
+.mainUrl {
+  margin-bottom: 5px; }
+
+.shortenedUrl {
+  margin-bottom: 10px; }
 
 .header {
   padding: 20px 0px; }

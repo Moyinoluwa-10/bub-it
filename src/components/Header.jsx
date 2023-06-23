@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [responsive, setResponsive] = useState(false);
@@ -11,8 +12,10 @@ const Header = () => {
   return (
     <header className="header w-100">
       <div className="container d-flex justify-content-between align-items-center">
-        <div className="logoText">
-          <h2>Shrink It</h2>
+        <div className="logoContainer">
+          <Link to="/">
+            <h2>Shrink It</h2>
+          </Link>
         </div>
         <div
           className={responsive ? "hamburger active" : "hamburger"}
@@ -25,8 +28,12 @@ const Header = () => {
         <nav
           className={showNav ? "navigation-menu expanded" : "navigation-menu"}
         >
-          <button className="login">Log in</button>
-          <button className="signUp">Sign up</button>
+          <Link to={"/sign_in"}>
+            <button className="login">Log in</button>
+          </Link>
+          <Link to={"/sign_up"}>
+            <button className="signUp">Sign up</button>
+          </Link>
         </nav>
       </div>
     </header>

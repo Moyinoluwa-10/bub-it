@@ -1,8 +1,6 @@
-import React from "react";
-import "../../Styles/styles.scss";
-import RecentUrlList from "../../Components/RecentUrlList";
-import UrlForm from "../../Components/UrlForm";
-import Header from "../../Components/Header";
+import RecentUrlList from "../../components/RecentUrlList";
+// import UrlForm from "../../components/UrlForm";
+import Header from "../../components/Header";
 
 const recentInfo = [
   {
@@ -31,28 +29,26 @@ const recentInfo = [
     time: "5",
   },
 ];
-const Recent = (props) => {
-  const saveUrlHandler = (all) => {
-    const urlData = {
-      ...all,
-      id: Math.random().toString,
-    };
-    console.log(urlData);
-  };
-  return (
-    <div className="recentPage">
-      <Header />
-      <UrlForm onSaveUrlHandler={saveUrlHandler} />
 
-      {recentInfo.map((recentInfo) => {
-        return (
-          <RecentUrlList
-            mainUrl={recentInfo.mainUrl}
-            shortenedUrl={recentInfo.shortenedUrl}
-            time={recentInfo.time}
-          />
-        );
-      })}
+const Recent = () => {
+  return (
+    <div className="recentPage w-100 px-3 min-vh-100">
+      <Header />
+
+      <h2 className="mt-5 text-center">Your Recent Bub-URLs</h2>
+
+      <div className="my-5">
+        {recentInfo.map((recentInfo, key) => {
+          return (
+            <RecentUrlList
+              key={key}
+              mainUrl={recentInfo.mainUrl}
+              shortenedUrl={recentInfo.shortenedUrl}
+              time={recentInfo.time}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

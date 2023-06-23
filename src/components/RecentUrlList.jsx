@@ -13,21 +13,20 @@ const RecentUrlList = (props) => {
 
   return (
     <div className="recentList">
-      <div className="container">
+      <div className="container containerRecent">
         <div className="leftIcon">
           <BsGlobe />
         </div>
 
         <div className="rightContents">
           <div className="left">
-            <h3>Facebook</h3>
             <MainUrl mainUrl={props.mainUrl} />
             <GeneratedUrl shortenedUrl={props.shortenedUrl} />
-            <p className="time">{`${props.time} hours ago`}</p>
+            <p className="time mb-md-0 mb-3">{`${props.time} hours ago`}</p>
           </div>
 
           <div className="right">
-            <button>Detailed stats</button>
+            <button className="stat-btn">Detailed stats</button>
 
             <div className="copy">
               <CopyToClipboard text={props.shortenedUrl}>
