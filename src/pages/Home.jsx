@@ -2,9 +2,9 @@ import { Field, Form, Formik } from "formik";
 import { useState } from "react";
 import { ImLink } from "react-icons/im";
 import { Link } from "react-router-dom";
-import RightImage from "../../assets/images/hero.png";
-import Modal from "../../components/Modal";
-import Header from "../../components/Header";
+import RightImage from "../assets/images/hero.png";
+import Modal from "../components/Modal";
+import Header from "../components/Header";
 
 const Home = () => {
   const [openModal, setOpenModal] = useState(false);

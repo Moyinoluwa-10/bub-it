@@ -1,6 +1,6 @@
-import RecentUrlList from "../../components/RecentUrlList";
+import RecentUrlList from "../components/RecentUrlList";
 // import UrlForm from "../../components/UrlForm";
-import Header from "../../components/Header";
+import Header from "../components/Header";
 
 const recentInfo = [
   {

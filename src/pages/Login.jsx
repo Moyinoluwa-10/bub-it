@@ -1,10 +1,8 @@
 import { useEffect } from "react";
-import "./Login.css";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import toast from "react-hot-toast";
-import "react-toastify/dist/ReactToastify.css";
-import Header from "../../components/Header";
+import Header from "../components/Header";
 
 const Login = () => {
   useEffect(() => {
