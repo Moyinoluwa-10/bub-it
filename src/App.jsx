@@ -6,6 +6,7 @@ import Error from "./pages/Error";
 import Recent from "./pages/Recent";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Stats from "./pages/Stats";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route exact path={"/sign_in"} element={<Login />} />
         <Route exact path={"/sign_up"} element={<Register />} />
         <Route exact path={"/recent-urls"} element={<Recent />} />
+        <Route exact path={"/stats"} element={<Stats />} />
         <Route exact path={"*"} element={<Error />} />
       </Routes>
     </Router>
