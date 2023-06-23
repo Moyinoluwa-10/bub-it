@@ -20,7 +20,7 @@ const Stats = () => {
         setStats(data.url);
         setIsLoading(false);
       });
-  }, []);
+  }, [id]);
   return (
     <div className="statPage min-vh-100 w-100 pb-5">
       <Header />
