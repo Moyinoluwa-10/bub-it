@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import { Link } from "react-router-dom";
 import { BiHome } from "react-icons/bi";
 import OhNo from "../assets/svgs/oh-no.d080be86.svg";
+import axios from "axios";
 
 const Recent = () => {
   const [data, setData] = useState([]);
@@ -11,30 +12,24 @@ const Recent = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-    fetch("/api/v1/urls/user")
-      .then((response) => response.json())
-      .then((result) => {
-        if (result.status) {
-          if (result.count === 0) setIsCountZero(true);
-          setData(result.urls);
-        } else {
-          setIsLoggedIn(false);
-        }
-      })
+    const url = `${import.meta.env.VITE_URL}/urls/user`;
+    axios
+      .get(url, { withCredentials: true })
+      .then((res) => {
+        // console.log(res);
+        const { data } = res;
+        if (data.count === 0) setIsCountZero(true);
+        setData(data.urls);
+      }) // eslint-disable-next-line
       .catch((err) => {
-        console.error(err);
+        console.log(err);
+        setIsLoggedIn(false);
       });
   }, []);
 
-  const handle = (data) => {
-    // setIsLoggedIn(data);
-    console.log(data);
-  };
-
   return (
     <div className="recentPage w-100 px-3 min-vh-100">
-      <Header loggedIn={handle} />
+      <Header />
 
       {!isLoggedIn && (
         <div className="noRecent">
@@ -42,8 +37,7 @@ const Recent = () => {
             <img src={OhNo} alt="" className="w-100" />
           </div>
           <p className="text-center mb-4">
-            You need to be logged in to view your bub URLs. <br /> Log in or
-            sign up now
+            You need to be logged in to view your bub URLs. <br /> Log in now
           </p>
           <Link to={"/sign_in"} className="icon-box mx-auto d-block">
             Log In
