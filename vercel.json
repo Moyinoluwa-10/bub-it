@@ -8,7 +8,7 @@
             "destination": "/index.html"
         },
         {
-            "source": "/api(.*)",
+            "source": "/api",
             "destination": "http://localhost:5000"
         }
     ]

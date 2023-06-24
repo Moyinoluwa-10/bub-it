@@ -10,6 +10,7 @@ const Register = () => {
   const navigate = useNavigate();
   useEffect(() => {
     const url = "/api/v1/users/showMe";
+    // const url = "https://api-bub-it.vercel.app/api/v1/users/showMe";
     fetch(url)
       .then((response) => {
         if (response.ok) {
@@ -55,7 +56,8 @@ const Register = () => {
     onSubmit: (values, { resetForm }) => {
       setIsLoading(true);
       const toastId = toast.loading("Submitting...");
-      const url = "/api/v1/auth/signup";
+      // const url = "/api/v1/auth/signup";
+      const url = "https://api-bub-it.vercel.app/api/v1/auth/signup";
       fetch(url, {
         method: "POST",
         headers: {
