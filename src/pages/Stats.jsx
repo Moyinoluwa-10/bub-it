@@ -23,7 +23,7 @@ const Stats = () => {
         }
       })
       .catch((err) => {
-        console.log(err);
+        console.error(err);
       });
   }, [id]);
 
@@ -39,57 +39,71 @@ const Stats = () => {
           <IoChevronBackOutline /> Back to my URLs
         </Link>
       </div>
-      <h3 className="text-center mb-5">Detailed Stats</h3>
-      <div className="container d-flex align-items-center justify-content-center gap-5 statCont">
-        <div>
-          <div className="mb-3">
-            <img src={stats.qrcode} alt="" />
-          </div>
-          <div className="d-flex align-items-center mb-3">
-            <img src={Dock} alt="" className="me-3" />{" "}
-            <div className="urls">
-              <p className="mb-1">
-                Original URL - <span>{stats.longUrl}</span>
-              </p>
-              <p className="mb-0">
-                Short URL - <span>{stats.shortUrl}</span>{" "}
-              </p>
+      <div className="container-md">
+        <h3 className="text-center mb-5">Detailed Stats</h3>
+
+        <div className="container d-flex align-items-center justify-content-center gap-5 statCont">
+          <div>
+            <div className="mb-3">
+              <img src={stats.qrcode} alt="qrcode image" />
+            </div>
+            <div className="mb-3">
+              <div className="urls d-flex align-items-center mb-2">
+                <img src={Dock} alt="" className="me-3 dock-image" />{" "}
+                <p className="mb-1">
+                  <a href={stats.longUrl}>
+                    {stats.longUrl && stats.longUrl.substring(8)}
+                  </a>
+                </p>
+              </div>
+              <div className="urls d-flex align-items-center">
+                <img src={Dock} alt="" className="me-3 dock-image" />{" "}
+                <p className="mb-0">
+                  <a href={stats.shortUrl}>
+                    {stats.shortUrl && stats.shortUrl.substring(7)}
+                  </a>{" "}
+                </p>
+              </div>
+            </div>
+            <p className="mb-3 clicks">
+              The total number of clicks that your link has received so far:
+            </p>
+            <p className="text-center d-md-inline-block d-block">
+              <span className="noOfClicks">
+                {stats.noOfClicks && stats.noOfClicks}
+              </span>{" "}
+              <br /> Clicks
+            </p>
+            <div className="linksContainer w-100 mw-100">
+              <table>
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>IP</th>
+                    <th>Timestamp</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {stats.analytics &&
+                    stats.analytics.map((analytic, key) => {
+                      return (
+                        <tr key={key}>
+                          <td>
+                            <IoPersonOutline />
+                          </td>
+                          <td>{analytic.ip}</td>
+                          <td>{TimeAgo(analytic.date)}</td>
+                        </tr>
+                      );
+                    })}
+                </tbody>
+              </table>
             </div>
           </div>
-          <p className="mb-3">
-            The total number of clicks that your link has received so far:
-          </p>
-          <p>
-            <span className="noOfClicks">{stats.noOfClicks}</span> <br /> Clicks
-          </p>
-          <div className="linksContainer w-100 mw-100">
-            <table>
-              <thead>
-                <tr>
-                  <th></th>
-                  <th>IP</th>
-                  <th>Timestamp</th>
-                </tr>
-              </thead>
-              <tbody>
-                {stats.analytics &&
-                  stats.analytics.map((analytic, key) => {
-                    return (
-                      <tr key={key}>
-                        <td>
-                          <IoPersonOutline />
-                        </td>
-                        <td>{analytic.ip}</td>
-                        <td>{TimeAgo(analytic.date)}</td>
-                      </tr>
-                    );
-                  })}
-              </tbody>
-            </table>
+
+          <div className="imageContainer">
+            <img src={Illustration} alt="illustration" className="w-100" />
           </div>
-        </div>
-        <div className="imageContainer">
-          <img src={Illustration} alt="" />
         </div>
       </div>
     </div>
