@@ -5,6 +5,7 @@ import Dock from "../assets/svgs/window-dock.61b82738.svg";
 import Illustration from "../assets/images/url-detail-illustration.47183ff0.png";
 import { IoChevronBackOutline, IoPersonOutline } from "react-icons/io5";
 import TimeAgo from "../utils/timeAgo";
+import axios from "axios";
 
 const Stats = () => {
   const id = window.location.pathname.split("/")[2];
@@ -12,18 +13,19 @@ const Stats = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`/api/v1/urls/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.status) {
-          setStats(data.url);
-          setIsLoading(false);
-        } else {
-          window.location.href = "/error";
-        }
-      })
+    const url = `${import.meta.env.VITE_URL}/urls/${id}`;
+
+    axios
+      .get(url, { withCredentials: true })
+      .then((res) => {
+        // console.log(res);
+        const { data } = res;
+        setStats(data.url);
+        setIsLoading(false);
+      }) // eslint-disable-next-line
       .catch((err) => {
-        console.error(err);
+        // console.log(err);
+        window.location.href = "/error";
       });
   }, [id]);
 

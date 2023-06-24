@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import RightImage from "../assets/images/hero.png";
 import Modal from "../components/Modal";
 import Header from "../components/Header";
+import axios from "axios";
 
 const Home = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -28,28 +29,15 @@ const Home = () => {
               }}
               onSubmit={async (values) => {
                 setIsLoading(true);
-                const url = "/api/v1/urls/shorten";
-                fetch(url, {
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "application/json",
-                  },
-                  body: JSON.stringify(values),
-                })
-                  .then((response) => response.json())
-                  .then((result) => {
-                    console.log(result);
-                    if (result.status) {
-                      setShortUrl(result.url.shortUrl);
-                      // setTimeout(() => {
-                      //   openModalHandler();
-                      // }, 2200);
-                      // console.log(result);
-                      setIsLoading(false);
-                    } else {
-                      alert("An error occurred. Please try again later.");
-                      setIsLoading(false);
-                    }
+                const url = `${import.meta.env.VITE_URL}/urls/shorten`;
+                axios
+                  .post(url, values, { withCredentials: true })
+                  .then((res) => {
+                    console.log(res.data);
+                    const { data } = res;
+                    setShortUrl(data.url.shortUrl);
+
+                    setIsLoading(false);
                   })
                   .catch((err) => {
                     console.log(err);

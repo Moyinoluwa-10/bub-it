@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import NotFound from "../assets/svgs/page-not-found.e08ecdda.svg";
 import Redirecting from "../assets/images/redirecting.19775f62.png";
+import axios from "axios";
 
 const Error = () => {
   const [redirecting, setRedirecting] = useState(true);
@@ -9,20 +10,19 @@ const Error = () => {
 
   useEffect(() => {
     const urlCode = window.location.pathname.split("/")[1];
-    fetch(`/api/v1/urls/redirect/${urlCode}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setRedirecting(false);
-        if (data.status) {
-          window.location.href = data.url;
-        } else {
-          setError(true);
-        }
-      })
+    const url = `${import.meta.env.VITE_URL}/urls/redirect/${urlCode}`;
+
+    axios
+      .get(url, { withCredentials: true })
+      .then((res) => {
+        // console.log(res);
+        const { data } = res;
+        window.location.href = data.url;
+      }) // eslint-disable-next-line
       .catch((err) => {
+        // console.log(err);
         setRedirecting(false);
         setError(true);
-        console.log(err);
       });
   }, []);
 
