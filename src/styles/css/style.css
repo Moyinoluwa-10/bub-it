@@ -592,6 +592,10 @@ code {
       border-radius: 50px; }
     .statPage .linksContainer::-webkit-scrollbar-thumb:hover {
       background: #555; }
+    .statPage .linksContainer .noClicks {
+      line-height: 300px;
+      vertical-align: middle;
+      color: #262626d9; }
     .statPage .linksContainer table {
       border-collapse: collapse;
       border-spacing: 0;

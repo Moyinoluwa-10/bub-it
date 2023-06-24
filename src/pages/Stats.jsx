@@ -60,7 +60,7 @@ const Stats = () => {
                 <img src={Dock} alt="" className="me-3 dock-image" />{" "}
                 <p className="mb-0">
                   <a href={stats.shortUrl}>
-                    {stats.shortUrl && stats.shortUrl.substring(7)}
+                    {stats.shortUrl && stats.shortUrl.substring(8)}
                   </a>{" "}
                 </p>
               </div>
@@ -75,29 +75,35 @@ const Stats = () => {
               <br /> Clicks
             </p>
             <div className="linksContainer w-100 mw-100">
-              <table>
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th>IP</th>
-                    <th>Timestamp</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {stats.analytics &&
-                    stats.analytics.map((analytic, key) => {
-                      return (
-                        <tr key={key}>
-                          <td>
-                            <IoPersonOutline />
-                          </td>
-                          <td>{analytic.ip}</td>
-                          <td>{TimeAgo(analytic.date)}</td>
-                        </tr>
-                      );
-                    })}
-                </tbody>
-              </table>
+              {stats.noOfClicks && stats.noOfClicks > 0 ? (
+                <table>
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>IP</th>
+                      <th>Timestamp</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {stats.analytics &&
+                      stats.analytics.map((analytic, key) => {
+                        return (
+                          <tr key={key}>
+                            <td>
+                              <IoPersonOutline />
+                            </td>
+                            <td>{analytic.ip}</td>
+                            <td>{TimeAgo(analytic.date)}</td>
+                          </tr>
+                        );
+                      })}
+                  </tbody>
+                </table>
+              ) : (
+                <div className="text-center noClicks">
+                  There are no clicks yet
+                </div>
+              )}
             </div>
           </div>
 
