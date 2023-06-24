@@ -13,7 +13,9 @@ const Header = ({ Nav }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    const url = "/api/v1/users/showMe";
+    // const url = "/api/v1/users/showMe";
+    // const url = "http://localhost:5000/api/v1/users/showMe";
+    const url = "https://api-bub-it.vercel.app/api/v1/users/showMe";
     fetch(url)
       .then((response) => {
         if (response.ok) {
@@ -29,7 +31,9 @@ const Header = ({ Nav }) => {
   }, []);
 
   const handleLogout = () => {
-    const url = "/api/v1/auth/logout";
+    // const url = "/api/v1/auth/logout";
+    // const url = "http://localhost:5000/api/v1/auth/logout";
+    const url = "https://api-bub-it.vercel.app/api/v1/auth/logout";
     fetch(url, {
       method: "DELETE",
     })

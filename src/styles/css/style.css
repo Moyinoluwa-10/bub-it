@@ -383,10 +383,12 @@ code {
         transition: all 0.3s ease-in-out; }
         .header .navigation-menu a button:hover {
           background-color: #5f4836; }
-      .header .navigation-menu a .login {
-        background: none;
-        color: black;
-        font-weight: 600; }
+        .header .navigation-menu a button.login {
+          background: none;
+          color: black;
+          font-weight: 600; }
+          .header .navigation-menu a button.login:hover {
+            background-color: none !important; }
   @media screen and (max-width: 768px) {
     .header {
       padding: 25px 0px; }

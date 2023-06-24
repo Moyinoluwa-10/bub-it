@@ -69,11 +69,16 @@
         &:hover {
           background-color: $color-brown-3;
         }
-      }
-      .login {
-        background: none;
-        color: black;
-        font-weight: 600;
+
+        &.login {
+          background: none;
+          color: black;
+          font-weight: 600;
+
+          &:hover {
+            background-color: none !important;
+          }
+        }
       }
     }
   }
