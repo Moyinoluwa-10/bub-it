@@ -11,6 +11,7 @@
     "watch:sass": "node-sass src/styles/sass/main.scss src/styles/css/style.css -w"
   },
   "dependencies": {
+    "axios": "^1.4.0",
     "bootstrap": "^5.3.0",
     "formik": "^2.4.2",
     "node-sass": "^9.0.0",

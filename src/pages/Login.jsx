@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import toast from "react-hot-toast";
 import Header from "../components/Header";
+import axios from "axios";
 
 const Login = () => {
   // eslint-disable-next-line
@@ -54,42 +55,50 @@ const Login = () => {
     validate,
     onSubmit: (values, { resetForm }) => {
       setIsLoading(true);
-      const toastId = toast.loading("Submitting...");
-      const url = "/api/v1/auth/login";
+      // const toastId = toast.loading("Submitting...");
+      // const url = "/api/v1/auth/login";
       // const url = "http://localhost:5000/api/v1/auth/login";
-      // const url = "https://api-bub-it.vercel.app/api/v1/auth/login";
-      fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Credentials": true,
-          withCredentials: true,
-        },
-        // credentials: "include",
-        body: JSON.stringify(values),
-      })
-        .then((response) => response.json())
-        .then((result) => {
-          // console.log(result);
-          if (result.status) {
-            toast.success(result.msg, {
-              id: toastId,
-            });
-            // resetForm({ values: "" });
-            // navigate("/urls");
-          } else {
-            toast.error(result.msg, {
-              id: toastId,
-            });
-          }
+      const url = "https://api-bub-it.vercel.app/api/v1/auth/login";
+      // fetch(url, {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //     "Access-Control-Allow-Origin": "*",
+      //     "Access-Control-Allow-Credentials": true,
+      //     withCredentials: true,
+      //   },
+      //   // credentials: "include",
+      //   body: JSON.stringify(values),
+      // })
+      //   .then((response) => response.json())
+      //   .then((result) => {
+      //     // console.log(result);
+      //     if (result.status) {
+      //       toast.success(result.msg, {
+      //         id: toastId,
+      //       });
+      //       // resetForm({ values: "" });
+      //       // navigate("/urls");
+      //     } else {
+      //       toast.error(result.msg, {
+      //         id: toastId,
+      //       });
+      //     }
+      //   })
+      //   .catch((err) => {
+      //     console.error(err);
+      //     setIsLoading(false);
+      //     toast.error("An error occurred, please try again later", {
+      //       id: toastId,
+      //     });
+      //   });
+      axios
+        .post(url, values, { withCredentials: true })
+        .then((res) => {
+          console.log(res);
         })
         .catch((err) => {
-          console.error(err);
-          setIsLoading(false);
-          toast.error("An error occurred, please try again later", {
-            id: toastId,
-          });
+          console.log(err);
         });
     },
   });
