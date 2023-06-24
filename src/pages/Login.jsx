@@ -12,7 +12,7 @@ const Login = () => {
     fetch(url)
       .then((response) => {
         if (response.ok) {
-          // navigate("/urls");
+          navigate("/urls");
           return response.json();
         }
       }) // eslint-disable-next-line
@@ -20,6 +20,7 @@ const Login = () => {
       .catch((error) => {
         console.error(error);
       });
+    // eslint-disable-next-line
   }, []);
 
   const [isLoading, setIsLoading] = useState(false);
@@ -64,10 +65,12 @@ const Login = () => {
         .then((response) => response.json())
         .then((result) => {
           console.log(result);
-          if (result.success) {
+          if (result.status) {
             toast.success(result.msg, {
               id: toastId,
             });
+            resetForm({ values: "" });
+            navigate("/urls");
           } else {
             toast.error(result.msg, {
               id: toastId,
@@ -81,7 +84,6 @@ const Login = () => {
             id: toastId,
           });
         });
-      resetForm({ values: "" });
     },
   });
 

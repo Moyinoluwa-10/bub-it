@@ -1,14 +1,29 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import toast from "react-hot-toast";
 import "react-toastify/dist/ReactToastify.css";
 import Header from "../components/Header";
 
 const Register = () => {
+  // eslint-disable-next-line
+  const navigate = useNavigate();
   useEffect(() => {
-    document.title = "PiggyVest | Dashboard";
+    const url = "/api/v1/users/showMe";
+    fetch(url)
+      .then((response) => {
+        if (response.ok) {
+          navigate("/urls");
+          return response.json();
+        }
+      }) // eslint-disable-next-line
+      .then((result) => {})
+      .catch((error) => {
+        console.error(error);
+      });
+    // eslint-disable-next-line
   }, []);
+
   const [isLoading, setIsLoading] = useState(false);
 
   const validate = (values) => {
@@ -22,13 +37,10 @@ const Register = () => {
       errors.email = "Invalid email address";
     }
 
-    // password
     if (!values.password) {
       errors.password = "Please fill out this field";
-    } else if (values.password.length < 8) {
-      errors.password = "Password must be 8 characters or more";
-    } else if (values.password === "12345678") {
-      errors.password = "Password must not be 12345678!!!";
+    } else if (values.password.length < 6) {
+      errors.password = "Password must be 6 characters or more";
     }
 
     return errors;
@@ -41,9 +53,9 @@ const Register = () => {
     },
     validate,
     onSubmit: (values, { resetForm }) => {
-      console.log(values);
-      toast.success(JSON.stringify(values));
-      const url = "http://localhost:5000/api/v1/auth/signup";
+      setIsLoading(true);
+      const toastId = toast.loading("Submitting...");
+      const url = "/api/v1/auth/signup";
       fetch(url, {
         method: "POST",
         headers: {
@@ -53,13 +65,26 @@ const Register = () => {
       })
         .then((response) => response.json())
         .then((result) => {
-          console.log(result);
+          // console.log(result);
+          if (result.status) {
+            toast.success(result.msg, {
+              id: toastId,
+            });
+            resetForm({ values: "" });
+            navigate("/sign_in");
+          } else {
+            toast.error(result.msg, {
+              id: toastId,
+            });
+          }
         })
         .catch((err) => {
-          console.log(err);
+          console.error(err);
           setIsLoading(false);
+          toast.error("An error occurred, please try again later", {
+            id: toastId,
+          });
         });
-      resetForm({ values: "" });
     },
   });
 
@@ -67,7 +92,7 @@ const Register = () => {
     <div className="formPage w-100 min-vh-100 px-3 pb-5">
       <Header />
       {isLoading}
-      <div className="loginCont flex">
+      <div className="loginCont mt-2 mx-auto">
         <div className="formHead mb-4">
           <h1 className="text-center">Sign up and start shortening</h1>
         </div>
@@ -110,14 +135,13 @@ const Register = () => {
             Log in
           </button>
         </form>
+        <p className="mt-4">
+          Don't have an account?{" "}
+          <Link to="/sign_in" className="footLink">
+            Log In
+          </Link>
+        </p>
       </div>
-      <Link to="/sign_in" className="footLink">
-        {/* eslint-disable-next-line */}
-        Already have an account? Log-in
-      </Link>
-      {/* <Link to="/forget-password" className="footLink forget">
-        Forgot Password?
-      </Link> */}
     </div>
   );
 };
