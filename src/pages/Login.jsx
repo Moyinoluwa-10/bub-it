@@ -63,7 +63,7 @@ const Login = () => {
           // console.log(err);
           const errMessage =
             err.response.status === 400
-              ? "Incorrect email or password"
+              ? "Xyz"
               : "An error occurred, please try again later";
           toast.error(errMessage, {
             id: toastId,
@@ -72,13 +72,13 @@ const Login = () => {
     },
   });
 
-  const handle = (data) => {
+  const checkLoggedIn = (data) => {
     setIsLoggedIn(data);
   };
 
   return (
     <div className="formPage w-100 min-vh-100 px-3 pb-5">
-      <Header loggedIn={handle} />
+      <Header checkLoggedIn={checkLoggedIn} />
       {import.meta.env.REACT_APP_TITLE}
       <div className="loginCont mt-2 mx-auto">
         <div className="formHead mb-4">

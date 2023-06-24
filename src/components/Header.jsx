@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../assets/images/logo.png";
 import axios from "axios";
-const Header = ({ Nav, loggedIn }) => {
+const Header = ({ Nav, checkLoggedIn }) => {
   const navigate = useNavigate();
   const [responsive, setResponsive] = useState(false);
   const handleClick = () => {
@@ -27,7 +27,7 @@ const Header = ({ Nav, loggedIn }) => {
       });
 
     {
-      loggedIn && loggedIn(isLoggedIn);
+      checkLoggedIn && checkLoggedIn(isLoggedIn);
     }
     // eslint-disable-next-line
   }, [isLoggedIn]);
