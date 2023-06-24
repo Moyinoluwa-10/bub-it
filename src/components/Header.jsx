@@ -1,14 +1,51 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../assets/images/logo.png";
 
 const Header = ({ Nav }) => {
+  const navigate = useNavigate();
   const [responsive, setResponsive] = useState(false);
   const handleClick = () => {
     setResponsive(!responsive);
     setShowNav(!showNav);
   };
   const [showNav, setShowNav] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const url = "/api/v1/users/showMe";
+    fetch(url)
+      .then((response) => {
+        if (response.ok) {
+          setIsLoggedIn(true);
+          return response.json();
+        }
+      }) // eslint-disable-next-line
+      .then((result) => {})
+      .catch((error) => {
+        console.error(error);
+      });
+    // eslint-disable-next-line
+  }, []);
+
+  const handleLogout = () => {
+    const url = "/api/v1/auth/logout";
+    fetch(url, {
+      method: "DELETE",
+    })
+      .then((response) => {
+        if (response.ok) {
+          setIsLoggedIn(false);
+          navigate("/");
+          return response.json();
+        }
+      }) // eslint-disable-next-line
+      .then((result) => {})
+      .catch((error) => {
+        console.error(error);
+      });
+    // eslint-disable-next-line
+  };
 
   return (
     <header className="header w-100">
@@ -19,7 +56,15 @@ const Header = ({ Nav }) => {
           </Link>
         </div>
 
-        {Nav && (
+        {isLoggedIn && (
+          <div>
+            <button className="logout" onClick={handleLogout}>
+              Logout
+            </button>
+          </div>
+        )}
+
+        {Nav && !isLoggedIn && (
           <>
             <div
               className={responsive ? "hamburger active" : "hamburger"}

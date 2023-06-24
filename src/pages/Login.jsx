@@ -64,7 +64,7 @@ const Login = () => {
       })
         .then((response) => response.json())
         .then((result) => {
-          console.log(result);
+          // console.log(result);
           if (result.status) {
             toast.success(result.msg, {
               id: toastId,

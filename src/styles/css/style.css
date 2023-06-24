@@ -346,6 +346,21 @@ code {
       height: 3px;
       background: #000;
       margin: 6px auto; }
+  .header .logout {
+    background-color: #775942;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    padding: 15px 30px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 18px;
+    transition: all 0.3s ease-in-out; }
+    .header .logout:hover {
+      background-color: #5f4836; }
   .header .navigation-menu {
     display: flex;
     justify-content: center;
@@ -354,7 +369,7 @@ code {
     .header .navigation-menu a {
       text-decoration: none; }
       .header .navigation-menu a button {
-        background-color: var(--btnColor);
+        background-color: #775942;
         border: none;
         outline: none;
         display: flex;
@@ -364,7 +379,10 @@ code {
         padding: 15px 30px;
         border-radius: 10px;
         color: #fff;
-        font-size: 18px; }
+        font-size: 18px;
+        transition: all 0.3s ease-in-out; }
+        .header .navigation-menu a button:hover {
+          background-color: #5f4836; }
       .header .navigation-menu a .login {
         background: none;
         color: black;
