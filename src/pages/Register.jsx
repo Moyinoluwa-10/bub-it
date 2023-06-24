@@ -4,14 +4,15 @@ import { useFormik } from "formik";
 import toast from "react-hot-toast";
 import "react-toastify/dist/ReactToastify.css";
 import Header from "../components/Header";
+import axios from "axios";
 
 const Register = () => {
   // eslint-disable-next-line
   const navigate = useNavigate();
   useEffect(() => {
     // const url = "/api/v1/users/showMe";
-    // const url = "http://localhost:5000/api/v1/users/showMe";
-    const url = "https://api-bub-it.vercel.app/api/v1/users/showMe";
+    const url = "http://localhost:5000/api/v1/users/showMe";
+    // const url = "https://api-bub-it.vercel.app/api/v1/users/showMe";
     fetch(url)
       .then((response) => {
         if (response.ok) {

@@ -27,9 +27,14 @@ const Recent = () => {
       });
   }, []);
 
+  const handle = (data) => {
+    // setIsLoggedIn(data);
+    console.log(data);
+  };
+
   return (
     <div className="recentPage w-100 px-3 min-vh-100">
-      <Header />
+      <Header loggedIn={handle} />
 
       {!isLoggedIn && (
         <div className="noRecent">

@@ -6,26 +6,15 @@ import Header from "../components/Header";
 import axios from "axios";
 
 const Login = () => {
-  // eslint-disable-next-line
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
-  useEffect(() => {
-    // const url = "/api/v1/users/showMe";
-    const url = "https://api-bub-it.vercel.app/api/v1/users/showMe";
-    fetch(url)
-      .then((response) => {
-        if (response.ok) {
-          navigate("/urls");
-          return response.json();
-        }
-      }) // eslint-disable-next-line
-      .then((result) => {})
-      .catch((error) => {
-        console.error(error);
-      });
-    // eslint-disable-next-line
-  }, []);
 
-  const [isLoading, setIsLoading] = useState(false);
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate("/urls");
+    }
+    // eslint-disable-next-line
+  }, [isLoggedIn]);
 
   const validate = (values) => {
     const errors = {};
@@ -54,59 +43,43 @@ const Login = () => {
     },
     validate,
     onSubmit: (values, { resetForm }) => {
-      setIsLoading(true);
-      // const toastId = toast.loading("Submitting...");
-      // const url = "/api/v1/auth/login";
-      // const url = "http://localhost:5000/api/v1/auth/login";
-      const url = "https://api-bub-it.vercel.app/api/v1/auth/login";
-      // fetch(url, {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //     "Access-Control-Allow-Origin": "*",
-      //     "Access-Control-Allow-Credentials": true,
-      //     withCredentials: true,
-      //   },
-      //   // credentials: "include",
-      //   body: JSON.stringify(values),
-      // })
-      //   .then((response) => response.json())
-      //   .then((result) => {
-      //     // console.log(result);
-      //     if (result.status) {
-      //       toast.success(result.msg, {
-      //         id: toastId,
-      //       });
-      //       // resetForm({ values: "" });
-      //       // navigate("/urls");
-      //     } else {
-      //       toast.error(result.msg, {
-      //         id: toastId,
-      //       });
-      //     }
-      //   })
-      //   .catch((err) => {
-      //     console.error(err);
-      //     setIsLoading(false);
-      //     toast.error("An error occurred, please try again later", {
-      //       id: toastId,
-      //     });
-      //   });
+      const toastId = toast.loading("Submitting...");
+      const url = `${import.meta.env.VITE_URL}/auth/login`;
+
       axios
         .post(url, values, { withCredentials: true })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
+          const { data } = res;
+          toast.success(data.msg, {
+            id: toastId,
+          });
+          resetForm({ values: "" });
+          setTimeout(() => {
+            navigate("/urls");
+          }, 1000);
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
+          const errMessage =
+            err.response.status === 400
+              ? "Incorrect email or password"
+              : "An error occurred, please try again later";
+          toast.error(errMessage, {
+            id: toastId,
+          });
         });
     },
   });
 
+  const handle = (data) => {
+    setIsLoggedIn(data);
+  };
+
   return (
     <div className="formPage w-100 min-vh-100 px-3 pb-5">
-      <Header />
-      {isLoading}
+      <Header loggedIn={handle} />
+      {import.meta.env.REACT_APP_TITLE}
       <div className="loginCont mt-2 mx-auto">
         <div className="formHead mb-4">
           <h1 className="text-center">Login to your account</h1>

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../assets/images/logo.png";
-
-const Header = ({ Nav }) => {
+import axios from "axios";
+const Header = ({ Nav, loggedIn }) => {
   const navigate = useNavigate();
   const [responsive, setResponsive] = useState(false);
   const handleClick = () => {
@@ -13,42 +13,38 @@ const Header = ({ Nav }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    // const url = "/api/v1/users/showMe";
-    // const url = "http://localhost:5000/api/v1/users/showMe";
-    const url = "https://api-bub-it.vercel.app/api/v1/users/showMe";
-    fetch(url)
-      .then((response) => {
-        if (response.ok) {
-          setIsLoggedIn(true);
-          return response.json();
-        }
+    const url = `${import.meta.env.VITE_URL}/users/showMe`;
+    axios
+      .get(url, { withCredentials: true })
+      // eslint-disable-next-line
+      .then((res) => {
+        // console.log(res);
+        setIsLoggedIn(true);
       }) // eslint-disable-next-line
-      .then((result) => {})
-      .catch((error) => {
-        console.error(error);
+      .catch((err) => {
+        // console.log(err);
+        setIsLoggedIn(false);
       });
+
+    {
+      loggedIn && loggedIn(isLoggedIn);
+    }
     // eslint-disable-next-line
-  }, []);
+  }, [isLoggedIn]);
 
   const handleLogout = () => {
-    // const url = "/api/v1/auth/logout";
-    // const url = "http://localhost:5000/api/v1/auth/logout";
-    const url = "https://api-bub-it.vercel.app/api/v1/auth/logout";
-    fetch(url, {
-      method: "DELETE",
-    })
-      .then((response) => {
-        if (response.ok) {
-          setIsLoggedIn(false);
-          navigate("/");
-          return response.json();
-        }
+    const url = `${import.meta.env.VITE_URL}/auth/logout`;
+    axios
+      .delete(url, { withCredentials: true })
+      // eslint-disable-next-line
+      .then((res) => {
+        // console.log(res);
+        setIsLoggedIn(false);
+        navigate("/");
       }) // eslint-disable-next-line
-      .then((result) => {})
-      .catch((error) => {
-        console.error(error);
+      .catch((err) => {
+        // console.log(err);
       });
-    // eslint-disable-next-line
   };
 
   return (
