@@ -6,7 +6,9 @@
         {
             "source": "/(.*)",
             "destination": "/index.html"
-        },
+        }
+    ],
+    "redirects": [
         {
             "source": "/api/:path*",
             "destination": "https://api-bub-it.vercel.app/api/:path*"
