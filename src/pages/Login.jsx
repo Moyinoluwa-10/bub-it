@@ -55,9 +55,9 @@ const Login = () => {
     onSubmit: (values, { resetForm }) => {
       setIsLoading(true);
       const toastId = toast.loading("Submitting...");
-      // const url = "/api/v1/auth/login";
+      const url = "/api/v1/auth/login";
       // const url = "http://localhost:5000/api/v1/auth/login";
-      const url = "https://api-bub-it.vercel.app/api/v1/auth/login";
+      // const url = "https://api-bub-it.vercel.app/api/v1/auth/login";
       fetch(url, {
         method: "POST",
         headers: {
