@@ -66,6 +66,7 @@ const Login = () => {
           // "Access-Control-Allow-Credentials": true,
           // withCredentials: true,
         },
+        credentials: "include",
         body: JSON.stringify(values),
       })
         .then((response) => response.json())
