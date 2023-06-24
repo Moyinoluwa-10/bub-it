@@ -10,8 +10,8 @@
     ],
     "redirects": [
         {
-            "source": "/api(.*)",
-            "destination": "https://api-bub-it.vercel.app"
+            "source": "/api/:path*",
+            "destination": "https://api-bub-it.vercel.app/api/v1/:path*"
         }
     ]
 }
