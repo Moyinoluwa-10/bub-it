@@ -8,7 +8,7 @@
     gap: 2rem;
     width: 100%;
     padding: 1.3rem 2rem;
-    border-bottom: 1px solid var(--greyTextColor);
+    border-bottom: 1px solid $color-text-4;
     flex-direction: row;
 
     .rightContents {
@@ -29,6 +29,9 @@
         gap: 1rem;
         justify-content: center;
         align-items: center;
+        a {
+          text-decoration: none;
+        }
         .copy {
           display: flex;
           justify-content: center;
@@ -39,23 +42,23 @@
 
           span {
             display: none;
-            background-color: var(--bgImageColors);
-            padding: 2px;
-            border-radius: 0.3em;
+            background-color: $color-pink-1;
+            padding: 2px 10px;
+            border-radius: 0 0 0.3em 0.3em;
             display: flex;
             justify-content: center;
             align-items: center;
             transition: ease-in 2s;
             position: absolute;
             top: 101%;
-            color: #fff;
+            color: $color-white;
           }
         }
         .stat-btn {
           padding: 10px 20px;
-          border: 1px solid var(--btnColor);
+          border: 1px solid $color-brown-2;
           border-radius: 0.5em;
-          color: var(--btnColor);
+          color: $color-brown-2;
           background-color: white;
           display: flex;
           justify-content: center;
@@ -67,7 +70,7 @@
           padding: 10px 20px;
           border: 1px solid transparent;
           border-radius: 0.5em;
-          background-color: var(--btnColor);
+          background-color: $color-brown-2;
           color: white;
           display: flex;
           justify-content: center;
@@ -85,6 +88,24 @@
         flex-direction: column;
         align-items: flex-start;
       }
+    }
+  }
+}
+
+.mainUrl {
+  a {
+    color: $color-brown-1;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.shortenedUrl {
+  a {
+    color: $color-brown-1;
+    &:hover {
+      text-decoration: none;
     }
   }
 }

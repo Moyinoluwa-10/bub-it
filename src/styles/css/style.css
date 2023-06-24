@@ -252,7 +252,7 @@ code {
     gap: 2rem;
     width: 100%;
     padding: 1.3rem 2rem;
-    border-bottom: 1px solid var(--greyTextColor);
+    border-bottom: 1px solid #b5b5b5;
     flex-direction: row; }
     .recentList .containerRecent .rightContents {
       width: 100%;
@@ -269,6 +269,8 @@ code {
         gap: 1rem;
         justify-content: center;
         align-items: center; }
+        .recentList .containerRecent .rightContents .right a {
+          text-decoration: none; }
         .recentList .containerRecent .rightContents .right .copy {
           display: flex;
           justify-content: center;
@@ -278,9 +280,9 @@ code {
           position: relative; }
           .recentList .containerRecent .rightContents .right .copy span {
             display: none;
-            background-color: var(--bgImageColors);
-            padding: 2px;
-            border-radius: 0.3em;
+            background-color: #d6c1b1;
+            padding: 2px 10px;
+            border-radius: 0 0 0.3em 0.3em;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -290,9 +292,9 @@ code {
             color: #fff; }
         .recentList .containerRecent .rightContents .right .stat-btn {
           padding: 10px 20px;
-          border: 1px solid var(--btnColor);
+          border: 1px solid #775942;
           border-radius: 0.5em;
-          color: var(--btnColor);
+          color: #775942;
           background-color: white;
           display: flex;
           justify-content: center;
@@ -303,7 +305,7 @@ code {
           padding: 10px 20px;
           border: 1px solid transparent;
           border-radius: 0.5em;
-          background-color: var(--btnColor);
+          background-color: #775942;
           color: white;
           display: flex;
           justify-content: center;
@@ -314,6 +316,16 @@ code {
     .recentList .containerRecent .rightContents {
       flex-direction: column;
       align-items: flex-start; } }
+
+.mainUrl a {
+  color: #ad8769; }
+  .mainUrl a:hover {
+    text-decoration: none; }
+
+.shortenedUrl a {
+  color: #ad8769; }
+  .shortenedUrl a:hover {
+    text-decoration: none; }
 
 .header {
   padding: 20px 0px; }
@@ -513,25 +525,24 @@ code {
   .recentPage .noRecent .imageContainer {
     width: 175px; }
   .recentPage .noRecent .icon-box {
-    background-color: var(--linksColor);
+    background-color: #ad8769;
     border-radius: 0.9rem;
-    padding: 10px 30px;
-    width: 100px;
-    text-align: center; }
+    padding: 10px 20px;
+    width: 150px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3 ease-in-out; }
+    .recentPage .noRecent .icon-box:hover {
+      background-color: #775942; }
     .recentPage .noRecent .icon-box .home {
-      color: white;
+      color: #fff;
       font-size: 20px; }
   @media screen and (max-width: 768px) {
     .recentPage {
       background: url("../../assets/images/recent-urls-background-mobile.51a0824d.png");
       background-repeat: no-repeat;
       background-size: cover; } }
-
-.mainUrl {
-  margin-bottom: 5px; }
-
-.shortenedUrl {
-  margin-bottom: 10px; }
 
 .statPage {
   background: url("../../assets/images/detailed-url-background.a58ba60e.png");

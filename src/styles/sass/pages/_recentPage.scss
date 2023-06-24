@@ -8,15 +8,22 @@
     .imageContainer {
       width: 175px;
     }
-    .icon-box {
-      background-color: var(--linksColor);
-      border-radius: 0.9rem;
-      padding: 10px 30px;
-      width: 100px;
-      text-align: center;
 
+    .icon-box {
+      background-color: $color-brown-1;
+      border-radius: 0.9rem;
+      padding: 10px 20px;
+      width: 150px;
+      text-align: center;
+      color: $color-white;
+      text-decoration: none;
+      transition: all 0.3 ease-in-out;
+
+      &:hover {
+        background-color: $color-brown-2;
+      }
       .home {
-        color: white;
+        color: $color-white;
         font-size: 20px;
       }
     }
@@ -29,12 +36,4 @@
       background-size: cover;
     }
   }
-}
-
-.mainUrl {
-  margin-bottom: 5px;
-}
-
-.shortenedUrl {
-  margin-bottom: 10px;
 }
