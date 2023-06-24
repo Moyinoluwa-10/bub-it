@@ -40,16 +40,20 @@ const Stats = () => {
         </Link>
       </div>
       <h3 className="text-center mb-5">Detailed Stats</h3>
-      <div className="container d-flex align-items-center justify-content-center gap-5 ">
+      <div className="container d-flex align-items-center justify-content-center gap-5 statCont">
         <div>
           <div className="mb-3">
             <img src={stats.qrcode} alt="" />
           </div>
           <div className="d-flex align-items-center mb-3">
             <img src={Dock} alt="" className="me-3" />{" "}
-            <div>
-              <p className="mb-1">Original URL - {stats.longUrl} </p>
-              <p className="mb-0">Short URL - {stats.shortUrl} </p>
+            <div className="urls">
+              <p className="mb-1">
+                Original URL - <span>{stats.longUrl}</span>
+              </p>
+              <p className="mb-0">
+                Short URL - <span>{stats.shortUrl}</span>{" "}
+              </p>
             </div>
           </div>
           <p className="mb-3">
@@ -58,7 +62,7 @@ const Stats = () => {
           <p>
             <span className="noOfClicks">{stats.noOfClicks}</span> <br /> Clicks
           </p>
-          <div className="linksContainer  w-100">
+          <div className="linksContainer w-100 mw-100">
             <table>
               <thead>
                 <tr>

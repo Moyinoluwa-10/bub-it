@@ -539,11 +539,18 @@ code {
   background-size: cover; }
   .statPage .cont .back {
     color: #fff;
-    background-color: var(--linksColor);
+    background-color: #ad8769;
     text-decoration: none;
     padding: 10px 30px;
     border-radius: 0.8rem;
-    font-weight: 700; }
+    font-weight: 700;
+    transition: all 0.3s ease-in-out; }
+    .statPage .cont .back:hover {
+      background-color: #5f4836; }
+  .statPage h3 {
+    color: #262626d9; }
+  .statPage .statCont .urls p {
+    word-wrap: break-word; }
   .statPage .noOfClicks {
     background-color: var(--bgImageColors);
     padding: 10px 30px;
@@ -566,4 +573,10 @@ code {
       background-repeat: no-repeat;
       background-size: cover; }
     .statPage .imageContainer {
-      display: none; } }
+      display: none; }
+    .statPage .statCont .urls p {
+      word-wrap: break-word; }
+      .statPage .statCont .urls p span {
+        display: block;
+        max-width: 100%;
+        width: 100%; } }
