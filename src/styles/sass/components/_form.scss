@@ -1,5 +1,4 @@
 .formPage {
-  @include flex;
   flex-direction: column;
   background: url("../../assets/images/recent-urls-background-desktop.eeddd0b1.png");
   background-repeat: no-repeat;
@@ -11,7 +10,6 @@
     width: 91.666667%;
     max-width: 28rem;
     padding: 2.5rem 2.5rem 3rem 2.5rem;
-    background-color: white;
 
     .formHead {
       h1 {
@@ -20,9 +18,12 @@
     }
 
     .formCont {
+      label {
+        font-weight: 600;
+      }
+
       input {
-        background-color: rgb(168, 132, 132);
-        border: none;
+        border: 2px solid $color-text-4;
         outline: none;
         padding: 1rem;
         border-radius: 0.25rem;
@@ -30,8 +31,8 @@
 
       button {
         width: 100%;
-        background-color: var(--btnColor) !important;
-        color: var(--white);
+        background-color: $color-brown-1;
+        color: $color-white;
         border: none;
         border-radius: 0.5rem;
         cursor: pointer;
@@ -42,7 +43,7 @@
       }
 
       .error {
-        color: var(--error);
+        color: $color-red;
         font-size: 0.8rem;
         font-weight: 400;
         font-family: Karla, sans-serif;
@@ -51,8 +52,10 @@
   }
 
   .footLink {
-    color: black;
-    font-size: 0.9rem;
+    color: $color-brown-2;
+    &:hover {
+      text-decoration: none;
+    }
   }
 
   @media screen and (max-width: $breakpoints-md) {

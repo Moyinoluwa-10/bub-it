@@ -190,9 +190,6 @@ code {
           text-decoration: none; }
 
 .formPage {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
   background: url("../../assets/images/recent-urls-background-desktop.eeddd0b1.png");
   background-repeat: no-repeat;
@@ -204,20 +201,20 @@ code {
     flex-direction: column;
     width: 91.666667%;
     max-width: 28rem;
-    padding: 2.5rem 2.5rem 3rem 2.5rem;
-    background-color: white; }
+    padding: 2.5rem 2.5rem 3rem 2.5rem; }
     .formPage .loginCont .formHead h1 {
       font-size: 1.5rem; }
+    .formPage .loginCont .formCont label {
+      font-weight: 600; }
     .formPage .loginCont .formCont input {
-      background-color: #a88484;
-      border: none;
+      border: 2px solid #b5b5b5;
       outline: none;
       padding: 1rem;
       border-radius: 0.25rem; }
     .formPage .loginCont .formCont button {
       width: 100%;
-      background-color: var(--btnColor) !important;
-      color: var(--white);
+      background-color: #ad8769;
+      color: #fff;
       border: none;
       border-radius: 0.5rem;
       cursor: pointer;
@@ -226,13 +223,14 @@ code {
       padding: 1rem 2.5rem 0.75rem 2.5rem;
       font-weight: 700; }
     .formPage .loginCont .formCont .error {
-      color: var(--error);
+      color: #ff0000;
       font-size: 0.8rem;
       font-weight: 400;
       font-family: Karla, sans-serif; }
   .formPage .footLink {
-    color: black;
-    font-size: 0.9rem; }
+    color: #775942; }
+    .formPage .footLink:hover {
+      text-decoration: none; }
   @media screen and (max-width: 768px) {
     .formPage {
       background: url("../../assets/images/recent-urls-background-mobile.51a0824d.png");

@@ -1,13 +1,27 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
-// import toast from "react-hot-toast";
+import toast from "react-hot-toast";
 import Header from "../components/Header";
 
 const Login = () => {
+  // eslint-disable-next-line
+  const navigate = useNavigate();
   useEffect(() => {
-    document.title = "Log in to Bub-it";
+    const url = "/api/v1/users/showMe";
+    fetch(url)
+      .then((response) => {
+        if (response.ok) {
+          // navigate("/urls");
+          return response.json();
+        }
+      }) // eslint-disable-next-line
+      .then((result) => {})
+      .catch((error) => {
+        console.error(error);
+      });
   }, []);
+
   const [isLoading, setIsLoading] = useState(false);
 
   const validate = (values) => {
@@ -23,10 +37,9 @@ const Login = () => {
 
     if (!values.password) {
       errors.password = "Please fill out this field";
+    } else if (values.password.length < 6) {
+      errors.password = "Password must be 6 characters or more";
     }
-    // else if (values.password.length < 8) {
-    //   errors.password = "Password must be 8 characters or more";
-    // }
 
     return errors;
   };
@@ -38,9 +51,8 @@ const Login = () => {
     },
     validate,
     onSubmit: (values, { resetForm }) => {
-      // toast.success(JSON.stringify("Login details submitted successfully"));
-      // toast.success(JSON.stringify(values));
-      console.log(values);
+      setIsLoading(true);
+      const toastId = toast.loading("Submitting...");
       const url = "/api/v1/auth/login";
       fetch(url, {
         method: "POST",
@@ -52,10 +64,22 @@ const Login = () => {
         .then((response) => response.json())
         .then((result) => {
           console.log(result);
+          if (result.success) {
+            toast.success(result.msg, {
+              id: toastId,
+            });
+          } else {
+            toast.error(result.msg, {
+              id: toastId,
+            });
+          }
         })
         .catch((err) => {
-          console.log(err);
+          console.error(err);
           setIsLoading(false);
+          toast.error("An error occurred, please try again later", {
+            id: toastId,
+          });
         });
       resetForm({ values: "" });
     },
@@ -65,7 +89,7 @@ const Login = () => {
     <div className="formPage w-100 min-vh-100 px-3 pb-5">
       <Header />
       {isLoading}
-      <div className="loginCont flex">
+      <div className="loginCont mt-2 mx-auto">
         <div className="formHead mb-4">
           <h1 className="text-center">Login to your account</h1>
         </div>
@@ -108,14 +132,16 @@ const Login = () => {
             Log in
           </button>
         </form>
+        <p className="mt-4">
+          Don't have an account?{" "}
+          <Link to="/sign_up" className="footLink">
+            Sign up
+          </Link>
+        </p>
+        {/* <Link to="/forget-password" className="footLink forget">
+          Forgot Password?
+        </Link> */}
       </div>
-      <Link to="/sign_up" className="footLink">
-        {/* eslint-disable-next-line */}
-        Don't have an account? Register
-      </Link>
-      {/* <Link to="/forget-password" className="footLink forget">
-        Forgot Password?
-      </Link> */}
     </div>
   );
 };
