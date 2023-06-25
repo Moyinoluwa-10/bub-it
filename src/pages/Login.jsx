@@ -60,10 +60,10 @@ const Login = () => {
           }, 1000);
         })
         .catch((err) => {
-          // console.log(err);
+          console.log(err);
           const errMessage =
             err.response.status === 400
-              ? "Xyz"
+              ? "Incorrect email or password"
               : "An error occurred, please try again later";
           toast.error(errMessage, {
             id: toastId,

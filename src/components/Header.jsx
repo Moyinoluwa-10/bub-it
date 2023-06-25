@@ -19,7 +19,7 @@ const Header = ({ Nav, checkLoggedIn }) => {
       .get(url, { withCredentials: true })
       // eslint-disable-next-line
       .then((res) => {
-        // console.log(res);
+        console.log(res);
         setIsLoggedIn(true);
       }) // eslint-disable-next-line
       .catch((err) => {
