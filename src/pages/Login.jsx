@@ -54,6 +54,7 @@ const Login = () => {
           toast.success(data.msg, {
             id: toastId,
           });
+          toast.dismiss();
           resetForm({ values: "" });
           setTimeout(() => {
             navigate("/urls");
