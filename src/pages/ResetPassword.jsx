@@ -55,7 +55,7 @@ const ResetPassword = () => {
           });
           resetForm({ values: "" });
           setTimeout(() => {
-            navigate("/urls");
+            navigate("/sign_in");
           }, 1000);
           setIsLoading(false);
         })
@@ -76,7 +76,6 @@ const ResetPassword = () => {
   return (
     <div className="formPage w-100 min-vh-100 px-3 pb-5">
       <Header />
-      {import.meta.env.REACT_APP_TITLE}
       <div className="loginCont mt-2 mx-auto">
         <div className="formHead mb-4">
           <h1 className="text-center">ResetPassword to your account</h1>

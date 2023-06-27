@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import toast from "react-hot-toast";
 import Header from "../components/Header";
@@ -7,7 +6,7 @@ import axios from "axios";
 
 const ForgotPassword = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
+  const [success, setSuccess] = useState(false);
 
   const validate = (values) => {
     const errors = {};
@@ -42,9 +41,7 @@ const ForgotPassword = () => {
             id: toastId,
           });
           resetForm({ values: "" });
-          setTimeout(() => {
-            navigate("/urls");
-          }, 1000);
+          setSuccess(true)
           setIsLoading(true);
         })
         .catch((err) => {
@@ -64,9 +61,11 @@ const ForgotPassword = () => {
   return (
     <div className="formPage w-100 min-vh-100 px-3 pb-5">
       <Header />
-      {import.meta.env.REACT_APP_TITLE}
       <div className="loginCont mt-2 mx-auto">
-        <div className="formHead mb-4">
+      {success && <div>Password reset email sent successfully, please check your email.</div>}
+      {!success && 
+      <>
+ <div className="formHead mb-4">
           <h1 className="text-center">Forgot password</h1>
         </div>
         <form className="formCont w-100" onSubmit={formik.handleSubmit}>
@@ -91,6 +90,9 @@ const ForgotPassword = () => {
             {isLoading ? "Please Wait..." : "Get Reset Password Link"}
           </button>
         </form>
+      </>
+      }
+       
       </div>
     </div>
   );
