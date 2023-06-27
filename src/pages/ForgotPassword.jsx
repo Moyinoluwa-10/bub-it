@@ -7,7 +7,6 @@ import axios from "axios";
 
 const ForgotPassword = () => {
   const [isLoading, setIsLoading] = useState(false);
-
   const navigate = useNavigate();
 
   const validate = (values) => {

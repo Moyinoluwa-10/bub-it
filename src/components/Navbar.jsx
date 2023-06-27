@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Logo from "../assets/images/logo.png";
 import axios from "axios";
 
-const Header = ({ Nav, checkLoggedIn, verifyUser }) => {
+const Navbar = ({ Nav, checkLoggedIn, verifyUser }) => {
   const navigate = useNavigate();
   const [responsive, setResponsive] = useState(false);
   const handleClick = () => {
@@ -99,4 +99,4 @@ const Header = ({ Nav, checkLoggedIn, verifyUser }) => {
   );
 };
 
-export default Header;
+export default Navbar;

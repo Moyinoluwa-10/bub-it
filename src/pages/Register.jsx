@@ -82,7 +82,7 @@ const Register = () => {
 
   return (
     <div className="formPage w-100 min-vh-100 px-3 pb-5">
-      <Header checkLoggedIn={checkLoggedIn} />
+      <Header checkLoggedIn={checkLoggedIn} verifyUser={true} />
       <div className="loginCont mt-2 mx-auto">
         {success && (
           <div>Success! Please check your email to verify account</div>
@@ -133,7 +133,7 @@ const Register = () => {
               </button>
             </form>
             <p className="mt-4">
-              Don't have an account?{" "}
+              Already have an account?{" "}
               <Link to="/sign_in" className="footLink">
                 Log In
               </Link>

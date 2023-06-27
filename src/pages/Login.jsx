@@ -63,16 +63,15 @@ const Login = () => {
           setIsLoading(false);
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
           const errMessage =
             err.response && err.response.status === 400
-              ? "Incorrect email or password"
+              ? err.response.data.msg
               : "An error occurred, please try again later";
           toast.error(errMessage, {
             id: toastId,
           });
           setIsLoading(false);
-          // toast.dismiss();
         });
     },
   });
@@ -83,8 +82,7 @@ const Login = () => {
 
   return (
     <div className="formPage w-100 min-vh-100 px-3 pb-5">
-      <Header checkLoggedIn={checkLoggedIn} />
-      {import.meta.env.REACT_APP_TITLE}
+      <Header checkLoggedIn={checkLoggedIn} verifyUser={true} />
       <div className="loginCont mt-2 mx-auto">
         <div className="formHead mb-4">
           <h1 className="text-center">Login to your account</h1>
@@ -125,18 +123,20 @@ const Login = () => {
           </div>
 
           <button className="button" type="submit" disabled={isLoading}>
-            {isLoading ? "Loading..." : "Register"}
+            {isLoading ? "Loading..." : "Log In"}
           </button>
         </form>
-        <p className="mt-4">
+        <p className="mt-4 mb-2">
           Don't have an account?{" "}
           <Link to="/sign_up" className="footLink">
             Sign up
           </Link>
         </p>
-        {/* <Link to="/forget-password" className="footLink forget">
-          Forgot Password?
-        </Link> */}
+        <p>
+          <Link to="/forgot_password" className="footLink forget">
+            Forgot Password?
+          </Link>
+        </p>
       </div>
     </div>
   );
