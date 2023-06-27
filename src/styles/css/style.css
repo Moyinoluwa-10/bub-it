@@ -448,6 +448,9 @@ code {
     border-radius: 10px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
     max-width: 400px; }
+    .homePage .homeContainer .leftSection form .error {
+      color: red;
+      font-size: 14px; }
     .homePage .homeContainer .leftSection form .longUrl label {
       font-weight: 600; }
       .homePage .homeContainer .leftSection form .longUrl label .link {
@@ -468,26 +471,36 @@ code {
     .homePage .homeContainer .leftSection form .alias .aliasInput {
       width: 100%;
       display: flex;
-      border: 1px solid var(--bgImageColors);
       justify-content: space-between;
       border-radius: 5px;
-      overflow: hidden; }
+      overflow: hidden;
+      height: 40px; }
       .homePage .homeContainer .leftSection form .alias .aliasInput input {
         flex: 1;
         width: 100%;
         border: none;
         outline: none;
         height: 40px;
-        padding: 0 1rem; }
+        padding: 0 1rem;
+        border: 1px solid var(--bgImageColors);
+        border-radius: 0 5px 5px 0;
+        transition: all 0.3s linear; }
         .homePage .homeContainer .leftSection form .alias .aliasInput input::placeholder {
           font-size: 15px; }
-      .homePage .homeContainer .leftSection form .alias .aliasInput button {
-        flex: 0.2;
+        .homePage .homeContainer .leftSection form .alias .aliasInput input:focus {
+          border: 3px solid #d6c1b1ae; }
+      .homePage .homeContainer .leftSection form .alias .aliasInput .default {
+        flex: 1;
         background: none;
         border: none;
-        border-left: 1px solid var(--bgImageColors);
+        border-right: 1px solid var(--bgImageColors);
         font-family: inherit;
-        font-size: 14px; }
+        font-size: 16px;
+        line-height: 40px;
+        padding: 0 20px;
+        border: 1px solid var(--bgImageColors);
+        border-right: none;
+        border-radius: 5px 0 0 5px; }
     .homePage .homeContainer .leftSection form .buttons {
       display: flex;
       justify-content: space-around;
@@ -519,6 +532,11 @@ code {
           border: 1px solid var(--btnColor); }
         .homePage .homeContainer .leftSection form .buttons button:active {
           transform: scale(0.9); }
+        .homePage .homeContainer .leftSection form .buttons button:disabled {
+          background-color: #ccc;
+          color: #fff;
+          border: 1px solid transparent;
+          cursor: not-allowed; }
   .homePage .homeContainer .rightSection {
     flex: 1;
     background-color: transparent;

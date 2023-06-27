@@ -14,12 +14,17 @@ const Home = () => {
   };
   const [shortUrl, setShortUrl] = useState();
   const [isLoading, setIsLoading] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const checkLoggedIn = (data) => {
+    setIsLoggedIn(data);
+  };
 
   return (
     <>
       {openModal && <Modal closeModal={setOpenModal} shortUrl={shortUrl} />}
       <div className="homePage w-100% px-2 min-vh-100">
-        <Header Nav={true} verifyUser={true} />
+        <Header Nav={true} verifyUser={true} checkLoggedIn={checkLoggedIn} />
         <div className="container homeContainer d-flex align-items-center justify-content-between gap-md-4 gap-5 mt-5">
           <div className="leftSection w-100">
             <Formik
@@ -46,6 +51,11 @@ const Home = () => {
               }}
             >
               <Form className="w-100">
+                {!isLoggedIn && (
+                  <p className="error">
+                    You have to be logged in to shorten your URLs
+                  </p>
+                )}
                 <div className="longUrl mb-4">
                   <label htmlFor="longUrl" className="mb-2">
                     <ImLink className="link" />
@@ -64,14 +74,19 @@ const Home = () => {
                     <ImLink /> Customize your link
                   </label>
                   <div className="aliasInput">
-                    <Field id="custom" name="custom" placeholder="conference" />
-                    <button disabled>alias</button>
+                    <div className="default">bub.icu/</div>
+                    <Field
+                      id="custom"
+                      name="custom"
+                      placeholder="alias"
+                      className="custom"
+                    />
                   </div>
                 </div>
 
                 <div className="buttons">
                   <Link to={"/urls"}>My URLs</Link>
-                  <button type="submit">
+                  <button type="submit" disabled={!isLoggedIn}>
                     {isLoading ? "Loading..." : "Bub It"}
                   </button>
                 </div>
