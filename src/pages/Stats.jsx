@@ -24,14 +24,14 @@ const Stats = () => {
         setIsLoading(false);
       }) // eslint-disable-next-line
       .catch((err) => {
-        // console.log(err);
+        console.log(err);
         window.location.href = "/error";
       });
   }, [id]);
 
   return (
     <div className="statPage min-vh-100 w-100 pb-5 px-3">
-      <Header />
+      <Header verifyUser={true} />
       {isLoading}
       <div className="cont container">
         <Link
