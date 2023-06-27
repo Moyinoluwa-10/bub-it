@@ -9,9 +9,9 @@ import axios from "axios";
 
 const Home = () => {
   const [openModal, setOpenModal] = useState(false);
-  // const openModalHandler = () => {
-  //   setOpenModal(true);
-  // };
+  const openModalHandler = () => {
+    setOpenModal(true);
+  };
   const [shortUrl, setShortUrl] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -36,7 +36,7 @@ const Home = () => {
                     console.log(res.data);
                     const { data } = res;
                     setShortUrl(data.url.shortUrl);
-
+                    openModalHandler();
                     setIsLoading(false);
                   })
                   .catch((err) => {

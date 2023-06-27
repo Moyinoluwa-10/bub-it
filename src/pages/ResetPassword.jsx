@@ -78,7 +78,7 @@ const ResetPassword = () => {
       <Header />
       <div className="loginCont mt-2 mx-auto">
         <div className="formHead mb-4">
-          <h1 className="text-center">ResetPassword to your account</h1>
+          <h1 className="text-center">Reset Password</h1>
         </div>
         <form className="formCont w-100" onSubmit={formik.handleSubmit}>
           <div className="formGroup mb-3 w-100">
