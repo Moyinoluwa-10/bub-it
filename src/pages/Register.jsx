@@ -8,9 +8,9 @@ import axios from "axios";
 
 const Register = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -129,7 +129,7 @@ const Register = () => {
               </div>
 
               <button className="button" type="submit" disabled={isLoading}>
-                {isLoading ? "Loading..." : "Register"}
+                {isLoading ? "Loading..." : "Sign Up"}
               </button>
             </form>
             <p className="mt-4">

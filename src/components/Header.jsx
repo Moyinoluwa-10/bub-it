@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Logo from "../assets/images/logo.png";
 import axios from "axios";
 
-const Header = ({ Nav, checkLoggedIn }) => {
+const Header = ({ Nav, checkLoggedIn, verifyUser }) => {
   const navigate = useNavigate();
   const [responsive, setResponsive] = useState(false);
   const handleClick = () => {
@@ -12,8 +12,7 @@ const Header = ({ Nav, checkLoggedIn }) => {
   };
   const [showNav, setShowNav] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
+  function showMe() {
     const url = `${import.meta.env.VITE_URL}/users/showMe`;
     axios
       .get(url, { withCredentials: true })
@@ -26,6 +25,12 @@ const Header = ({ Nav, checkLoggedIn }) => {
         // console.log(err);
         setIsLoggedIn(false);
       });
+  }
+
+  useEffect(() => {
+    if (verifyUser) {
+      showMe();
+    }
 
     {
       checkLoggedIn && checkLoggedIn(isLoggedIn);
