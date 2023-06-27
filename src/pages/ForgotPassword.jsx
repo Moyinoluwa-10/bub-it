@@ -1,21 +1,14 @@
-import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import toast from "react-hot-toast";
 import Header from "../components/Header";
 import axios from "axios";
 
-const Login = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+const ForgotPassword = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    if (isLoggedIn) {
-      navigate("/urls");
-    }
-    // eslint-disable-next-line
-  }, [isLoggedIn]);
+  const navigate = useNavigate();
 
   const validate = (values) => {
     const errors = {};
@@ -28,25 +21,18 @@ const Login = () => {
       errors.email = "Invalid email address";
     }
 
-    if (!values.password) {
-      errors.password = "Please fill out this field";
-    } else if (values.password.length < 6) {
-      errors.password = "Password must be 6 characters or more";
-    }
-
     return errors;
   };
 
   const formik = useFormik({
     initialValues: {
       email: "",
-      password: "",
     },
     validate,
     onSubmit: (values, { resetForm }) => {
       setIsLoading(true);
       const toastId = toast.loading("Submitting...");
-      const url = `${import.meta.env.VITE_URL}/auth/login`;
+      const url = `${import.meta.env.VITE_URL}/auth/forgot-password`;
 
       axios
         .post(url, values, { withCredentials: true })
@@ -60,7 +46,7 @@ const Login = () => {
           setTimeout(() => {
             navigate("/urls");
           }, 1000);
-          setIsLoading(false);
+          setIsLoading(true);
         })
         .catch((err) => {
           console.log(err);
@@ -71,23 +57,18 @@ const Login = () => {
           toast.error(errMessage, {
             id: toastId,
           });
-          setIsLoading(false);
-          // toast.dismiss();
+          setIsLoading(true);
         });
     },
   });
 
-  const checkLoggedIn = (data) => {
-    setIsLoggedIn(data);
-  };
-
   return (
     <div className="formPage w-100 min-vh-100 px-3 pb-5">
-      <Header checkLoggedIn={checkLoggedIn} />
+      <Header />
       {import.meta.env.REACT_APP_TITLE}
       <div className="loginCont mt-2 mx-auto">
         <div className="formHead mb-4">
-          <h1 className="text-center">Login to your account</h1>
+          <h1 className="text-center">Forgot password</h1>
         </div>
         <form className="formCont w-100" onSubmit={formik.handleSubmit}>
           <div className="formGroup mb-3 w-100">
@@ -107,39 +88,14 @@ const Login = () => {
             ) : null}
           </div>
 
-          <div className="formGroup mb-3 w-100">
-            <label className="label d-block mb-2" htmlFor="password">
-              Password
-            </label>
-            <input
-              {...formik.getFieldProps("password")}
-              className="input w-100"
-              type="password"
-              name="password"
-              required
-              autoComplete="current-password"
-            />
-            {formik.touched.password && formik.errors.password ? (
-              <div className="error">{formik.errors.password}</div>
-            ) : null}
-          </div>
-
           <button className="button" type="submit" disabled={isLoading}>
-            {isLoading ? "Loading..." : "Register"}
+            {isLoading ? "Please Wait..." : "Get Reset Password Link"}
           </button>
         </form>
-        <p className="mt-4">
-          Don't have an account?{" "}
-          <Link to="/sign_up" className="footLink">
-            Sign up
-          </Link>
-        </p>
-        {/* <Link to="/forget-password" className="footLink forget">
-          Forgot Password?
-        </Link> */}
       </div>
     </div>
   );
 };
 
-export default Login;
+export default ForgotPassword;
+

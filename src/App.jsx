@@ -7,6 +7,9 @@ import Recent from "./pages/Recent";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Stats from "./pages/Stats";
+import Verify from "./pages/Verify";
+import ResetPassword from "./pages/ResetPassword";
+import ForgotPassword from "./pages/ForgotPassword";
 
 function App() {
   return (
@@ -17,6 +20,13 @@ function App() {
         <Route exact path={"/sign_up"} element={<Register />} />
         <Route exact path={"/urls"} element={<Recent />} />
         <Route exact path={"/urls/:id"} element={<Stats />} />
+        <Route exact path={"/user/verify-email"} element={<Verify />} />
+        <Route exact path={"/forgot_password"} element={<ForgotPassword />} />
+        <Route
+          exact
+          path={"/user/reset-password"}
+          element={<ResetPassword />}
+        />
         <Route exact path={"*"} element={<Error />} />
       </Routes>
     </Router>

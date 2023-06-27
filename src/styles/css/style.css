@@ -641,3 +641,11 @@ code {
       background-size: cover; }
     .statPage .imageContainer {
       display: none; } }
+
+.verifyPage {
+  background: linear-gradient(142.99deg, #f5f5f3 21.49%, #faf3ec 91.63%); }
+  .verifyPage a {
+    color: #775942;
+    transition: all 0.3s ease-in-out; }
+    .verifyPage a:hover {
+      text-decoration: none; }

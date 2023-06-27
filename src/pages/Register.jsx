@@ -9,6 +9,8 @@ import axios from "axios";
 const Register = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -44,6 +46,7 @@ const Register = () => {
     },
     validate,
     onSubmit: (values, { resetForm }) => {
+      setIsLoading(true);
       const toastId = toast.loading("Submitting...");
       const url = `${import.meta.env.VITE_URL}/auth/signup`;
 
@@ -56,9 +59,8 @@ const Register = () => {
             id: toastId,
           });
           resetForm({ values: "" });
-          setTimeout(() => {
-            navigate("/sign_in");
-          }, 1000);
+          setSuccess(true);
+          setIsLoading(false);
         })
         .catch((err) => {
           // console.log(err);
@@ -69,6 +71,7 @@ const Register = () => {
           toast.error(errMessage, {
             id: toastId,
           });
+          setIsLoading(false);
         });
     },
   });
@@ -81,54 +84,62 @@ const Register = () => {
     <div className="formPage w-100 min-vh-100 px-3 pb-5">
       <Header checkLoggedIn={checkLoggedIn} />
       <div className="loginCont mt-2 mx-auto">
-        <div className="formHead mb-4">
-          <h1 className="text-center">Sign up and start shortening</h1>
-        </div>
-        <form className="formCont w-100" onSubmit={formik.handleSubmit}>
-          <div className="formGroup mb-3 w-100">
-            <label className="label d-block mb-2" htmlFor="email">
-              Email address
-            </label>
-            <input
-              {...formik.getFieldProps("email")}
-              className="input w-100"
-              type="text"
-              name="email"
-              required
-              autoComplete="email address"
-            />
-            {formik.touched.email && formik.errors.email ? (
-              <div className="error">{formik.errors.email}</div>
-            ) : null}
-          </div>
+        {success && (
+          <div>Success! Please check your email to verify account</div>
+        )}
+        {!success && (
+          <>
+            {" "}
+            <div className="formHead mb-4">
+              <h1 className="text-center">Sign up and start shortening</h1>
+            </div>
+            <form className="formCont w-100" onSubmit={formik.handleSubmit}>
+              <div className="formGroup mb-3 w-100">
+                <label className="label d-block mb-2" htmlFor="email">
+                  Email address
+                </label>
+                <input
+                  {...formik.getFieldProps("email")}
+                  className="input w-100"
+                  type="text"
+                  name="email"
+                  required
+                  autoComplete="email address"
+                />
+                {formik.touched.email && formik.errors.email ? (
+                  <div className="error">{formik.errors.email}</div>
+                ) : null}
+              </div>
 
-          <div className="formGroup mb-3 w-100">
-            <label className="label d-block mb-2" htmlFor="password">
-              Password
-            </label>
-            <input
-              {...formik.getFieldProps("password")}
-              className="input w-100"
-              type="password"
-              name="password"
-              required
-              autoComplete="current-password"
-            />
-            {formik.touched.password && formik.errors.password ? (
-              <div className="error">{formik.errors.password}</div>
-            ) : null}
-          </div>
+              <div className="formGroup mb-3 w-100">
+                <label className="label d-block mb-2" htmlFor="password">
+                  Password
+                </label>
+                <input
+                  {...formik.getFieldProps("password")}
+                  className="input w-100"
+                  type="password"
+                  name="password"
+                  required
+                  autoComplete="current-password"
+                />
+                {formik.touched.password && formik.errors.password ? (
+                  <div className="error">{formik.errors.password}</div>
+                ) : null}
+              </div>
 
-          <button className="button" type="submit">
-            Log in
-          </button>
-        </form>
-        <p className="mt-4">
-          Don't have an account?{" "}
-          <Link to="/sign_in" className="footLink">
-            Log In
-          </Link>
-        </p>
+              <button className="button" type="submit" disabled={isLoading}>
+                {isLoading ? "Loading..." : "Register"}
+              </button>
+            </form>
+            <p className="mt-4">
+              Don't have an account?{" "}
+              <Link to="/sign_in" className="footLink">
+                Log In
+              </Link>
+            </p>
+          </>
+        )}
       </div>
     </div>
   );
