@@ -71,6 +71,7 @@ const Recent = () => {
                     key={data._id}
                     mainUrl={data.longUrl}
                     shortenedUrl={data.shortUrl}
+                    customUrl={data.customUrl}
                     time={data.createdAt}
                     id={data._id}
                   />

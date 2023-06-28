@@ -6,6 +6,7 @@ import MainUrl from "./MainUrl";
 import GeneratedUrl from "./GeneratedUrl";
 import { Link } from "react-router-dom";
 import TimeAgo from "../utils/timeAgo";
+import CustomUrl from "./CustomUrl";
 
 const RecentUrlList = (props) => {
   const [isCopied, setIsCopied] = useState(false);
@@ -25,6 +26,7 @@ const RecentUrlList = (props) => {
           <div className="left">
             <MainUrl mainUrl={props.mainUrl} />
             <GeneratedUrl shortenedUrl={props.shortenedUrl} />
+            {props.customUrl && <CustomUrl customUrl={props.customUrl} />}
             <p className="time mb-md-0 mb-3">{`${TimeAgo(props.time)}`}</p>
           </div>
 
