@@ -55,11 +55,11 @@ const Home = () => {
               }}
             >
               <Form className="w-100">
-                {!isLoggedIn && (
+                {/* {!isLoggedIn && (
                   <p className="error">
                     You have to be logged in to shorten your URLs
                   </p>
-                )}
+                )} */}
                 <div className="longUrl mb-4">
                   <label htmlFor="longUrl" className="mb-2">
                     <ImLink className="link" />
@@ -73,24 +73,26 @@ const Home = () => {
                     required
                   />
                 </div>
-                <div className="alias mb-4">
-                  <label htmlFor="custom" className="mb-2">
-                    <ImLink /> Customize your link
-                  </label>
-                  <div className="aliasInput">
-                    <div className="default">bub.icu/</div>
-                    <Field
-                      id="custom"
-                      name="custom"
-                      placeholder="alias"
-                      className="custom"
-                    />
+                {isLoggedIn && (
+                  <div className="alias mb-4">
+                    <label htmlFor="custom" className="mb-2">
+                      <ImLink /> Customize your link
+                    </label>
+                    <div className="aliasInput">
+                      <div className="default">bub.icu/</div>
+                      <Field
+                        id="custom"
+                        name="custom"
+                        placeholder="alias"
+                        className="custom"
+                      />
+                    </div>
                   </div>
-                </div>
+                )}
 
                 <div className="buttons">
                   <Link to={"/urls"}>My URLs</Link>
-                  <button type="submit" disabled={!isLoggedIn}>
+                  <button type="submit">
                     {isLoading ? "Loading..." : "Bub It"}
                   </button>
                 </div>
