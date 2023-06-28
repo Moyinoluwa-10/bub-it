@@ -10,6 +10,7 @@ import Stats from "./pages/Stats";
 import Verify from "./pages/Verify";
 import ResetPassword from "./pages/ResetPassword";
 import ForgotPassword from "./pages/ForgotPassword";
+import Shorten from "./pages/Shorten";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route exact path={"/sign_in"} element={<Login />} />
         <Route exact path={"/sign_up"} element={<Register />} />
         <Route exact path={"/urls"} element={<Recent />} />
+        <Route exact path={"/bub"} element={<Shorten />} />
         <Route exact path={"/urls/:id"} element={<Stats />} />
         <Route exact path={"/user/verify-email"} element={<Verify />} />
         <Route exact path={"/forgot_password"} element={<ForgotPassword />} />

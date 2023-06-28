@@ -8,11 +8,14 @@
 @import "base/utilities";
 
 @import "components/modal";
+@import "components/features";
+@import "components/featureType";
 @import "components/form";
 @import "components/recentList";
 
 @import "layout/header";
 
+@import "pages/bubPage";
 @import "pages/errorPage";
 @import "pages/homePage";
 @import "pages/recentPage";

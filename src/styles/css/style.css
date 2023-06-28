@@ -189,6 +189,100 @@ code {
         .modalSection .modalContainer .footer a:hover {
           text-decoration: none; }
 
+.features {
+  padding: 60px 16px 50px;
+  color: #353535; }
+  .features .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px; }
+  .features .left {
+    flex: 33.333333% 1;
+    max-width: 33.333333%;
+    width: 100%;
+    position: relative; }
+    .features .left .content {
+      padding-bottom: 40px; }
+      .features .left .content h3 {
+        font-weight: 700; }
+      .features .left .content a {
+        text-decoration: none;
+        padding: 15px 40px;
+        color: #fff;
+        background-color: transparent;
+        transition: all 0.3s ease-in-out;
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        border: 2px solid #5f4836;
+        z-index: 2;
+        font-weight: 600; }
+        .features .left .content a::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: #5f4836;
+          transition: all 0.3s ease-in-out;
+          z-index: 0;
+          transform: translateX(0%);
+          z-index: -1; }
+        .features .left .content a:hover {
+          color: #5f4836; }
+          .features .left .content a:hover::before {
+            transform: translateX(100%); }
+  .features .right {
+    flex: 66.66667% 1;
+    max-width: 66.666667%;
+    width: 100%;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); }
+  @media screen and (max-width: 992px) {
+    .features .row {
+      flex-direction: column; }
+    .features .left {
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 0 20px 50px 20px; }
+      .features .left .content h3 {
+        font-size: 33px; }
+    .features .right {
+      flex: 100% 1;
+      max-width: 100%;
+      justify-content: center;
+      justify-items: center; } }
+  @media screen and (max-width: 768px) {
+    .features .right {
+      max-width: 100%;
+      grid-template-columns: repeat(1, 1fr); } }
+
+.featureType {
+  margin: 0 auto;
+  border-radius: 20px;
+  padding: 30px;
+  background-color: #f9f9f9;
+  max-width: 352px;
+  margin: 0 25px 45px; }
+  .featureType h5 {
+    color: #0c1825;
+    font-size: 20px;
+    font-weight: 700; }
+  .featureType p {
+    color: #353535; }
+  .featureType .icon {
+    font-size: 40px;
+    background-color: #f0d7bd;
+    padding: 9px;
+    border-radius: 5px; }
+  @media screen and (max-width: 992px) {
+    .featureType {
+      text-align: center; } }
+
 .formPage {
   flex-direction: column;
   background: url("../../assets/images/recent-urls-background-desktop.eeddd0b1.png");
@@ -430,6 +524,122 @@ code {
       -moz-transform: translateY(-13px) rotate(90deg);
       transform: translateY(-13px) rotate(90deg); } }
 
+.bubPage {
+  position: relative;
+  background: url("../../assets/images/home-background-desktop.16092dda.png");
+  background-repeat: no-repeat;
+  background-size: cover; }
+  .bubPage .bubContainer .leftSection {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    max-width: 400px; }
+    .bubPage .bubContainer .leftSection form .error {
+      color: red;
+      font-size: 14px; }
+    .bubPage .bubContainer .leftSection form .longUrl label {
+      font-weight: 600; }
+      .bubPage .bubContainer .leftSection form .longUrl label .link {
+        margin-right: 10px; }
+    .bubPage .bubContainer .leftSection form .longUrl input {
+      width: 100%;
+      border: 1px solid var(--bgImageColors);
+      outline: none;
+      border-radius: 5px;
+      height: 40px;
+      padding: 0 1rem; }
+      .bubPage .bubContainer .leftSection form .longUrl input::placeholder {
+        font-size: 15px; }
+    .bubPage .bubContainer .leftSection form .alias label {
+      font-weight: 600; }
+      .bubPage .bubContainer .leftSection form .alias label .link {
+        margin-right: 10px; }
+    .bubPage .bubContainer .leftSection form .alias .aliasInput {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      border-radius: 5px;
+      overflow: hidden;
+      height: 40px; }
+      .bubPage .bubContainer .leftSection form .alias .aliasInput input {
+        flex: 1;
+        width: 100%;
+        border: none;
+        outline: none;
+        height: 40px;
+        padding: 0 1rem;
+        border: 1px solid var(--bgImageColors);
+        border-radius: 0 5px 5px 0;
+        transition: all 0.3s linear; }
+        .bubPage .bubContainer .leftSection form .alias .aliasInput input::placeholder {
+          font-size: 15px; }
+        .bubPage .bubContainer .leftSection form .alias .aliasInput input:focus {
+          border: 3px solid #d6c1b1ae; }
+      .bubPage .bubContainer .leftSection form .alias .aliasInput .default {
+        flex: 1;
+        background: none;
+        border: none;
+        border-right: 1px solid var(--bgImageColors);
+        font-family: inherit;
+        font-size: 16px;
+        line-height: 40px;
+        padding: 0 20px;
+        border: 1px solid var(--bgImageColors);
+        border-right: none;
+        border-radius: 5px 0 0 5px; }
+    .bubPage .bubContainer .leftSection form .buttons {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+      gap: 10px;
+      margin-top: 10px; }
+      .bubPage .bubContainer .leftSection form .buttons a {
+        flex: 1;
+        text-align: center;
+        color: #000;
+        font-weight: 600; }
+      .bubPage .bubContainer .leftSection form .buttons button {
+        width: 100px;
+        background-color: var(--btnColor);
+        border: 1px solid transparent;
+        padding: 10px 10px;
+        border-radius: 5px;
+        flex: 1;
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out; }
+        .bubPage .bubContainer .leftSection form .buttons button:hover {
+          background-color: var(--btnHoverColor);
+          color: var(--btnColor);
+          font-weight: 600;
+          border: 1px solid var(--btnColor); }
+        .bubPage .bubContainer .leftSection form .buttons button:active {
+          transform: scale(0.9); }
+        .bubPage .bubContainer .leftSection form .buttons button:disabled {
+          background-color: #ccc;
+          color: #fff;
+          border: 1px solid transparent;
+          cursor: not-allowed; }
+  .bubPage .bubContainer .rightSection {
+    flex: 1;
+    background-color: transparent;
+    width: 100%;
+    max-width: 400px; }
+    .bubPage .bubContainer .rightSection img {
+      width: 100%; }
+  @media (max-width: 768px) {
+    .bubPage {
+      background: url("../../assets/images/home-background-mobile.40cdee40.png");
+      background-repeat: no-repeat;
+      background-size: cover; }
+      .bubPage .homeContainer {
+        flex-direction: column-reverse;
+        padding-bottom: 100px; } }
+
 .errorPage {
   background: linear-gradient(142.99deg, #f5f5f3 21.49%, #faf3ec 91.63%); }
   .errorPage .cont {
@@ -443,100 +653,35 @@ code {
   background-repeat: no-repeat;
   background-size: cover; }
   .homePage .homeContainer .leftSection {
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-    max-width: 400px; }
-    .homePage .homeContainer .leftSection form .error {
-      color: red;
-      font-size: 14px; }
-    .homePage .homeContainer .leftSection form .longUrl label {
-      font-weight: 600; }
-      .homePage .homeContainer .leftSection form .longUrl label .link {
-        margin-right: 10px; }
-    .homePage .homeContainer .leftSection form .longUrl input {
-      width: 100%;
-      border: 1px solid var(--bgImageColors);
-      outline: none;
-      border-radius: 5px;
-      height: 40px;
-      padding: 0 1rem; }
-      .homePage .homeContainer .leftSection form .longUrl input::placeholder {
-        font-size: 15px; }
-    .homePage .homeContainer .leftSection form .alias label {
-      font-weight: 600; }
-      .homePage .homeContainer .leftSection form .alias label .link {
-        margin-right: 10px; }
-    .homePage .homeContainer .leftSection form .alias .aliasInput {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      border-radius: 5px;
+    max-width: 500px; }
+    .homePage .homeContainer .leftSection a {
+      text-decoration: none;
+      padding: 15px 40px;
+      color: #fff;
+      background-color: transparent;
+      transition: all 0.3s ease-in-out;
+      position: relative;
+      display: inline-block;
       overflow: hidden;
-      height: 40px; }
-      .homePage .homeContainer .leftSection form .alias .aliasInput input {
-        flex: 1;
+      border: 2px solid #ad8769;
+      z-index: 2;
+      font-weight: 600; }
+      .homePage .homeContainer .leftSection a::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
-        border: none;
-        outline: none;
-        height: 40px;
-        padding: 0 1rem;
-        border: 1px solid var(--bgImageColors);
-        border-radius: 0 5px 5px 0;
-        transition: all 0.3s linear; }
-        .homePage .homeContainer .leftSection form .alias .aliasInput input::placeholder {
-          font-size: 15px; }
-        .homePage .homeContainer .leftSection form .alias .aliasInput input:focus {
-          border: 3px solid #d6c1b1ae; }
-      .homePage .homeContainer .leftSection form .alias .aliasInput .default {
-        flex: 1;
-        background: none;
-        border: none;
-        border-right: 1px solid var(--bgImageColors);
-        font-family: inherit;
-        font-size: 16px;
-        line-height: 40px;
-        padding: 0 20px;
-        border: 1px solid var(--bgImageColors);
-        border-right: none;
-        border-radius: 5px 0 0 5px; }
-    .homePage .homeContainer .leftSection form .buttons {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      width: 100%;
-      gap: 10px;
-      margin-top: 10px; }
-      .homePage .homeContainer .leftSection form .buttons a {
-        flex: 1;
-        text-align: center;
-        color: #000;
-        font-weight: 600; }
-      .homePage .homeContainer .leftSection form .buttons button {
-        width: 100px;
-        background-color: var(--btnColor);
-        border: 1px solid transparent;
-        padding: 10px 10px;
-        border-radius: 5px;
-        flex: 1;
-        font-size: 16px;
-        font-weight: 600;
-        color: #fff;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out; }
-        .homePage .homeContainer .leftSection form .buttons button:hover {
-          background-color: var(--btnHoverColor);
-          color: var(--btnColor);
-          font-weight: 600;
-          border: 1px solid var(--btnColor); }
-        .homePage .homeContainer .leftSection form .buttons button:active {
-          transform: scale(0.9); }
-        .homePage .homeContainer .leftSection form .buttons button:disabled {
-          background-color: #ccc;
-          color: #fff;
-          border: 1px solid transparent;
-          cursor: not-allowed; }
+        height: 100%;
+        background-color: #ad8769;
+        transition: all 0.3s ease-in-out;
+        z-index: 0;
+        transform: translateX(0%);
+        z-index: -1; }
+      .homePage .homeContainer .leftSection a:hover {
+        color: #ad8769; }
+        .homePage .homeContainer .leftSection a:hover::before {
+          transform: translateX(100%); }
   .homePage .homeContainer .rightSection {
     flex: 1;
     background-color: transparent;

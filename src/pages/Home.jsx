@@ -1,108 +1,32 @@
-import { Field, Form, Formik } from "formik";
-import { useState } from "react";
-import { ImLink } from "react-icons/im";
 import { Link } from "react-router-dom";
 import RightImage from "../assets/images/hero.png";
-import Modal from "../components/Modal";
 import Header from "../components/Header";
-import axios from "axios";
+import Savings from "../components/Features";
 
 const Home = () => {
-  const [openModal, setOpenModal] = useState(false);
-  const openModalHandler = () => {
-    setOpenModal(true);
-  };
-  const [shortUrl, setShortUrl] = useState();
-  const [isLoading, setIsLoading] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const checkLoggedIn = (data) => {
-    setIsLoggedIn(data);
-  };
-
   return (
     <>
-      {openModal && <Modal closeModal={setOpenModal} shortUrl={shortUrl} />}
       <div className="homePage w-100% px-2 min-vh-100">
-        <Header Nav={true} verifyUser={true} checkLoggedIn={checkLoggedIn} />
+        <Header Nav={true} />
         <div className="container homeContainer d-flex align-items-center justify-content-between gap-md-4 gap-5 mt-5">
           <div className="leftSection w-100">
-            <Formik
-              initialValues={{
-                longUrl: "",
-                custom: "",
-              }}
-              onSubmit={async (values) => {
-                setIsLoading(true);
-                const url = `${import.meta.env.VITE_URL}/urls/shorten`;
-                axios
-                  .post(url, values, { withCredentials: true })
-                  .then((res) => {
-                    console.log(res.data);
-                    const { data } = res;
-                    if (data.url.customUrl) {
-                      setShortUrl(data.url.customUrl);
-                    } else {
-                      setShortUrl(data.url.shortUrl);
-                    }
-                    openModalHandler();
-                    setIsLoading(false);
-                  })
-                  .catch((err) => {
-                    console.log(err);
-                    setIsLoading(false);
-                  });
-              }}
-            >
-              <Form className="w-100">
-                {/* {!isLoggedIn && (
-                  <p className="error">
-                    You have to be logged in to shorten your URLs
-                  </p>
-                )} */}
-                <div className="longUrl mb-4">
-                  <label htmlFor="longUrl" className="mb-2">
-                    <ImLink className="link" />
-                    Enter your long URL here
-                  </label>
-                  <Field
-                    type="url"
-                    id="longUrl"
-                    name="longUrl"
-                    placeholder="https://example.com/"
-                    required
-                  />
-                </div>
-                {isLoggedIn && (
-                  <div className="alias mb-4">
-                    <label htmlFor="custom" className="mb-2">
-                      <ImLink /> Customize your link
-                    </label>
-                    <div className="aliasInput">
-                      <div className="default">bub.icu/</div>
-                      <Field
-                        id="custom"
-                        name="custom"
-                        placeholder="alias"
-                        className="custom"
-                      />
-                    </div>
-                  </div>
-                )}
-
-                <div className="buttons">
-                  <Link to={"/urls"}>My URLs</Link>
-                  <button type="submit">
-                    {isLoading ? "Loading..." : "Bub It"}
-                  </button>
-                </div>
-              </Form>
-            </Formik>
+            <h1 className="mb-4">Shorten your long URLs</h1>
+            <p className="mb-5">
+              Bub-it is the hub of everything that has to do with your link
+              management. We shorten your URLs, allow you creating custom ones
+              for your personal, business, event usage. Our swift QR code
+              creation, management and usage tracking with advance analytics for
+              all of these is second to none.
+            </p>
+            <Link to={"/bub"} className="btns">
+              Try for free
+            </Link>
           </div>
           <div className="rightSection">
             <img src={RightImage} alt="shrink-it" />
           </div>
         </div>
+        <Savings />
       </div>
     </>
   );
