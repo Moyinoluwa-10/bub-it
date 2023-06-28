@@ -58,7 +58,7 @@ const Stats = () => {
                   </a>
                 </p>
               </div>
-              <div className="urls d-flex align-items-center">
+              <div className="urls d-flex align-items-center mb-2">
                 <img src={Dock} alt="" className="me-3 dock-image" />{" "}
                 <p className="mb-0">
                   <a href={stats.shortUrl}>
@@ -66,6 +66,16 @@ const Stats = () => {
                   </a>{" "}
                 </p>
               </div>
+              {stats.customUrl && (
+                <div className="urls d-flex align-items-center">
+                  <img src={Dock} alt="" className="me-3 dock-image" />{" "}
+                  <p className="mb-0">
+                    <a href={stats.customUrl}>
+                      {stats.customUrl && stats.customUrl.substring(8)}
+                    </a>{" "}
+                  </p>
+                </div>
+              )}
             </div>
             <p className="mb-3 clicks">
               The total number of clicks that your link has received so far:
