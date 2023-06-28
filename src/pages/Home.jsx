@@ -40,7 +40,11 @@ const Home = () => {
                   .then((res) => {
                     console.log(res.data);
                     const { data } = res;
-                    setShortUrl(data.url.shortUrl);
+                    if (data.url.customUrl) {
+                      setShortUrl(data.url.customUrl);
+                    } else {
+                      setShortUrl(data.url.shortUrl);
+                    }
                     openModalHandler();
                     setIsLoading(false);
                   })
