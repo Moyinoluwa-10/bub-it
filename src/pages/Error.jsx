@@ -20,7 +20,7 @@ const Error = () => {
         window.location.href = data.url;
       }) // eslint-disable-next-line
       .catch((err) => {
-        // console.log(err);
+        console.log(err);
         setRedirecting(false);
         setError(true);
       });

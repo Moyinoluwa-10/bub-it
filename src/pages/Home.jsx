@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <>
       <div className="homePage w-100% px-2 min-vh-100">
-        <Header Nav={true} />
+        <Header Nav={true} verifyUser={true} />
         <div className="container homeContainer d-flex align-items-center justify-content-between gap-md-4 gap-5 mt-5">
           <div className="leftSection w-100">
             <h1 className="mb-4">Shorten your long URLs</h1>
