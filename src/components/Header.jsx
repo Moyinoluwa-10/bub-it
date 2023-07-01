@@ -44,12 +44,12 @@ const Header = ({ Nav, checkLoggedIn, verifyUser }) => {
       .delete(url, { withCredentials: true })
       // eslint-disable-next-line
       .then((res) => {
-        // console.log(res);
+        console.log(res);
         setIsLoggedIn(false);
         navigate("/");
       }) // eslint-disable-next-line
       .catch((err) => {
-        // console.log(err);
+        console.log(err);
       });
   };
 
@@ -63,11 +63,28 @@ const Header = ({ Nav, checkLoggedIn, verifyUser }) => {
         </div>
 
         {isLoggedIn && (
-          <div>
-            <button className="logout" onClick={handleLogout}>
-              Logout
-            </button>
-          </div>
+          <>
+            <div
+              className={responsive ? "hamburger active" : "hamburger"}
+              onClick={handleClick}
+            >
+              <span className="line d-block"></span>
+              <span className="line d-block"></span>
+              <span className="line d-block"></span>
+            </div>
+            <nav
+              className={
+                showNav ? "navigation-menu expanded" : "navigation-menu"
+              }
+            >
+              <Link to={"/bub"}>
+                <button className="login">Bub</button>
+              </Link>
+              <button className="logout" onClick={handleLogout}>
+                Logout
+              </button>
+            </nav>
+          </>
         )}
 
         {Nav && !isLoggedIn && (
@@ -85,6 +102,9 @@ const Header = ({ Nav, checkLoggedIn, verifyUser }) => {
                 showNav ? "navigation-menu expanded" : "navigation-menu"
               }
             >
+              <Link to={"/bub"}>
+                <button className="login">Bub</button>
+              </Link>
               <Link to={"/sign_in"}>
                 <button className="login">Log in</button>
               </Link>

@@ -2,7 +2,7 @@ import { Field, Form, Formik } from "formik";
 import { useState } from "react";
 import { ImLink } from "react-icons/im";
 import { Link } from "react-router-dom";
-import RightImage from "../assets/images/hero.png";
+import RightImage from "../assets/svgs/home-illustration.096b8271.svg";
 import Modal from "../components/Modal";
 import Header from "../components/Header";
 import axios from "axios";

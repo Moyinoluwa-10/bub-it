@@ -455,6 +455,28 @@ code {
     transition: all 0.3s ease-in-out; }
     .header .logout:hover {
       background-color: #5f4836; }
+  .header .nav-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem; }
+    .header .nav-menu a {
+      text-decoration: none; }
+      .header .nav-menu a button {
+        border: none;
+        outline: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        padding: 15px 30px;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 18px;
+        transition: all 0.3s ease-in-out;
+        font-weight: 600;
+        background: none;
+        color: black; }
   .header .navigation-menu {
     display: flex;
     justify-content: center;
@@ -636,7 +658,7 @@ code {
       background: url("../../assets/images/home-background-mobile.40cdee40.png");
       background-repeat: no-repeat;
       background-size: cover; }
-      .bubPage .homeContainer {
+      .bubPage .bubContainer {
         flex-direction: column-reverse;
         padding-bottom: 100px; } }
 

@@ -45,6 +45,32 @@
     }
   }
 
+  .nav-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    a {
+      text-decoration: none;
+      button {
+        border: none;
+        outline: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        padding: 15px 30px;
+        border-radius: 10px;
+        color: $color-white;
+        font-size: 18px;
+        transition: all 0.3s ease-in-out;
+        font-weight: 600;
+        background: none;
+        color: black;
+      }
+    }
+  }
+
   .navigation-menu {
     display: flex;
     justify-content: center;
