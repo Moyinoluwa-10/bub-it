@@ -24,18 +24,17 @@ const Stats = () => {
         // console.log(res);
         const { data } = res;
         setStats(data.url);
-        console.log(data.url);
         setIsLoading(false);
       }) // eslint-disable-next-line
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         window.location.href = "/error";
       });
+    // eslint-disable-next-line
   }, []);
 
   const disableLink = () => {
     const url = `${import.meta.env.VITE_URL}/urls/disable/${id}`;
-
     axios
       .get(url, { withCredentials: true })
       .then((res) => {
@@ -64,7 +63,6 @@ const Stats = () => {
 
   const generateQrcode = () => {
     const url = `${import.meta.env.VITE_URL}/urls/generate/${id}`;
-
     axios
       .get(url, { withCredentials: true })
       .then((res) => {
