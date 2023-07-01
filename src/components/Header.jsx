@@ -80,6 +80,9 @@ const Header = ({ Nav, checkLoggedIn, verifyUser }) => {
               <Link to={"/bub"}>
                 <button className="login">Bub</button>
               </Link>
+              <Link to={"/urls"}>
+                <button className="login">Url</button>
+              </Link>
               <button className="logout" onClick={handleLogout}>
                 Logout
               </button>
