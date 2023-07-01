@@ -10,6 +10,7 @@ const Header = ({ Nav, checkLoggedIn, verifyUser }) => {
     setResponsive(!responsive);
     setShowNav(!showNav);
   };
+  console.log("");
   const [showNav, setShowNav] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   function showMe() {
