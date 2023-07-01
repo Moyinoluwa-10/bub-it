@@ -4,8 +4,11 @@ import Header from "../components/Header";
 import Dock from "../assets/svgs/window-dock.61b82738.svg";
 import Illustration from "../assets/images/url-detail-illustration.47183ff0.png";
 import { IoChevronBackOutline, IoPersonOutline } from "react-icons/io5";
+import { HiQrcode } from "react-icons/hi";
+import { BsDownload, BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import TimeAgo from "../utils/timeAgo";
 import axios from "axios";
+import { saveAs } from "file-saver";
 
 const Stats = () => {
   const id = window.location.pathname.split("/")[2];
@@ -21,13 +24,62 @@ const Stats = () => {
         // console.log(res);
         const { data } = res;
         setStats(data.url);
+        console.log(data.url);
         setIsLoading(false);
       }) // eslint-disable-next-line
       .catch((err) => {
         console.log(err);
         window.location.href = "/error";
       });
-  }, [id]);
+  }, []);
+
+  const disableLink = () => {
+    const url = `${import.meta.env.VITE_URL}/urls/disable/${id}`;
+
+    axios
+      .get(url, { withCredentials: true })
+      .then((res) => {
+        // console.log(res);
+        const { data } = res;
+        setStats(data.url);
+      }) // eslint-disable-next-line
+      .catch((err) => {
+        // console.log(err);
+      });
+  };
+
+  const enableLink = () => {
+    const url = `${import.meta.env.VITE_URL}/urls/enable/${id}`;
+    axios
+      .get(url, { withCredentials: true })
+      .then((res) => {
+        // console.log(res);
+        const { data } = res;
+        setStats(data.url);
+      }) // eslint-disable-next-line
+      .catch((err) => {
+        // console.log(err);
+      });
+  };
+
+  const generateQrcode = () => {
+    const url = `${import.meta.env.VITE_URL}/urls/generate/${id}`;
+
+    axios
+      .get(url, { withCredentials: true })
+      .then((res) => {
+        // console.log(res);
+        const { data } = res;
+        setStats(data.url);
+      }) // eslint-disable-next-line
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const downloadImg = () => {
+    saveAs(stats.qrcode, "qrcode.png");
+  };
 
   return (
     <div className="statPage min-vh-100 w-100 pb-5 px-3">
@@ -47,7 +99,27 @@ const Stats = () => {
         <div className="container d-flex align-items-center justify-content-center gap-5 statCont">
           <div>
             <div className="mb-3">
-              <img src={stats.qrcode} alt="qrcode image" />
+              {stats.qrcode && (
+                <>
+                  <img src={stats.qrcode} alt="qrcode image" />
+                  <button
+                    className="download d-flex align-items-center gap-3 px-3 py-1 mt-2"
+                    onClick={downloadImg}
+                  >
+                    Download <BsDownload className="icon d-block mt-2 " />
+                  </button>
+                </>
+              )}
+              {!stats.qrcode && (
+                <>
+                  <button
+                    className="download d-flex align-items-center gap-3 px-3 py-1 mt-2"
+                    onClick={generateQrcode}
+                  >
+                    Generate Qrcode <HiQrcode className="icon" />
+                  </button>
+                </>
+              )}
             </div>
             <div className="mb-3">
               <div className="urls d-flex align-items-center mb-2">
@@ -75,6 +147,23 @@ const Stats = () => {
                     </a>{" "}
                   </p>
                 </div>
+              )}
+            </div>
+            <div className="d-flex gap-2 align-items-center">
+              <div className={`active ${stats.active}`}>
+                {stats.active ? "active" : "inactive"}
+              </div>
+              {!stats.active && (
+                <BsFillEyeSlashFill
+                  className="icon d-inline-block"
+                  onClick={enableLink}
+                />
+              )}
+              {stats.active && (
+                <BsFillEyeFill
+                  className="icon d-inline-block"
+                  onClick={disableLink}
+                />
               )}
             </div>
             <p className="mb-3 clicks">

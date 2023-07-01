@@ -741,6 +741,23 @@ code {
       background-color: #5f4836; }
   .statPage h3 {
     color: #262626d9; }
+  .statPage .download {
+    background-color: #ad8769;
+    color: #fff;
+    outline: 0;
+    border: 0; }
+  .statPage .active {
+    color: #262626d9;
+    padding: 5px 10px;
+    border-radius: 0.5rem;
+    background-color: #ffffff; }
+    .statPage .active.true {
+      color: blue; }
+    .statPage .active.false {
+      color: red; }
+  .statPage .icon {
+    font-size: 25px;
+    cursor: pointer; }
   .statPage .statCont .dock-image {
     width: 25px;
     height: 25px; }
