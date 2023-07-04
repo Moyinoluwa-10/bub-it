@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Dock from "../assets/svgs/window-dock.61b82738.svg";
 import Illustration from "../assets/images/url-detail-illustration.47183ff0.png";
@@ -11,6 +11,7 @@ import axios from "axios";
 import { saveAs } from "file-saver";
 
 const Stats = () => {
+  const navigate = useNavigate();
   const id = window.location.pathname.split("/")[2];
   const [stats, setStats] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -71,7 +72,22 @@ const Stats = () => {
         setStats(data.url);
       }) // eslint-disable-next-line
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
+      });
+  };
+
+  const deleteUrl = () => {
+    const url = `${import.meta.env.VITE_URL}/urls/${id}`;
+    axios
+      .delete(url, { withCredentials: true })
+      .then((res) => {
+        // console.log(res);
+        // eslint-disable-next-line
+        const { data } = res;
+        navigate("/urls");
+      }) // eslint-disable-next-line
+      .catch((err) => {
+        // console.log(err);
       });
   };
 
@@ -147,22 +163,29 @@ const Stats = () => {
                 </div>
               )}
             </div>
-            <div className="d-flex gap-2 align-items-center">
-              <div className={`active ${stats.active}`}>
-                {stats.active ? "active" : "inactive"}
+            <div className="d-flex gap-4 align-items-center">
+              <div className="d-flex gap-2 align-items-center">
+                <div className={`active ${stats.active}`}>
+                  {stats.active ? "active" : "inactive"}
+                </div>
+                {!stats.active && (
+                  <BsFillEyeSlashFill
+                    className="icon d-inline-block"
+                    onClick={enableLink}
+                  />
+                )}
+                {stats.active && (
+                  <BsFillEyeFill
+                    className="icon d-inline-block"
+                    onClick={disableLink}
+                  />
+                )}
               </div>
-              {!stats.active && (
-                <BsFillEyeSlashFill
-                  className="icon d-inline-block"
-                  onClick={enableLink}
-                />
-              )}
-              {stats.active && (
-                <BsFillEyeFill
-                  className="icon d-inline-block"
-                  onClick={disableLink}
-                />
-              )}
+              <div>
+                <button className="download px-3 py-1" onClick={deleteUrl}>
+                  Delete
+                </button>
+              </div>
             </div>
             <p className="mb-3 clicks">
               The total number of clicks that your link has received so far:

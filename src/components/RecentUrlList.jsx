@@ -22,7 +22,7 @@ const RecentUrlList = (props) => {
           <BsGlobe />
         </div>
 
-        <div className="rightContents">
+        <div className="rightContents gap-md-4">
           <div className="left">
             <MainUrl mainUrl={props.mainUrl} />
             <GeneratedUrl shortenedUrl={props.shortenedUrl} />

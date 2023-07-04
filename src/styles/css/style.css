@@ -392,7 +392,8 @@ code {
           justify-content: center;
           align-items: center;
           gap: 0.4em;
-          position: relative; }
+          position: relative;
+          white-space: nowrap; }
         .recentList .containerRecent .rightContents .right .copied {
           padding: 10px 20px;
           border: 1px solid transparent;

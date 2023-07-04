@@ -15,6 +15,8 @@ const Shorten = () => {
   const [shortUrl, setShortUrl] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [error, setError] = useState(false);
+  const [errorValue, setErrorValue] = useState("");
 
   const checkLoggedIn = (data) => {
     setIsLoggedIn(data);
@@ -33,33 +35,33 @@ const Shorten = () => {
                 custom: "",
               }}
               onSubmit={async (values) => {
+                setError(false);
                 setIsLoading(true);
                 const url = `${import.meta.env.VITE_URL}/urls/shorten`;
                 axios
                   .post(url, values, { withCredentials: true })
                   .then((res) => {
-                    console.log(res.data);
+                    // console.log(res.data);
                     const { data } = res;
                     if (data.url.customUrl) {
                       setShortUrl(data.url.customUrl);
                     } else {
                       setShortUrl(data.url.shortUrl);
                     }
+                    setError(false);
                     openModalHandler();
                     setIsLoading(false);
                   })
                   .catch((err) => {
-                    console.log(err);
+                    // console.log(err);
+                    setError(true);
+                    setErrorValue(err.response.data.msg);
                     setIsLoading(false);
                   });
               }}
             >
               <Form className="w-100">
-                {/* {!isLoggedIn && (
-                  <p className="error">
-                    You have to be logged in to shorten your URLs
-                  </p>
-                )} */}
+                {error && <p className="error">{errorValue}</p>}
                 <div className="longUrl mb-4">
                   <label htmlFor="longUrl" className="mb-2">
                     <ImLink className="link" />
@@ -79,7 +81,7 @@ const Shorten = () => {
                       <ImLink /> Customize your link
                     </label>
                     <div className="aliasInput">
-                      <div className="default">bub.icu/</div>
+                      <div className="default">bubs.live/</div>
                       <Field
                         id="custom"
                         name="custom"

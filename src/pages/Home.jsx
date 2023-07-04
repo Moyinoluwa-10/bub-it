@@ -13,10 +13,10 @@ const Home = () => {
             <h1 className="mb-4">Shorten your long URLs</h1>
             <p className="mb-5">
               Bub-it is the hub of everything that has to do with your link
-              management. We shorten your URLs, allow you creating custom ones
-              for your personal, business, event usage. Our swift QR code
-              creation, management and usage tracking with advance analytics for
-              all of these is second to none.
+              management. We shorten your URLs, allow you create custom ones for
+              your personal, business, event usage. Our swift QR code creation,
+              management and usage tracking with advance analytics for all of
+              these is second to none.
             </p>
             <Link to={"/bub"} className="btns">
               Try for free
