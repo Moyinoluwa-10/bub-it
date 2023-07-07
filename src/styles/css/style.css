@@ -547,6 +547,22 @@ code {
       -moz-transform: translateY(-13px) rotate(90deg);
       transform: translateY(-13px) rotate(90deg); } }
 
+.footer {
+  background-color: #f0d7bd;
+  background: linear-gradient(142.99deg, #f5f5f3 21.49%, #faf3ec 91.63%); }
+  .footer p a {
+    color: #ad8769;
+    transition: all 0.25s ease-in-out; }
+    .footer p a:hover {
+      text-decoration: none; }
+  .footer .socials a .icons {
+    font-size: 25px;
+    color: #0c1825;
+    transition: all 0.25s ease-in-out; }
+    .footer .socials a .icons:hover {
+      color: #4f4f4f;
+      transform: translateY(-5px); }
+
 .bubPage {
   position: relative;
   background: url("../../assets/images/home-background-desktop.16092dda.png");

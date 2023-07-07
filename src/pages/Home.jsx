@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import RightImage from "../assets/images/hero.png";
 import Header from "../components/Header";
 import Savings from "../components/Features";
+import Footer from "../components/Footer";
 
 const Home = () => {
   return (
@@ -27,6 +28,7 @@ const Home = () => {
           </div>
         </div>
         <Savings />
+        <Footer />
       </div>
     </>
   );
